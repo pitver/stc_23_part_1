@@ -55,7 +55,7 @@ public class ObjectBox {
             }
         }
         if(check){
-            obj.remove(delObj);
+                obj.remove(delObj);
         }
         return obj;
     }

@@ -21,7 +21,7 @@ public class Main {
         mb.dump(mb.num);
         Integer res =mb.summator(mb);
         System.out.println("сумма всех элементов коллекции = "+res);
-        mb.splitter(5);
+        mb.splitter(2);
         mb.dump(mb.num);
         mb.deleteObject(4);
         mb.dump(mb.num);

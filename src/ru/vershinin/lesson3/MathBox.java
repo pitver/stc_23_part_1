@@ -55,8 +55,13 @@ public class MathBox extends ObjectBox {
         Set<Integer> tempNum = new HashSet<Integer>() {
         };
         for (Integer n : num) {
-            Integer resDiv = n / div;
-            tempNum.add(resDiv);
+            try {
+                Integer resDiv = n / div;
+                tempNum.add(resDiv);
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+
         }
         num.clear();
         for (Integer m : tempNum) {
