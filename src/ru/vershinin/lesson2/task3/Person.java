@@ -7,10 +7,21 @@ import java.util.Objects;
  *
  * @author Вершинин Пётр
  */
-public class Person  {
-    private int age;
+public class Person implements Comparable<Person> {
+
+    /**
+     * поле возраст тип Integer
+     */
+    private Integer age;
+    /**
+     * поле имя тип String
+     */
     private String name;
+    /**
+     * @see Gender
+     */
     Gender gender;
+
 
     public int getAge() {
         return age;
@@ -19,7 +30,7 @@ public class Person  {
     public void setAge(int age) {
         if (age >= 0 && age <= 100) {
             this.age = age;
-        }else{
+        } else {
             System.out.println("возраст должен быть в диапазоне от 0 до 100, лет установлен по умолчанию 25");
             this.age = 25;
         }
@@ -44,15 +55,44 @@ public class Person  {
     public Person() {
     }
 
+    /**
+     * Конструктор принимает объект Person
+     * для @param age-установлено ограгичение от 0 до 100,
+     * если выход за границу, то возраст устанавливается по умолчанию =25
+     * @param age -возраст
+     * @param name- имя
+     * @param gender-тип Gender
+     */
     public Person(int age, String name, Gender gender) {
         if (age >= 0 && age <= 100) {
             this.age = age;
-        }else{
-            System.out.println("Для "+name+"возраст должен быть в диапазоне от 0 до 100 лет, установлен по умолчанию 25");
+        } else {
+            System.out.println("Для " + name + "возраст должен быть в диапазоне от 0 до 100 лет, установлен по умолчанию 25");
             this.age = 25;
         }
         this.name = name;
         this.gender = gender;
+    }
+
+    /**
+     *
+     * сравнивает вызывающий объект с объектом, переданным в качестве параметра по условиям:
+     * первые идут мужчины
+     * выше в списке тот, кто более старший
+     * имена сортируются по алфавиту
+     * @param p объект типа Person
+     * @return result возвращает в результате выполнения сравнения целое число
+     */
+    public int compareTo(Person p) {
+
+        int result = this.gender.compareTo(p.gender);
+        if (result == 0) {
+            result = this.age.compareTo(p.age);
+        }
+        if (result == 0) {
+            result = this.name.compareTo(p.name);
+        }
+        return result;
     }
 
     @Override
@@ -79,15 +119,5 @@ public class Person  {
                 '}';
     }
 
-
-    public int compareTo(Person p,boolean typeSort) {
-        int result;
-        if(typeSort) {
-            result = this.name.compareTo(p.name);
-        }else{
-            result = this.gender.compareTo(p.gender);
-        }
-        return result;
-    }
 
 }

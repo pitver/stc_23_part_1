@@ -20,25 +20,17 @@ public class SortingComparator implements Sort {
     @Override
     public  void sort(Person[] ps) {
         long time = System.nanoTime();
-        LocalDateTime currentTime= LocalDateTime.now();   // берем дату до метода.
-
         Comparator<Person> pc = new GenderComporator().thenComparing(new AgeComparator()).thenComparing(new NameComparator());
         TreeSet<Person> people=new TreeSet<>(pc);
 
         for (Person p : ps) {
             people.add(p);
         }
-        for (Person p1:people) {
+        /*for (Person p1:people) {
             System.out.println(p1);
-        }
-        LocalDateTime newTime = LocalDateTime.now();     // берем время после метода.
-
+        }*/
         time = System.nanoTime() - time;
-        long timeSub = ChronoUnit.MILLIS.between(currentTime,newTime); // считаем разницу. в этой переменной будет время работы метода.
-
-
-        System.out.println("Другое время "+timeSub);
-        System.out.printf("Время сортировки %,9.3f ms\n", time/1_000_000.0);
+        System.out.printf("Время сортировки Comporator- %,9.3f ms\n", time/1_000_000.0);
     }
 }
 

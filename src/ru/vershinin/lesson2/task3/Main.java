@@ -1,7 +1,5 @@
 package ru.vershinin.lesson2.task3;
 
-import ru.vershinin.lesson3.RepetException;
-
 import java.util.*;
 
 /**
@@ -12,17 +10,11 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
-        SortingComposite sb = new SortingComposite();
+        SortingBubble sb = new SortingBubble();
         SortingComparator sc = new SortingComparator();
+        SortingInsert si=new SortingInsert();
 
         Person[] person = new Person[10000];
-       /* person[0]=new Person(12,"Mike",Gender.MALE);
-        person[1]=new Person(18,"Mike",Gender.MALE);
-        person[2]=new Person(25,"Mike",Gender.MALE);
-        person[3]=new Person(12,"Mike",Gender.MALE);
-        person[4]=new Person(12,"Mike",Gender.MALE);
-        person[5]=new Person(14,"Mike",Gender.MALE);
-        person[6]=new Person(12,"Mike",Gender.MALE);*/
         for (int i = 0; i < 10000; i++) {
             int ageRand = Utils.getRandomAge(0,100);
             String nameRand = Utils.getRandomName();
@@ -31,11 +23,8 @@ public class Main {
         }
         searchRepet(person);
         sc.sort(person);
-        //sb.sort(person);
-        //sb.alphabeticalSorting(person);
-        //sb.sexSorting(person);
-
-
+        si.sort(person);
+        sb.sort(person);
     }
 
     /**
