@@ -1,7 +1,6 @@
 package ru.vershinin.lesson3;
 
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -9,39 +8,42 @@ import java.util.Set;
  *
  * @author Вершинин Пётр
  */
-public class MathBox extends ObjectBox {
-    ObjectBox ob = new ObjectBox();
-    Set<Integer> num = new HashSet<Integer>() {
-    };
+public class MathBox extends ObjectBox<Number> {
 
     /**
-     * Конструктор на вход получает массив Number.
-     * Элементы не могут повторяться.
-     * Элементы массива внутри объекта раскладываются в подходящую коллекцию
-     * @param numbers
+     * конструктор
+     * @param numbers тип Number[]
      */
-    public MathBox(Object[] numbers) {
+    public MathBox(Number[] numbers) {
+        super(numbers);
+    }
+
+    /**
+     * добавление нового объекта в коллекцию
+     * @param addObj тип T
+     */
+    @Override
+    public void addObject(Number addObj) {
         try {
-            if (numbers.getClass().getName().contains("Object")) {
-                throw new RuntimeException("объект должен быиметь тип Number");
+            if (addObj.getClass().getName().contains("Object")) {
+                throw new TypeException("объект должен быиметь тип Number");
             }
-            for (Object n : numbers) {
-                num = (Set<Integer>) ob.addObject(n);
-            }
-        } catch (Exception e) {
+            super.addObject(addObj);
+        } catch (TypeException e) {
             System.out.println(e.getMessage());
         }
     }
 
     /**
      * возвращающает сумму всех элементов коллекции.
+     *
      * @param mathBox
      * @return
      */
-    public Integer summator(MathBox mathBox) {
-        Integer result = 0;
-        for (Integer n : mathBox.num) {
-            result = result + n;
+    public Number summator(MathBox mathBox) {
+        int result = 0;
+        for (Number n : mathBox.obj) {
+            result = result + n.intValue();
         }
         return result;
     }
@@ -49,28 +51,29 @@ public class MathBox extends ObjectBox {
     /**
      * выполняющий поочередное деление всех хранящихся в объекте элементов на делитель,
      * являющийся аргументом метода. Хранящиеся в объекте данные полностью заменяются результатами деления.
+     *
      * @param div -случайное значение
      */
     public void splitter(int div) {
-        Set<Integer> tempNum = new HashSet<Integer>() {
-        };
-        for (Integer n : num) {
+        Set<Number> tempNum = new HashSet<>();
+        for (Number n : obj) {
             try {
-                Integer resDiv = n / div;
+                Integer resDiv = n.intValue() / div;
                 tempNum.add(resDiv);
-            }catch (Exception e){
+            } catch (ArithmeticException e) {
                 System.out.println(e.getMessage());
             }
+        }
+        obj.clear();
+        obj.addAll(tempNum);
 
-        }
-        num.clear();
-        for (Integer m : tempNum) {
-            num.add(m);
-        }
     }
 
+    /**
+     * @param num тип T
+     */
     @Override
-    public Object deleteObject(Object delObj) {
-        return num = (Set<Integer>) ob.deleteObject(delObj);
+    public void deleteObject(Number num) {
+        super.deleteObject(num);
     }
 }

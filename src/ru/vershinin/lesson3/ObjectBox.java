@@ -1,20 +1,62 @@
 package ru.vershinin.lesson3;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 /**
  * ObjectBox
  *
  * @author Вершинин Пётр
  */
-public class ObjectBox {
-    Set<Object> obj= new HashSet<Object>(){};
+public class ObjectBox<T> {
+      Set<T> obj;
+    /**
+     *  Конструктор на вход получает массив T[].
+     *  Элементы не могут повторяться.
+     *  Элементы массива внутри объекта раскладываются в подходящую коллекцию
+     *
+     * @param object
+     */
+    public ObjectBox(T[] object) {
+        obj=new HashSet<>(Arrays.asList(object));
+    }
+    /**
+     * добавление объекта в коллекцию.
+     * @param addObj тип T
+     * @return
+     */
+    public void addObject(T addObj){
+        obj.add(addObj);
+    }
+    /**
+     * проверка наличия объекта в коллекции и при наличии удаляющий его
+     * @param num тип T
+     */
+    public void deleteObject(T num){
 
+        Iterator <T> iter=obj.iterator();
+        while (iter.hasNext()){
+            T ob= iter.next();
+            if(ob==num){
+                iter.remove();
+            }
+        }
+    }
+
+    /**
+     * вывод содержимого коллекции в строку.
+     *
+     */
+    public void dump( ){
+        System.out.println(toString());
+    }
+
+    /**
+     * переопределенный метод, для вывода сформированной коллекции
+     * @return obj-коллеция
+     */
     @Override
     public String toString() {
-        return "ObjectBox{" +
+        return "Содержимое коллекции {" +
                 "obj=" + obj +
                 '}';
     }
@@ -30,41 +72,5 @@ public class ObjectBox {
     @Override
     public int hashCode() {
         return Objects.hash(obj);
-    }
-
-    /**
-     * добавление объекта в коллекцию.
-     * @param addObj
-     * @return
-     */
-    public Object addObject(Object addObj){
-        obj.add(addObj);
-        return obj;
-    }
-
-    /**
-     * проверка наличия объекта в коллекции и при наличии удаляющий его
-     * @param delObj
-     * @return
-     */
-    public Object deleteObject(Object delObj){
-        boolean check=false;
-        for (Object s:obj){
-            if(s==delObj){
-                check=true;
-            }
-        }
-        if(check){
-                obj.remove(delObj);
-        }
-        return obj;
-    }
-
-    /**
-     * вывод содержимого коллекции в строку.
-     * @param printObj
-     */
-    public void dump(Object printObj){
-        System.out.println(printObj.toString());
     }
 }
