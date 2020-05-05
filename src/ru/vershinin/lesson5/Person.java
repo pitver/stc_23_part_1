@@ -8,7 +8,7 @@ import java.util.Objects;
  *
  * @author Вершинин Пётр
  */
-public class Person  {
+public class Person  implements Comparable<Person> {
     /**
      * имя владельца животного,String
      */
@@ -86,13 +86,12 @@ public class Person  {
                 ", gender=" + gender +
                 '}';
     }
-    class PersonComparator implements Comparator<Person> {
-
-        public int compare(Person a, Person b){
-
-            return a.getName().compareTo(b.getName());
-        }
+    @Override
+    public int compareTo(Person o) {
+        return this.getName().compareTo(o.getName());
     }
+
+
 
 
 }

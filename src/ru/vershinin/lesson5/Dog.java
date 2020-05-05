@@ -2,29 +2,14 @@ package ru.vershinin.lesson5;
 
 /**
  * Dog extends Pet
- * @see Pet
  *
  * @author Вершинин Пётр
+ * @see Pet
  */
-public class Dog extends Pet{
-    public Dog( String nickname, Person owner, int weight) {
-        super( nickname, owner, weight);
-    }
+public class Dog extends Pet {
 
-    @Override
-    public void addAnimals(Pet pets) {
-        super.addAnimals(pets);
+    public Dog(String nickname, Person owner, int weight) {
+        super(nickname, owner, weight);
     }
-
-    @Override
-    public void searchByNickname(String nickName) {
-        super.searchByNickname(nickName);
-    }
-
-    @Override
-    public void print() {
-        super.print();
-    }
-
 
 }

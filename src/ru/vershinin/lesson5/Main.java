@@ -10,9 +10,10 @@ public class Main {
     public static void main(String[] args) {
         Person mike = new Person("Mike", 25, Gender.MALE);
         Person nike = new Person("MNike", 18, Gender.FEMALE);
-        Pet pet = new Pet();
+        ActionsWithPets pet = new ActionsWithPets();
 
 
+        pet.addAnimals(new Cat("Jim", mike, 4));
         pet.addAnimals(new Cat("Jim", mike, 4));
         pet.addAnimals(new Cat("Jira", mike, 3));
         pet.addAnimals(new Cat("Ben", mike, 5));
