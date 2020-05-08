@@ -1,10 +1,7 @@
 package ru.vershinin.lesson6.Task2;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Main
@@ -13,21 +10,16 @@ import java.util.Random;
  */
 public class Main {
     public static void main(String[] args) {
+        String path = "text";
+        getFiles(path, 3);
+    }
+    public static void getFiles(String path, int n) {
+        for (int i = 0; i < n; i++) {
+            String text = GetReadyText.getText();//получаем готовый текст
+            WriteFile.writeText(text, path + i + ".txt");
 
-        File file = new File("wordlist.txt");
-        List<String> words=GetDictionary.readFile(file);
-        List<String> pr=TextActions.getProposal(words);
-        String a = null;
-        for (String s:pr){
-            a+=s+" ";
         }
 
-        System.out.println(TextActions.addPunctuationMark(a.substring(4).trim()));
-
-
-
-
     }
-
 
 }

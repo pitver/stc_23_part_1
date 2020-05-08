@@ -6,20 +6,21 @@ import java.util.Random;
 
 public class TextActions {
 
-    protected static List<String> getProposal(List<String> words){
+    protected static List<String> getProposal(List<String> words,boolean checkParagraf){
         int sizeWords=words.size();
-        Random r = new Random();
-        int lenthRandon=r.nextInt(15);
+        Random random = new Random();
+        int lenthRandon=random.nextInt(15);
         List<String> proposal= new ArrayList<>();
         for (int i = 0; i <= lenthRandon; i++) {
-            String temp=words.get(r.nextInt(sizeWords));
-            if(i==0){
+            String temp=words.get(random.nextInt(sizeWords));
+// проверка на условие что это начала абзаца и это первое слово в предложении, ести истина- то первую букву делаем заглавной и делаем отсутп
+            if(checkParagraf&(i==0)){
+                temp="  "+firstUpperCase(temp);
+            }else if (i==0){
+                // проверка на условие что это первое слово в предложении, ести истина, то первую букву делаем заглавной
               temp=firstUpperCase(temp);
             }
             proposal.add(temp);
-            /*if(i==lenthRandon){
-                proposal.add("!");
-            }*/
         }
         return proposal;
     }
@@ -29,17 +30,16 @@ public class TextActions {
     }
     protected static String addPunctuationMark(String text){
         Random random = new Random();
-        int a=random.nextInt(2);
-        switch (a){
-            case 0:text+=".";
+        int randomPunctuation=random.nextInt(3);
+        switch (randomPunctuation){
+            case 0:text+=". ";
             break;
-            case 1:text+="?";
+            case 1:text+="! ";
             break;
-            case 2:text+="!";
+            case 2:text+="? ";
             break;
 
         }
-
         return text;
 
     }
