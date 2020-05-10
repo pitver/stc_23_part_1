@@ -11,11 +11,9 @@ import java.util.Random;
  */
 public class GetReadyText {
 
-    protected static String getText() {
+    protected static String getText(int size,List<String> words) {
 
-        File file = new File("wordlist.txt");
-        //получаем список слов из словаря
-        List<String> words = GetDictionary.readFile(file);
+
         //временная коллекция
         List<String> tempList;
         //итоговый текст
@@ -28,7 +26,7 @@ public class GetReadyText {
 
 
 
-        int countLine = rd.nextInt(20);
+        int countLine = rd.nextInt(size);
 
         for (int i = 0; i < countLine; i++) {
 

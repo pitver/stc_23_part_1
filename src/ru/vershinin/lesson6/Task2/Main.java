@@ -11,11 +11,15 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         String path = "text";
-        getFiles(path, 3);
+        File file = new File("wordlist.txt");
+        //получаем список слов из словаря "wordlist.txt"
+        List<String> words = GetDictionary.readFile(file);
+        getFiles(path, 3,20,words);
+
     }
-    public static void getFiles(String path, int n) {
+    public static void getFiles(String path, int n,int size,List<String> words) {
         for (int i = 0; i < n; i++) {
-            String text = GetReadyText.getText();//получаем готовый текст
+            String text = GetReadyText.getText(size,words);//получаем готовый текст
             WriteFile.writeText(text, path + i + ".txt");
 
         }
