@@ -14,13 +14,13 @@ public class Main {
         File file = new File("wordlist.txt");
         //получаем список слов из словаря "wordlist.txt"
         List<String> words = GetDictionary.readFile(file);
-        getFiles(path, 3,20,words);
+        getFiles(path, 3,14000,words);
 
     }
     public static void getFiles(String path, int n,int size,List<String> words) {
         for (int i = 0; i < n; i++) {
-            String text = GetReadyText.getText(size,words);//получаем готовый текст
-            WriteFile.writeText(text, path + i + ".txt");
+            String text = GetReadyText.getText(words);//получаем готовый текст
+            WriteFile.writeText(text, path + i + ".txt",size);
 
         }
 

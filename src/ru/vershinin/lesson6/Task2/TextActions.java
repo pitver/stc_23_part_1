@@ -38,7 +38,6 @@ public class TextActions {
             break;
             case 2:text+="? ";
             break;
-
         }
         return text;
 

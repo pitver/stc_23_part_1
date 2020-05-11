@@ -11,7 +11,7 @@ import java.util.Random;
  */
 public class GetReadyText {
 
-    protected static String getText(int size,List<String> words) {
+    protected static String getText(List<String> words) {
 
 
         //временная коллекция
@@ -22,11 +22,7 @@ public class GetReadyText {
         // проверка нужно ли добавлять абзац, если true то добавляем
         boolean checkParagraf = false;
 
-
-
-
-
-        int countLine = rd.nextInt(size);
+        int countLine = rd.nextInt(20);
 
         for (int i = 0; i < countLine; i++) {
 
@@ -36,9 +32,15 @@ public class GetReadyText {
             //получаем необработанное предложение
             tempList = TextActions.getProposal(words, checkParagraf);
             checkParagraf = false;
-            // добавляем пробелы между словами в одном предложении
+            // добавляем пробелы и запятые между словами в одном предложении
+
             for (String line : tempList) {
-                readyText += line + " ";
+                int randomСomma = rd.nextInt(20);
+                if (randomСomma % 7 == 0) {
+                    readyText += line + ", ";
+                } else {
+                    readyText += line + " ";
+                }
             }
 
             readyText = TextActions.addPunctuationMark(readyText.trim());
