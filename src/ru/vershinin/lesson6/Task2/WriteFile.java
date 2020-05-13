@@ -7,33 +7,28 @@ import java.io.*;
  *
  * @author Вершинин Пётр
  */
-public class WriteFile {
-    protected static void writeText(String text,String path,int lengthFile){
+public class WriteFile{
 
-        RandomAccessFile raf = null;
-        try {
-            raf = new RandomAccessFile(path, "rw");
-            raf.writeBytes(text);
-            raf.setLength(lengthFile);
-            System.out.println("" + raf.length());
+    /**
+     * запись готового текста в файл
+     *
+     * @param text - готовый текст
+     * @param path- путь для готового файла
+     * @param lengthFile - требуемый размер файла
+     */
+        protected static void writeText(String text, String path, int lengthFile) {
+            RandomAccessFile raf = null;
+            try {
+                raf = new RandomAccessFile(path, "rw");
+                raf.writeBytes(text);
+                raf.setLength(lengthFile);
+                System.out.println("" + raf.length());
 
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-
-        /*try (BufferedWriter bw = new BufferedWriter(new FileWriter(path))) {
-
-
-            bw.write(text);
-
-            } catch (IOException ex) {
-
-            System.out.println(ex.getMessage());
-        }*/
-
-
-    }
 }

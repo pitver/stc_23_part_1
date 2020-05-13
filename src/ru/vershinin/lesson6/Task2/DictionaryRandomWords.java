@@ -11,13 +11,13 @@ import java.util.Scanner;
  *
  * @author Вершинин Пётр
  */
-public class GetDictionary {
+public class DictionaryRandomWords {
 
     /**
      * чтение текстового файла
      *
      * @param path -путь до файла
-     * @return список
+     * @return список слов
      */
 
     protected static List<String> readFile(File path) {

@@ -10,20 +10,28 @@ import java.util.*;
  */
 public class Main {
     public static void main(String[] args) {
+
         String path = "text";
         File file = new File("wordlist.txt");
-        //получаем список слов из словаря "wordlist.txt"
-        List<String> words = GetDictionary.readFile(file);
-        getFiles(path, 3,14000,words);
-
+        List<String> words = DictionaryRandomWords.readFile(file);
+        getFiles(path, 3,2000,words,3);
     }
-    public static void getFiles(String path, int n,int size,List<String> words) {
+
+    /**
+     *создание n файлов размером size в каталоге path
+     *
+     * @param path - путь до файла, без учета разширения файла
+     * @param n-количество файлов
+     * @param size-размер файла
+     * @param words- список слов
+     * @param probability- вероятность включения слова из отдельного массива в общий файл
+     */
+    public static void getFiles(String path, int n,int size,List<String> words,int probability) {
+        double chance=(double)1/probability;
         for (int i = 0; i < n; i++) {
-            String text = GetReadyText.getText(words);//получаем готовый текст
+            String text = ReadyText.getText(words,chance);//получаем готовый текст
             WriteFile.writeText(text, path + i + ".txt",size);
-
         }
-
     }
 
 }
