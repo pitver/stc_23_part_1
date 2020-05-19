@@ -1,49 +1,35 @@
 package ru.vershinin.lesson7;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.*;
 
 public class Main {
 
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
         Set<Integer> tempNum = new HashSet<>();
         int[] arr = GetSortArray.getNumbers(tempNum, 5);
-
-        ExecutorService executor =  Executors.newFixedThreadPool(2);
-
+        ExecutorService executor = Executors.newFixedThreadPool(1);
 
         List<Future<BigInteger>> resultList = new ArrayList<>();
+        FactorialCalculator calculator = null;
 
-        for (int a=0;a<arr.length; a++) {
-            FactorialCalculator calculator = new FactorialCalculator(arr[a]);
+        for (int a = 0; a < arr.length; a++) {
+            calculator = new FactorialCalculator(arr[a]);
             Future<BigInteger> result = executor.submit(calculator);
             resultList.add(result);
         }
+/*        for (Future<BigInteger> res : resultList) {
+            BigInteger num = res.get();
+            System.out.println(num);
+        }*/
 
         try {
-            executor.awaitTermination(5, TimeUnit.SECONDS);
+            executor.awaitTermination(2, TimeUnit.SECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-        for (int i = 0; i < resultList.size(); i++)
-        {
-            Future<BigInteger> result = resultList.get(i);
-            BigInteger number = null;
-            try {
-                number = result.get();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } catch (ExecutionException e) {
-                e.printStackTrace();
-            }
-            System.out.printf("Main: Task %d: %d\n", i, number);
-        }
-
         executor.shutdown();
     }
 
@@ -51,31 +37,38 @@ public class Main {
 }
 
 class FactorialCalculator implements Callable<BigInteger> {
+    public static Map<Integer, BigInteger> factoryMap = new ConcurrentHashMap<>();
     private final Integer number;
-
-
+    private int count = 1;
+    BigInteger resultCalc = new BigInteger("1");
     public FactorialCalculator(Integer number) {
         this.number = number;
 
     }
 
+
     @Override
     public BigInteger call() throws Exception {
+       // Integer maxKey = Collections.max(factoryMap.keySet());
 
-        //int result = 1;
-        BigInteger result = new BigInteger("1");
-
-        if ((number == 0) || (number == 1)) {
-            result = new BigInteger("1");
-        } else {
-            for (int i = 2; i <= number; i++) {
-                result = result.multiply(new BigInteger(i + ""));
-               // TimeUnit.MILLISECONDS.sleep(20);
+        Iterator iterator = factoryMap.keySet().iterator();
+        while (iterator.hasNext()) {
+            Integer key = (Integer) iterator.next();
+            if (key < number) {
+                count=key;
+            }else {
+                return factoryMap.get(number);
             }
         }
 
-        System.out.printf("Factorial of %d is :: %d\n", number, result);
-        return result;
+
+        for (int i = count; i <= number; i++) {
+            resultCalc = (factoryMap.get(count)).multiply(new BigInteger(i + ""));
+            factoryMap.put(i, resultCalc);
+
+        }
+        System.out.printf("Factorial of %d is :: %d\n", number, factoryMap.get(number));
+        return resultCalc;
     }
 }
 
