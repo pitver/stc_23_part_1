@@ -1,7 +1,7 @@
-package ru.vershinin.lesson8;
+package ru.vershinin.lesson8.TaskWithReflection;
 
-import ru.vershinin.lesson8.Parent;
-import ru.vershinin.lesson8.SavedObject;
+import ru.vershinin.lesson8.TaskWithReflection.Parent;
+import ru.vershinin.lesson8.TaskWithReflection.SavedObject;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -11,27 +11,20 @@ import java.lang.reflect.Modifier;
  *
  * @author Вершинин Пётр
  */
-public class ReflectionClass {
+public class Main {
     public static void main(String[] args) throws IllegalAccessException, NoSuchFieldException {
         String filename = "file.dat";
-        System.out.println();
         Parent parent = new Parent();
-        String name = null;
-        //получаем список всех полей
-        readFields(parent);
         try {
-            Field field = parent.getClass().getDeclaredField("name");
-            field.setAccessible(true);
-            System.out.println(name = (String) field.get(parent));
-        } catch (NoSuchFieldException | IllegalAccessException e) {
+            SavedObject.serialize(parent,filename);
+            SavedObject.deSerialize(filename);
+        } catch (InstantiationException e) {
             e.printStackTrace();
         }
-        SavedObject.serialize(parent, filename);
-        Object o = SavedObject.deSerialize(filename);
-        System.out.println(o);
+
 
     }
-    private static void readFields(Object obj) throws IllegalAccessException {
+/*    private static void readFields(Object obj) throws IllegalAccessException {
         Field[] fields = obj.getClass().getDeclaredFields();
         for (Field declaredField : fields) {
             System.out.print(
@@ -41,7 +34,7 @@ public class ReflectionClass {
             declaredField.setAccessible(true); // доступ к приватному полю
             System.out.println(declaredField.get(obj));
         }
-    }
+    }*/
 
 
 }
