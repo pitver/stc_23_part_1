@@ -7,4 +7,7 @@ package ru.vershinin.lesson8.TaskWithReflection;
  */
 public class Child extends Parent {
     private final int salary =10;
+
+    public Child() {
+    }
 }

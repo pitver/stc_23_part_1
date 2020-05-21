@@ -11,7 +11,15 @@ public class Parent implements Serializable {
     private static final long serialVersionUID = 12345L;
     private final String name="Test";
     private final int age=12;
-   // Child child= new Child();
+    //Child child= new Child();
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
 
     @Override
     public String toString() {

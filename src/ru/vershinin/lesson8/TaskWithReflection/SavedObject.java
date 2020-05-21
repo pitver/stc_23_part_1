@@ -1,7 +1,5 @@
 package ru.vershinin.lesson8.TaskWithReflection;
 
-import ru.vershinin.lesson8.TaskWithReflection.Parent;
-
 import java.io.*;
 import java.lang.reflect.Field;
 
@@ -34,14 +32,12 @@ public class SavedObject {
 
         try {
 
-            FileOutputStream fos = new FileOutputStream(file);
-            ObjectOutputStream out = new ObjectOutputStream(fos);
-
+            DataOutputStream out = new DataOutputStream(new FileOutputStream(file));
 
             out.writeUTF(name);
             out.writeInt(age);
             out.writeLong(serialVersionUID);
-
+            out.close();
             System.out.println("Object has been serialized");
 
         } catch (IOException ex) {
@@ -52,29 +48,22 @@ public class SavedObject {
     protected static Object deSerialize(String file) {
         Object newPerson = null;
         try {
-           /* FileInputStream fis = new FileInputStream(file);
-            ObjectInputStream oin = new ObjectInputStream(fis);*/
-            ObjectInputStream dis = new ObjectInputStream(new FileInputStream(file));
 
-            //newPerson=oin.readObject();
-            int i = -1;
-            while ((i = dis.read()) != -1) {
+            DataInputStream dis = new DataInputStream(new FileInputStream(file));
                 String s = dis.readUTF();
                 int age = dis.readInt();
                 Long ser = dis.readLong();
-                System.out.println(s + " " + age + " " + ser);
-            }
+                System.out.println(s + " " + age + " "+ser );
 
 
             dis.close();
-            //fis.close();
+
             System.out.println("Object has been deserialized ");
 
         } catch (IOException ex) {
             System.out.println("IOException is caught" + ex);
 
         }
-        System.out.println(newPerson);
         return newPerson;
     }
 
