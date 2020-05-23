@@ -37,12 +37,12 @@ public class MathBox extends ObjectBox<Number> {
     /**
      * возвращающает сумму всех элементов коллекции.
      *
-     * @param mathBox
+     * 
      * @return
      */
-    public Number summator(MathBox mathBox) {
+    public Number summator() {
         int result = 0;
-        for (Number n : mathBox.obj) {
+        for (Number n : obj) {
             result = result + n.intValue();
         }
         return result;
