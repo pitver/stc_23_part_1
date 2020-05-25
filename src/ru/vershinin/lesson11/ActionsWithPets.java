@@ -1,4 +1,4 @@
-package ru.vershinin.lesson5;
+package ru.vershinin.lesson11;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -45,8 +45,8 @@ public class ActionsWithPets {
      * @param nickName - кличка животного, которое необходимо найти
      */
     public void searchByNickname(String nickName) {// Hash
-        boolean check = false;
-        for (Map.Entry<String, Pet> mapPets : listPets.entrySet()) {
+        //boolean check = false;
+  /*     for (Map.Entry<String, Pet> mapPets : listPets.entrySet()) {
             if (mapPets.getKey().equals(nickName)) {
                 System.out.println("найден объект с именем -" + nickName + " в " + mapPets);
                 System.out.println("-------------------------------------------------------------");
@@ -56,7 +56,13 @@ public class ActionsWithPets {
         if (!check) {
             System.out.println("совпадений по кличке -" + nickName + " результатов не дал");
             System.out.println("-------------------------------------------------------------");
-        }
+        }*/
+        listPets.entrySet().stream()
+                .filter(s -> s.getKey().contains(nickName))
+                .forEach(o -> System.out.println("найден объект с именем -" + nickName + " в " + o));
+        System.out.println("-------------------------------------------------------------");
+
+
     }
 
     /**
@@ -67,22 +73,31 @@ public class ActionsWithPets {
      * @param wt               - новое значение веса животного
      */
     public void updatePet(int id, String nik, int wt) {
-        for (Map.Entry<String, Pet> mapPets : listPets.entrySet()) {
+        /*for (Map.Entry<String, Pet> mapPets : listPets.entrySet()) {
             if (mapPets.getValue().getId() == id) {
                 mapPets.getValue().setNickname(nik);
                 mapPets.getValue().setWeight(wt);
             }
         }
+    }*/
+        listPets.entrySet().stream()
+                .filter(s -> s.getValue().getId() == id)
+                .peek(f -> f.getValue().setWeight(wt))
+                .forEach(d -> d.getValue().setNickname(nik));
+        //.fo(f -> f.getValue().setWeight(wt));
     }
+
     /**
      * вывод на экран списка животных в отсортированном порядке.
      * Поля для сортировки –  хозяин, кличка животного, вес.
      */
     public void print() {
         TreeSet<Pet> pet = new TreeSet<>(listPets.values());
-        for (Pet listAnimal : pet) {
+        /*for (Pet listAnimal : pet) {
             System.out.println(listAnimal);
-        }
+        }*/
+        pet.stream()
+                .forEach(s-> System.out.println(s));
         System.out.println("-------------------------------------------------------------");
     }
 }

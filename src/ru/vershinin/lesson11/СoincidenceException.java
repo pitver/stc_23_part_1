@@ -1,4 +1,4 @@
-package ru.vershinin.lesson5;
+package ru.vershinin.lesson11;
 
 /**
  * СoincidenceException

@@ -1,4 +1,4 @@
-package ru.vershinin.lesson5;
+package ru.vershinin.lesson11;
 
 /**
  * Main
@@ -26,7 +26,7 @@ public class Main {
 
         pet.print();
         pet.searchByNickname("Tam");
-        pet.updatePet(8, "Jim", 5);
+        pet.updatePet(5, "Jimiiiiii", 14);
         pet.print();
 
 

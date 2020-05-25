@@ -1,4 +1,4 @@
-package ru.vershinin.lesson5;
+package ru.vershinin.lesson11;
 /**
  * Перечисление Мужчины/Женщины
  * Gender
@@ -6,6 +6,6 @@ package ru.vershinin.lesson5;
  */
 public enum Gender {
     MALE,
-    FEMALE;
+    FEMALE
 }
 

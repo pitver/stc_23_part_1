@@ -1,6 +1,5 @@
-package ru.vershinin.lesson5;
+package ru.vershinin.lesson11;
 
-import java.util.Comparator;
 import java.util.Objects;
 
 /**
