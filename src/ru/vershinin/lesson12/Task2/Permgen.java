@@ -1,21 +1,16 @@
 package ru.vershinin.lesson12.Task2;
 
-import javassist.ClassPool;
-
-
 /**
- * генерирация новых классов и загрузка их в Permgen
- * использовать -XX:MaxPermSize=128m
- *
- * @Exception - java.lang.OutOfMemoryError PermGen указывает на то,
- * \что область постоянного поколения в памяти исчерпана
+ * создание и загрузка в jvm новых классов
+ * Main
+ * @author Вершинин Пётр
  */
-public class Permgen {
-    static ClassPool classPool = ClassPool.getDefault();
-    public static void main(String[] args) throws Exception {
-        for (int i = 0; i < 1000000000; i++) {
-            Class c = classPool.makeClass("ru.vershinin.lesson12.Task2.Permgen" + i).toClass();
-            System.out.println(c.getName());
+class Main {
+    static javassist.ClassPool cp = javassist.ClassPool.getDefault();
+    public static void main(String[] args) throws Exception{
+        for (int i = 0; ; i++) {
+            Class c = cp.makeClass("eu.plumbr.demo.Generated" + i).toClass();
+            System.out.println("eu.plumbr.demo.Generated" + i);
         }
     }
 }
