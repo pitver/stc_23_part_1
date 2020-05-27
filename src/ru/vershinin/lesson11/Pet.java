@@ -77,7 +77,7 @@ public class Pet implements Comparable<Pet> {
 
     @Override
     public String toString() {
-        return String.format("Картотека домашних животных содержит - объект типа=%s, " +
+        return String.format(" Картотека домашних животных содержит - объект типа=%s, " +
                 "id = %d, nickname = '%s', weight = %d, owner = %s", getClass().getSimpleName(), id, nickname, weight, owner);
     }
     @Override

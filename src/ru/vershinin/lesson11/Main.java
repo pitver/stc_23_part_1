@@ -25,8 +25,8 @@ public class Main {
 
 
         pet.print();
-        pet.searchByNickname("Tam");
-        pet.updatePet(8, "Jim", 5);
+        pet.searchByNickname("Jim");
+        pet.updatePet(7, "Jim", 5);
         pet.print();
     }
 }

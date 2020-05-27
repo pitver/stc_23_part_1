@@ -7,6 +7,7 @@ package ru.vershinin.lesson11;
  */
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.TreeSet;
 
 /**
@@ -45,17 +46,20 @@ public class ActionsWithPets {
 
     /**
      * поиск животного по его кличке
-     * boolean check-флаг указывающий на совпадение по кличке
      *
      * @param nickName - кличка животного, которое необходимо найти
      */
     public void searchByNickname(String nickName) {// Hash
 
-        listPets.entrySet().stream()
+        Optional<Map.Entry<String, Pet>> optionalS=listPets.entrySet().stream()
                 .filter(s -> s.getKey().contains(nickName))
-                .forEach(o -> System.out.println("найден объект с именем -" + nickName + " в " + o));
+                .findAny();
+        if(optionalS.isPresent()) {
+            System.out.println("найден объект с именем -" + nickName + " в " + optionalS.get());
+        }else {
+            System.out.println("поиск совпадений по кличке -" + nickName + " результатов не дал");
+        }
         System.out.println("-------------------------------------------------------------");
-
 
     }
 
