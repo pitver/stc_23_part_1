@@ -1,7 +1,4 @@
-package ru.vershinin.lesson13;
-
-import java.time.LocalDate;
-import java.util.Objects;
+package ru.vershinin.lesson15;
 
 public class Order {
     Client client;
