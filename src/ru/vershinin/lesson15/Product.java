@@ -1,16 +1,11 @@
 package ru.vershinin.lesson15;
 
-/**
- * Product
- *
- * @author Вершинин Пётр
- */
 import java.util.Objects;
 
 public class Product {
-    private String productName;
-    private double price;
-    private boolean present;
+   private String productName;
+   private double price;
+   private boolean present;
 
     public Product(String productName, double price, boolean present) {
         this.productName = productName;
