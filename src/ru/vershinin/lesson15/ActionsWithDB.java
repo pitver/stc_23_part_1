@@ -1,9 +1,6 @@
 package ru.vershinin.lesson15;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Random;
 
 /**
@@ -26,14 +23,46 @@ public class ActionsWithDB {
 
     }
 
-    protected static void addProduct(Connection conn, String productName, double price, boolean present) {
+    protected static void addProduct(Connection conn, String productName,
+                                     double price, boolean present) throws SQLException {
         String sql = "INSERT INTO public.product(product_name, price,present)"
                 + "VALUES ( ?, ?, ?)";
+        conn.setAutoCommit(false);
         try (PreparedStatement st = conn.prepareStatement(sql)) {
+
             st.setString(1, productName);
             st.setDouble(2, price);
             st.setBoolean(3, present);
             st.execute();
+
+            st.setString(1, "notebook");
+            st.setDouble(2, 12.7);
+            st.setBoolean(3, true);
+            st.execute();
+
+            // Создание Savepoint
+            Savepoint first_savepoint = conn.setSavepoint("first_savepoint");
+
+            st.setString(1, "ruler");
+            st.setDouble(2, 4.7);
+            st.setBoolean(3, true);
+
+            // Создание Savepoint
+            Savepoint second_savepoint = conn.setSavepoint("second_savepoint");
+            st.execute();
+
+            st.setString(1, "pen");
+            st.setDouble(2, 1.9);
+            st.setBoolean(3, true);
+            st.execute();
+
+            conn.releaseSavepoint(second_savepoint);
+            // Rollback к savepoint
+            conn.rollback(first_savepoint);
+
+            // Commit транзакции
+            conn.commit();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
