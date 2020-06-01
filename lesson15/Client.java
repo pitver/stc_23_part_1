@@ -1,12 +1,10 @@
 package ru.vershinin.lesson15;
 
-
 /**
  * Client
  *
  * @author Вершинин Пётр
  */
-
 import java.util.Objects;
 
 public class Client {

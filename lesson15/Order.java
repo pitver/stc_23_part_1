@@ -1,12 +1,10 @@
 package ru.vershinin.lesson15;
 
-
 /**
  * Order
  *
  * @author Вершинин Пётр
  */
-
 public class Order {
     Client client;
     Product product;
