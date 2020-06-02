@@ -2,60 +2,58 @@ package ru.vershinin.lesson16;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.Marker;
-import org.apache.logging.log4j.MarkerManager;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
 class Shop {
-    private static final Logger logger = LogManager.getLogger(Shop.class);
+    private static final Logger loggerBusiness = LogManager.getLogger(Shop.class);
+    private static final Logger loggerSystem = LogManager.getLogger("SystemLog4J2");
+    private static final Logger loggerSecurity = LogManager.getLogger("SecurityLog4J2");
 
     public static void main(String[] args) {
-        Marker markerBusiness = MarkerManager.getMarker("business");
-        Marker markerSecurity = MarkerManager.getMarker("security");
-        Marker markerSystem = MarkerManager.getMarker("system");
 
 
 
 
-        logger.info(markerSecurity,"start");
+
+        loggerSecurity.info("start");
         Connection conn= ConnectionDB.connect();
-        logger.info(markerSystem,"connect");
+        loggerBusiness.info("connect");
         DBInit.Init(conn);
 
         ///добавляем клиента
           ActionsWithDB.addClient(conn,"luke",121212);
-          logger.info(markerBusiness,"addClient");
+          loggerBusiness.info("addClient");
 
 
         //добавляем товары в каталог
         try {
             ActionsWithDB.addProduct(conn,"book",15,true);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException e) {
+            loggerSystem.info(e.getMessage());
         }
-        logger.info(markerBusiness,"addProduct");
+        loggerBusiness.info("addProduct");
 
         //получаем каталог
         ActionsWithDB.showProduct(conn);
-        logger.info(markerBusiness,"showProduct");
+        loggerBusiness.info("showProduct");
 
         //формируем заказ
        ActionsWithDB.creatingOrder(conn,1,1);
-        logger.info(markerBusiness,"creatingOrder");
+        loggerBusiness.info("creatingOrder");
 
         //подготовка заказа в магазине
         ActionsWithDB.prepareOrder(conn);
-        logger.info(markerBusiness,"prepareOrder");
+        loggerBusiness.info("prepareOrder");
 
         //получаем список всех заказов
         ActionsWithDB.getAllOrder(conn);
-        logger.info(markerBusiness,"getAllOrder");
+        loggerBusiness.info("getAllOrder");
 
         ConnectionDB.connectClose();
-        logger.info(markerSystem,"connectClose");
-        logger.info(markerSecurity,"stop");
+        loggerBusiness.info("connectClose");
+        loggerSecurity.info("stop");
     }
 
 }

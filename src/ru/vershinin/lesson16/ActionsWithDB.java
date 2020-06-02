@@ -14,10 +14,9 @@ import java.util.Random;
  * @author Вершинин Пётр
  */
 public class ActionsWithDB {
-    private static final Logger logger = LogManager.getLogger(ConnectionDB.class);
-    static Marker markerBusiness = MarkerManager.getMarker("business");
-    static Marker markerSecurity = MarkerManager.getMarker("security");
-    static Marker markerSystem = MarkerManager.getMarker("system");
+    private static final Logger loggerSystem = LogManager.getLogger("SystemLog4J2");
+
+
 
     /**
      * добавление пользователя в таблицу Client
@@ -53,7 +52,7 @@ public class ActionsWithDB {
 
 
         } catch (SQLException e) {
-            logger.error(markerSystem,e.getMessage());
+            loggerSystem.error(e.getMessage());
         }
 
     }
@@ -114,7 +113,7 @@ public class ActionsWithDB {
             conn.commit();
 
         } catch (SQLException e) {
-            logger.error(markerSystem,e.getMessage());
+            loggerSystem.error(e.getMessage());
         }
 
     }
@@ -134,7 +133,7 @@ public class ActionsWithDB {
             st.setInt(2, productId);
             st.execute();
         } catch (SQLException e) {
-            logger.error(markerSystem,e.getMessage());
+            loggerSystem.error(e.getMessage());
         }
         //запись в архив магазина(таблица shop)
         addOrderToShop(conn);
@@ -156,7 +155,7 @@ public class ActionsWithDB {
             st1.setInt(2, rd.nextInt(99999));
             st1.execute();
         } catch (SQLException e) {
-            logger.error(markerSystem,e.getMessage());
+            loggerSystem.error(e.getMessage());
         }
     }
 
@@ -174,7 +173,7 @@ public class ActionsWithDB {
                 count = rs.getInt("id");
             }
         } catch (SQLException e) {
-            logger.error(markerSystem,e.getMessage());
+            loggerSystem.error(e.getMessage());
         }
         return count;
     }
@@ -197,7 +196,7 @@ public class ActionsWithDB {
                 System.out.println(String.format("%-11d%-20s%-11.2f%-13s%n", id, productName, price, present ? "да" : "нет"));
             }
         } catch (SQLException e) {
-            logger.error(markerSystem,e.getMessage());
+            loggerSystem.error(e.getMessage());
         }
     }
 
@@ -232,7 +231,7 @@ public class ActionsWithDB {
 
             }
         } catch (SQLException e) {
-            logger.error(markerSystem,e.getMessage());
+            loggerSystem.error(e.getMessage());
         }
     }
 
@@ -268,7 +267,7 @@ public class ActionsWithDB {
                 System.out.println(String.format("%-9d%-10s%-11d%-14s%-11.2f%-13s%n", number_order, name, phoneNumber, productName, price, present ? "да" : "нет"));
             }
         } catch (SQLException e) {
-            logger.error(markerSystem,e.getMessage());
+            loggerSystem.error(e.getMessage());
         }
     }
 

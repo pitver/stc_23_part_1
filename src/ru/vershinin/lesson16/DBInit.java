@@ -15,10 +15,10 @@ import java.sql.Statement;
  * @author Вершинин Пётр
  */
  class DBInit {
-    private static final Logger logger = LogManager.getLogger(ConnectionDB.class);
-    static Marker markerBusiness = MarkerManager.getMarker("business");
-    static Marker markerSecurity = MarkerManager.getMarker("security");
-    static Marker markerSystem = MarkerManager.getMarker("system");
+    private static final Logger loggerBusiness = LogManager.getLogger(DBInit.class);
+    private static final Logger loggerSystem = LogManager.getLogger("SystemLog4J2");
+    private static final Logger loggerSecurity = LogManager.getLogger("SecurityLog4J2");
+
 
     /**
      * создание и инициализация таблиц
@@ -32,6 +32,7 @@ import java.sql.Statement;
                 "DROP TABLE IF EXISTS \"order\";\n"+
                 "DROP TABLE IF EXISTS client;\n"+
                 "DROP TABLE IF EXISTS product;\n"+
+                "DROP TABLE IF EXISTS app_logs;\n"+
                 "CREATE SEQUENCE public.product_id_seq;\n" +
                 "\n" +
                 "CREATE TABLE public.Product (\n" +
@@ -104,13 +105,23 @@ import java.sql.Statement;
                 "INSERT INTO public.client(fio, phonenumber)VALUES ( 'Tom', 121111)\n;"+
                 "INSERT INTO public.product(price, present,product_name)VALUES ( 12.4, true,'book')\n;"+
                 "INSERT INTO public.order(client_id, Product_id)VALUES ( 1,1)\n;"+
-                "INSERT INTO public.shop(order_id, number_order)VALUES ( 1, 1687)\n;";
+                "INSERT INTO public.shop(order_id, number_order)VALUES ( 1, 1687)\n;"+
+                "create table app_logs\n" +
+                "(\n" +
+                "    log_id     varchar,\n" +
+                "    entry_date date,\n" +
+                "    logger     text,\n" +
+                "    log_level  varchar,\n" +
+                "    message    varchar,\n" +
+                "    exception  varchar\n" +
+                ");";
 
         try (Statement st=conn.createStatement()) {
             st.executeUpdate(sql);
+            loggerBusiness.info("инициализация таблиц");
 
         } catch (SQLException e) {
-            logger.error(markerSystem,e.getMessage());
+            loggerSystem.error(e.getMessage());
         }
 
     }

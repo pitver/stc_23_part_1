@@ -16,9 +16,9 @@ import java.sql.SQLException;
  */
 public class ConnectionDB {
     private static final Logger logger = LogManager.getLogger(ConnectionDB.class);
-   static Marker markerBusiness = MarkerManager.getMarker("business");
-   static Marker markerSecurity = MarkerManager.getMarker("security");
-   static Marker markerSystem = MarkerManager.getMarker("system");
+    private static final Logger loggerSystem = LogManager.getLogger("SystemLog4J2");
+    private static final Logger loggerSecurity = LogManager.getLogger("SecurityLog4J2");
+
 
     public static final String DB_URL = "jdbc:postgresql://localhost:5432/postgres";
     public static final String DB_Driver = "org.postgresql.Driver";
@@ -32,9 +32,9 @@ public class ConnectionDB {
             Connection conn = DriverManager.getConnection(DB_URL,
                     "postgres", "root");//соединениесБД
             conn.close();
-            logger.info(markerSystem,"Соединение с СУБД закрыто.");
+            loggerSystem.info("Соединение с СУБД закрыто.");
         } catch (SQLException e) {
-            logger.error(markerSystem,e.getMessage());
+            loggerSystem.error(e.getMessage());
         }
     }
 
@@ -50,12 +50,12 @@ public class ConnectionDB {
             Class.forName(DB_Driver); //Проверяем наличие JDBC драйвера для работы с БД
             Connection connection = DriverManager.getConnection(DB_URL,
                     "postgres", "root");//соединениесБД
-            logger.info(markerSystem,"Соединение с СУБД выполнено.");
+            loggerSystem.info("Соединение с СУБД выполнено.");
             return connection;
         } catch (ClassNotFoundException e) {
-            logger.fatal(markerSystem,"JDBC драйвер для СУБД не найден!"+e.getMessage());
+            loggerSystem.fatal("JDBC драйвер для СУБД не найден!"+e.getMessage());
         } catch (SQLException e) {
-            logger.fatal(markerSystem,"Ошибка SQL !"+e.getSQLState());
+            loggerSystem.fatal("Ошибка SQL !"+e.getSQLState());
         }
         return null;
     }
