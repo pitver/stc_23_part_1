@@ -1,4 +1,9 @@
-package ru.vershinin.lesson15;
+package ru.vershinin.lesson16;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.Marker;
+import org.apache.logging.log4j.MarkerManager;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -10,6 +15,10 @@ import java.sql.Statement;
  * @author Вершинин Пётр
  */
  class DBInit {
+    private static final Logger logger = LogManager.getLogger(ConnectionDB.class);
+    static Marker markerBusiness = MarkerManager.getMarker("business");
+    static Marker markerSecurity = MarkerManager.getMarker("security");
+    static Marker markerSystem = MarkerManager.getMarker("system");
 
     /**
      * создание и инициализация таблиц
@@ -17,6 +26,7 @@ import java.sql.Statement;
      * @param conn -Connection
      */
     protected static void Init(Connection conn) {
+
         String sql=" \n" +
                 "DROP TABLE IF EXISTS shop;\n"+
                 "DROP TABLE IF EXISTS \"order\";\n"+
@@ -99,8 +109,8 @@ import java.sql.Statement;
         try (Statement st=conn.createStatement()) {
             st.executeUpdate(sql);
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException e) {
+            logger.error(markerSystem,e.getMessage());
         }
 
     }

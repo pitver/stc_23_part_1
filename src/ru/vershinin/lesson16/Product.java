@@ -1,4 +1,4 @@
-package ru.vershinin.lesson15;
+package ru.vershinin.lesson16;
 
 import java.util.Objects;
 

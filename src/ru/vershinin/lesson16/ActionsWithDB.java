@@ -1,4 +1,9 @@
-package ru.vershinin.lesson15;
+package ru.vershinin.lesson16;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.Marker;
+import org.apache.logging.log4j.MarkerManager;
 
 import java.sql.*;
 import java.util.Random;
@@ -9,6 +14,10 @@ import java.util.Random;
  * @author Вершинин Пётр
  */
 public class ActionsWithDB {
+    private static final Logger logger = LogManager.getLogger(ConnectionDB.class);
+    static Marker markerBusiness = MarkerManager.getMarker("business");
+    static Marker markerSecurity = MarkerManager.getMarker("security");
+    static Marker markerSystem = MarkerManager.getMarker("system");
 
     /**
      * добавление пользователя в таблицу Client
@@ -44,7 +53,7 @@ public class ActionsWithDB {
 
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error(markerSystem,e.getMessage());
         }
 
     }
@@ -105,7 +114,7 @@ public class ActionsWithDB {
             conn.commit();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error(markerSystem,e.getMessage());
         }
 
     }
@@ -125,7 +134,7 @@ public class ActionsWithDB {
             st.setInt(2, productId);
             st.execute();
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error(markerSystem,e.getMessage());
         }
         //запись в архив магазина(таблица shop)
         addOrderToShop(conn);
@@ -147,7 +156,7 @@ public class ActionsWithDB {
             st1.setInt(2, rd.nextInt(99999));
             st1.execute();
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error(markerSystem,e.getMessage());
         }
     }
 
@@ -164,8 +173,8 @@ public class ActionsWithDB {
             while (rs.next()) {
                 count = rs.getInt("id");
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException e) {
+            logger.error(markerSystem,e.getMessage());
         }
         return count;
     }
@@ -187,8 +196,8 @@ public class ActionsWithDB {
                 boolean present = rs.getBoolean("present");
                 System.out.println(String.format("%-11d%-20s%-11.2f%-13s%n", id, productName, price, present ? "да" : "нет"));
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException e) {
+            logger.error(markerSystem,e.getMessage());
         }
     }
 
@@ -222,8 +231,8 @@ public class ActionsWithDB {
                 System.out.println(String.format("%-9d%-10s%-11d%-14s%-11.2f%-13s%n", id, name, phoneNumber, productName, price, present ? "да" : "нет"));
 
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException e) {
+            logger.error(markerSystem,e.getMessage());
         }
     }
 
@@ -258,8 +267,8 @@ public class ActionsWithDB {
 
                 System.out.println(String.format("%-9d%-10s%-11d%-14s%-11.2f%-13s%n", number_order, name, phoneNumber, productName, price, present ? "да" : "нет"));
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException e) {
+            logger.error(markerSystem,e.getMessage());
         }
     }
 
