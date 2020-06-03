@@ -2,8 +2,6 @@ package ru.vershinin.lesson16;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.Marker;
-import org.apache.logging.log4j.MarkerManager;
 
 import java.sql.*;
 import java.util.Random;
@@ -15,6 +13,8 @@ import java.util.Random;
  */
 public class ActionsWithDB {
     private static final Logger loggerSystem = LogManager.getLogger("SystemLog4J2");
+    private static final Logger loggerBusiness = LogManager.getLogger(ActionsWithDB.class);
+
 
 
 
@@ -90,14 +90,14 @@ public class ActionsWithDB {
             st.execute();
 
             // Создание Savepoint
-            Savepoint first_savepoint = conn.setSavepoint("first_savepoint");
+            Savepoint firstSavepoint = conn.setSavepoint("firstSavepoint");
 
             st.setString(1, "ruler");
             st.setDouble(2, 4.7);
             st.setBoolean(3, true);
 
             // Создание Savepoint
-            Savepoint second_savepoint = conn.setSavepoint("second_savepoint");
+            Savepoint secondSavepoint = conn.setSavepoint("secondSavepoint");
             st.execute();
 
             st.setString(1, "pen");
@@ -105,9 +105,9 @@ public class ActionsWithDB {
             st.setBoolean(3, true);
             st.execute();
 
-            conn.releaseSavepoint(second_savepoint);
+            conn.releaseSavepoint(secondSavepoint);
             // Rollback к savepoint
-            conn.rollback(first_savepoint);
+            conn.rollback(firstSavepoint);
 
             // Commit транзакции
             conn.commit();
@@ -186,14 +186,14 @@ public class ActionsWithDB {
      */
     protected static void showProduct(Connection conn) {
         try (ResultSet rs = conn.prepareStatement("SELECT *FROM product").executeQuery()) {
-            System.out.println("     ************каталог товаров************");
-            System.out.println(String.format("%-11s%-20s%-11s%-11s%n", "№", "Наименование", "Цена", "Наличие"));
+            loggerBusiness.info("     ************каталог товаров************");
+            loggerBusiness.info(String.format("%-11s%-20s%-11s%-11s%n", "№", "Наименование", "Цена", "Наличие"));
             while (rs.next()) {
                 int id = rs.getInt("id");
                 double price = rs.getDouble("price");
                 String productName = rs.getString("product_name");
                 boolean present = rs.getBoolean("present");
-                System.out.println(String.format("%-11d%-20s%-11.2f%-13s%n", id, productName, price, present ? "да" : "нет"));
+                loggerBusiness.info(String.format("%-11d%-20s%-11.2f%-13s%n", id, productName, price, present ? "да" : "нет"));
             }
         } catch (SQLException e) {
             loggerSystem.error(e.getMessage());
@@ -217,8 +217,8 @@ public class ActionsWithDB {
                 "         LEFT JOIN \"product\" p on p.id = \"o\".product_id\n" +
                 "WHERE o.id = (SELECT id FROM \"order\" WHERE id = (SELECT max(id) FROM \"order\"))").executeQuery()) {
 
-            System.out.println("     ************Заказ************");
-            System.out.println(String.format("%-9s%-10s%-11s%-14s%-11s%-11s%n", "№Заказа", "ФИО", "телефон", "Наименование", "Цена", "Наличие"));
+            loggerBusiness.info("     ************Заказ************");
+            loggerBusiness.info(String.format("%-9s%-10s%-11s%-14s%-11s%-11s%n", "№Заказа", "ФИО", "телефон", "Наименование", "Цена", "Наличие"));
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String name = rs.getString("fio");
@@ -227,7 +227,7 @@ public class ActionsWithDB {
                 String productName = rs.getString("product_name");
                 boolean present = rs.getBoolean("present");
 
-                System.out.println(String.format("%-9d%-10s%-11d%-14s%-11.2f%-13s%n", id, name, phoneNumber, productName, price, present ? "да" : "нет"));
+                loggerBusiness.info(String.format("%-9d%-10s%-11d%-14s%-11.2f%-13s%n", id, name, phoneNumber, productName, price, present ? "да" : "нет"));
 
             }
         } catch (SQLException e) {
@@ -254,8 +254,9 @@ public class ActionsWithDB {
                 "LEFT JOIN \"order\" o on sh.order_id = o.id\n" +
                 "LEFT JOIN client c on o.client_id = c.id\n" +
                 "LEFT JOIN product p on o.product_id = p.id").executeQuery()) {
-            System.out.println("     ************История заказов************");
-            System.out.println(String.format("%-9s%-10s%-11s%-14s%-11s%-11s%n", "№Заказа", "ФИО", "телефон", "Наименование", "Цена", "Наличие"));
+
+            loggerBusiness.info("     ************История заказов************");
+           loggerBusiness.info(String.format("%-9s%-10s%-11s%-14s%-11s%-11s%n", "№Заказа", "ФИО", "телефон", "Наименование", "Цена", "Наличие"));
             while (rs.next()) {
                 int number_order = rs.getInt("number_order");
                 String name = rs.getString("fio");
@@ -264,7 +265,7 @@ public class ActionsWithDB {
                 String productName = rs.getString("product_name");
                 boolean present = rs.getBoolean("present");
 
-                System.out.println(String.format("%-9d%-10s%-11d%-14s%-11.2f%-13s%n", number_order, name, phoneNumber, productName, price, present ? "да" : "нет"));
+            loggerBusiness.info(String.format("%-9d%-10s%-11d%-14s%-11.2f%-13s%n", number_order, name, phoneNumber, productName, price, present ? "да" : "нет"));
             }
         } catch (SQLException e) {
             loggerSystem.error(e.getMessage());

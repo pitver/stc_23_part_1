@@ -2,12 +2,12 @@ package ru.vershinin.lesson16;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.Marker;
-import org.apache.logging.log4j.MarkerManager;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
+import static java.lang.Class.forName;
 
 /**
  * ChangeDB
@@ -15,9 +15,7 @@ import java.sql.SQLException;
  * @author Вершинин Пётр
  */
 public class ConnectionDB {
-    private static final Logger logger = LogManager.getLogger(ConnectionDB.class);
     private static final Logger loggerSystem = LogManager.getLogger("SystemLog4J2");
-    private static final Logger loggerSecurity = LogManager.getLogger("SecurityLog4J2");
 
 
     public static final String DB_URL = "jdbc:postgresql://localhost:5432/postgres";
@@ -47,7 +45,7 @@ public class ConnectionDB {
      */
     public static Connection connect() {
         try {
-            Class.forName(DB_Driver); //Проверяем наличие JDBC драйвера для работы с БД
+            forName(DB_Driver); //Проверяем наличие JDBC драйвера для работы с БД
             Connection connection = DriverManager.getConnection(DB_URL,
                     "postgres", "root");//соединениесБД
             loggerSystem.info("Соединение с СУБД выполнено.");
