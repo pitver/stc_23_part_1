@@ -1,4 +1,4 @@
-package ru.vershinin.lesson16.ConnectionManager;
+package ru.vershinin.lesson17.ConnectionManager;
 
 import java.sql.Connection;
 

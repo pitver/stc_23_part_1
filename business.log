@@ -373,3 +373,626 @@
 2020-06-04 10:47:45,538 INFO r.v.l.Shop [main] getAllOrder 
 2020-06-04 10:47:45,577 INFO r.v.l.Shop [main] connectClose 
 2020-06-04 10:47:45,577 INFO SecurityLog4J2 [main] stop 
+2020-06-04 10:51:03,827 INFO SecurityLog4J2 [main] start 
+2020-06-04 10:51:04,009 INFO r.v.l.Shop [main] connect 
+2020-06-04 10:51:26,056 INFO r.v.l.Shop [main] addClient 
+2020-06-04 10:51:26,060 INFO r.v.l.Shop [main] addProduct 
+2020-06-04 10:51:26,061 INFO r.v.l.d.ActionsWithDBImpl [main]      ************каталог товаров************ 
+2020-06-04 10:51:26,061 INFO r.v.l.d.ActionsWithDBImpl [main] №          Наименование        Цена       Наличие    
+ 
+2020-06-04 10:51:26,062 INFO r.v.l.d.ActionsWithDBImpl [main] 1          book                12,00      да           
+ 
+2020-06-04 10:51:26,062 INFO r.v.l.d.ActionsWithDBImpl [main] 2          book                15,00      да           
+ 
+2020-06-04 10:51:26,063 INFO r.v.l.d.ActionsWithDBImpl [main] 3          notebook            13,00      да           
+ 
+2020-06-04 10:51:26,063 INFO r.v.l.d.ActionsWithDBImpl [main] 6          book                15,00      да           
+ 
+2020-06-04 10:51:26,063 INFO r.v.l.d.ActionsWithDBImpl [main] 7          notebook            13,00      да           
+ 
+2020-06-04 10:51:26,063 INFO r.v.l.d.ActionsWithDBImpl [main] 10         book                15,00      да           
+ 
+2020-06-04 10:51:26,063 INFO r.v.l.d.ActionsWithDBImpl [main] 11         notebook            13,00      да           
+ 
+2020-06-04 10:51:26,063 INFO r.v.l.d.ActionsWithDBImpl [main] 14         book                15,00      да           
+ 
+2020-06-04 10:51:26,063 INFO r.v.l.d.ActionsWithDBImpl [main] 15         notebook            13,00      да           
+ 
+2020-06-04 10:51:26,064 INFO r.v.l.d.ActionsWithDBImpl [main] 18         book                15,00      да           
+ 
+2020-06-04 10:51:26,064 INFO r.v.l.d.ActionsWithDBImpl [main] 19         notebook            13,00      да           
+ 
+2020-06-04 10:51:26,064 INFO r.v.l.d.ActionsWithDBImpl [main] 22         book                15,00      да           
+ 
+2020-06-04 10:51:26,064 INFO r.v.l.d.ActionsWithDBImpl [main] 23         notebook            13,00      да           
+ 
+2020-06-04 10:51:26,064 INFO r.v.l.d.ActionsWithDBImpl [main] 26         book                15,00      да           
+ 
+2020-06-04 10:51:26,064 INFO r.v.l.d.ActionsWithDBImpl [main] 27         notebook            13,00      да           
+ 
+2020-06-04 10:51:26,064 INFO r.v.l.d.ActionsWithDBImpl [main] 30         book                15,00      да           
+ 
+2020-06-04 10:51:26,065 INFO r.v.l.d.ActionsWithDBImpl [main] 31         notebook            13,00      да           
+ 
+2020-06-04 10:51:26,065 INFO r.v.l.Shop [main] showProduct 
+2020-06-04 10:51:26,067 INFO r.v.l.Shop [main] creatingOrder 
+2020-06-04 10:51:26,070 INFO r.v.l.Shop [main] creatingShop 
+2020-06-04 10:51:26,071 INFO r.v.l.d.ActionsWithDBImpl [main]      ************Заказ************ 
+2020-06-04 10:51:26,071 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-04 10:51:26,071 INFO r.v.l.d.ActionsWithDBImpl [main] 9        Tom       121111     book          12,00      да           
+ 
+2020-06-04 10:51:26,071 INFO r.v.l.Shop [main] prepareOrder 
+2020-06-04 10:51:26,076 INFO r.v.l.d.ActionsWithDBImpl [main]      ************История заказов************ 
+2020-06-04 10:51:26,076 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-04 10:51:26,076 INFO r.v.l.d.ActionsWithDBImpl [main] 1687     Tom       121111     book          12,00      да           
+ 
+2020-06-04 10:51:26,077 INFO r.v.l.d.ActionsWithDBImpl [main] 17783    Tom       121111     book          12,00      да           
+ 
+2020-06-04 10:51:26,077 INFO r.v.l.Shop [main] getAllOrder 
+2020-06-04 10:51:32,994 INFO SecurityLog4J2 [main] start 
+2020-06-04 10:51:33,176 INFO r.v.l.Shop [main] connect 
+2020-06-04 10:53:46,322 INFO r.v.l.Shop [main] addClient 
+2020-06-04 10:53:46,326 INFO r.v.l.Shop [main] addProduct 
+2020-06-04 10:53:46,327 INFO r.v.l.d.ActionsWithDBImpl [main]      ************каталог товаров************ 
+2020-06-04 10:53:46,327 INFO r.v.l.d.ActionsWithDBImpl [main] №          Наименование        Цена       Наличие    
+ 
+2020-06-04 10:53:46,328 INFO r.v.l.d.ActionsWithDBImpl [main] 1          book                12,00      да           
+ 
+2020-06-04 10:53:46,328 INFO r.v.l.d.ActionsWithDBImpl [main] 2          book                15,00      да           
+ 
+2020-06-04 10:53:46,329 INFO r.v.l.d.ActionsWithDBImpl [main] 3          notebook            13,00      да           
+ 
+2020-06-04 10:53:46,329 INFO r.v.l.d.ActionsWithDBImpl [main] 6          book                15,00      да           
+ 
+2020-06-04 10:53:46,329 INFO r.v.l.d.ActionsWithDBImpl [main] 7          notebook            13,00      да           
+ 
+2020-06-04 10:53:46,329 INFO r.v.l.d.ActionsWithDBImpl [main] 10         book                15,00      да           
+ 
+2020-06-04 10:53:46,329 INFO r.v.l.d.ActionsWithDBImpl [main] 11         notebook            13,00      да           
+ 
+2020-06-04 10:53:46,329 INFO r.v.l.d.ActionsWithDBImpl [main] 14         book                15,00      да           
+ 
+2020-06-04 10:53:46,329 INFO r.v.l.d.ActionsWithDBImpl [main] 15         notebook            13,00      да           
+ 
+2020-06-04 10:53:46,330 INFO r.v.l.d.ActionsWithDBImpl [main] 18         book                15,00      да           
+ 
+2020-06-04 10:53:46,330 INFO r.v.l.d.ActionsWithDBImpl [main] 19         notebook            13,00      да           
+ 
+2020-06-04 10:53:46,330 INFO r.v.l.d.ActionsWithDBImpl [main] 22         book                15,00      да           
+ 
+2020-06-04 10:53:46,330 INFO r.v.l.d.ActionsWithDBImpl [main] 23         notebook            13,00      да           
+ 
+2020-06-04 10:53:46,330 INFO r.v.l.d.ActionsWithDBImpl [main] 26         book                15,00      да           
+ 
+2020-06-04 10:53:46,330 INFO r.v.l.d.ActionsWithDBImpl [main] 27         notebook            13,00      да           
+ 
+2020-06-04 10:53:46,330 INFO r.v.l.d.ActionsWithDBImpl [main] 30         book                15,00      да           
+ 
+2020-06-04 10:53:46,331 INFO r.v.l.d.ActionsWithDBImpl [main] 31         notebook            13,00      да           
+ 
+2020-06-04 10:53:46,331 INFO r.v.l.d.ActionsWithDBImpl [main] 34         book                15,00      да           
+ 
+2020-06-04 10:53:46,331 INFO r.v.l.d.ActionsWithDBImpl [main] 35         notebook            13,00      да           
+ 
+2020-06-04 10:53:46,331 INFO r.v.l.Shop [main] showProduct 
+2020-06-04 10:53:46,333 INFO r.v.l.Shop [main] creatingOrder 
+2020-06-04 10:53:46,336 INFO r.v.l.Shop [main] creatingShop 
+2020-06-04 10:53:46,337 INFO r.v.l.d.ActionsWithDBImpl [main]      ************Заказ************ 
+2020-06-04 10:53:46,337 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-04 10:53:46,338 INFO r.v.l.d.ActionsWithDBImpl [main] 10       Tom       121111     book          12,00      да           
+ 
+2020-06-04 10:53:46,338 INFO r.v.l.Shop [main] prepareOrder 
+2020-06-04 10:53:46,339 INFO r.v.l.d.ActionsWithDBImpl [main]      ************История заказов************ 
+2020-06-04 10:53:46,339 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-04 10:53:46,340 INFO r.v.l.d.ActionsWithDBImpl [main] 1687     Tom       121111     book          12,00      да           
+ 
+2020-06-04 10:53:46,340 INFO r.v.l.d.ActionsWithDBImpl [main] 91384    Tom       121111     book          12,00      да           
+ 
+2020-06-04 10:53:46,340 INFO r.v.l.Shop [main] getAllOrder 
+2020-06-04 10:54:24,897 INFO SecurityLog4J2 [main] start 
+2020-06-04 10:54:25,091 INFO r.v.l.Shop [main] connect 
+2020-06-04 10:54:25,153 INFO r.v.l.Shop [main] addClient 
+2020-06-04 10:54:25,156 INFO r.v.l.Shop [main] addProduct 
+2020-06-04 10:54:25,158 INFO r.v.l.d.ActionsWithDBImpl [main]      ************каталог товаров************ 
+2020-06-04 10:54:25,158 INFO r.v.l.d.ActionsWithDBImpl [main] №          Наименование        Цена       Наличие    
+ 
+2020-06-04 10:54:25,159 INFO r.v.l.d.ActionsWithDBImpl [main] 1          book                12,00      да           
+ 
+2020-06-04 10:54:25,159 INFO r.v.l.d.ActionsWithDBImpl [main] 2          book                15,00      да           
+ 
+2020-06-04 10:54:25,159 INFO r.v.l.d.ActionsWithDBImpl [main] 3          notebook            13,00      да           
+ 
+2020-06-04 10:54:25,159 INFO r.v.l.d.ActionsWithDBImpl [main] 6          book                15,00      да           
+ 
+2020-06-04 10:54:25,159 INFO r.v.l.d.ActionsWithDBImpl [main] 7          notebook            13,00      да           
+ 
+2020-06-04 10:54:25,160 INFO r.v.l.d.ActionsWithDBImpl [main] 10         book                15,00      да           
+ 
+2020-06-04 10:54:25,160 INFO r.v.l.d.ActionsWithDBImpl [main] 11         notebook            13,00      да           
+ 
+2020-06-04 10:54:25,160 INFO r.v.l.d.ActionsWithDBImpl [main] 14         book                15,00      да           
+ 
+2020-06-04 10:54:25,160 INFO r.v.l.d.ActionsWithDBImpl [main] 15         notebook            13,00      да           
+ 
+2020-06-04 10:54:25,160 INFO r.v.l.d.ActionsWithDBImpl [main] 18         book                15,00      да           
+ 
+2020-06-04 10:54:25,160 INFO r.v.l.d.ActionsWithDBImpl [main] 19         notebook            13,00      да           
+ 
+2020-06-04 10:54:25,161 INFO r.v.l.d.ActionsWithDBImpl [main] 22         book                15,00      да           
+ 
+2020-06-04 10:54:25,161 INFO r.v.l.d.ActionsWithDBImpl [main] 23         notebook            13,00      да           
+ 
+2020-06-04 10:54:25,161 INFO r.v.l.d.ActionsWithDBImpl [main] 26         book                15,00      да           
+ 
+2020-06-04 10:54:25,161 INFO r.v.l.d.ActionsWithDBImpl [main] 27         notebook            13,00      да           
+ 
+2020-06-04 10:54:25,161 INFO r.v.l.d.ActionsWithDBImpl [main] 30         book                15,00      да           
+ 
+2020-06-04 10:54:25,161 INFO r.v.l.d.ActionsWithDBImpl [main] 31         notebook            13,00      да           
+ 
+2020-06-04 10:54:25,161 INFO r.v.l.d.ActionsWithDBImpl [main] 34         book                15,00      да           
+ 
+2020-06-04 10:54:25,162 INFO r.v.l.d.ActionsWithDBImpl [main] 35         notebook            13,00      да           
+ 
+2020-06-04 10:54:25,162 INFO r.v.l.d.ActionsWithDBImpl [main] 38         book                15,00      да           
+ 
+2020-06-04 10:54:25,162 INFO r.v.l.d.ActionsWithDBImpl [main] 39         notebook            13,00      да           
+ 
+2020-06-04 10:54:25,162 INFO r.v.l.Shop [main] showProduct 
+2020-06-04 10:54:25,165 INFO r.v.l.Shop [main] creatingOrder 
+2020-06-04 10:54:25,170 INFO r.v.l.Shop [main] creatingShop 
+2020-06-04 10:54:25,172 INFO r.v.l.d.ActionsWithDBImpl [main]      ************Заказ************ 
+2020-06-04 10:54:25,172 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-04 10:54:25,172 INFO r.v.l.d.ActionsWithDBImpl [main] 11       Tom       121111     book          12,00      да           
+ 
+2020-06-04 10:54:25,172 INFO r.v.l.Shop [main] prepareOrder 
+2020-06-04 10:54:25,173 INFO r.v.l.d.ActionsWithDBImpl [main]      ************История заказов************ 
+2020-06-04 10:54:25,173 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-04 10:54:25,174 INFO r.v.l.d.ActionsWithDBImpl [main] 1687     Tom       121111     book          12,00      да           
+ 
+2020-06-04 10:54:25,174 INFO r.v.l.d.ActionsWithDBImpl [main] 57787    Tom       121111     book          12,00      да           
+ 
+2020-06-04 10:54:25,174 INFO r.v.l.Shop [main] getAllOrder 
+2020-06-04 10:54:25,218 INFO r.v.l.Shop [main] connectClose 
+2020-06-04 10:54:25,218 INFO SecurityLog4J2 [main] stop 
+2020-06-04 10:55:17,627 INFO SecurityLog4J2 [main] start 
+2020-06-04 10:55:17,797 INFO r.v.l.Shop [main] connect 
+2020-06-04 10:55:17,825 INFO r.v.l.Shop [main] addClient 
+2020-06-04 10:55:17,828 INFO r.v.l.Shop [main] addProduct 
+2020-06-04 10:55:17,829 INFO r.v.l.d.ActionsWithDBImpl [main]      ************каталог товаров************ 
+2020-06-04 10:55:17,829 INFO r.v.l.d.ActionsWithDBImpl [main] №          Наименование        Цена       Наличие    
+ 
+2020-06-04 10:55:17,830 INFO r.v.l.d.ActionsWithDBImpl [main] 1          book                12,00      да           
+ 
+2020-06-04 10:55:17,830 INFO r.v.l.d.ActionsWithDBImpl [main] 2          book                15,00      да           
+ 
+2020-06-04 10:55:17,831 INFO r.v.l.d.ActionsWithDBImpl [main] 3          notebook            13,00      да           
+ 
+2020-06-04 10:55:17,831 INFO r.v.l.d.ActionsWithDBImpl [main] 6          book                15,00      да           
+ 
+2020-06-04 10:55:17,831 INFO r.v.l.d.ActionsWithDBImpl [main] 7          notebook            13,00      да           
+ 
+2020-06-04 10:55:17,831 INFO r.v.l.d.ActionsWithDBImpl [main] 10         book                15,00      да           
+ 
+2020-06-04 10:55:17,831 INFO r.v.l.d.ActionsWithDBImpl [main] 11         notebook            13,00      да           
+ 
+2020-06-04 10:55:17,831 INFO r.v.l.d.ActionsWithDBImpl [main] 14         book                15,00      да           
+ 
+2020-06-04 10:55:17,831 INFO r.v.l.d.ActionsWithDBImpl [main] 15         notebook            13,00      да           
+ 
+2020-06-04 10:55:17,831 INFO r.v.l.d.ActionsWithDBImpl [main] 18         book                15,00      да           
+ 
+2020-06-04 10:55:17,832 INFO r.v.l.d.ActionsWithDBImpl [main] 19         notebook            13,00      да           
+ 
+2020-06-04 10:55:17,832 INFO r.v.l.d.ActionsWithDBImpl [main] 22         book                15,00      да           
+ 
+2020-06-04 10:55:17,832 INFO r.v.l.d.ActionsWithDBImpl [main] 23         notebook            13,00      да           
+ 
+2020-06-04 10:55:17,832 INFO r.v.l.d.ActionsWithDBImpl [main] 26         book                15,00      да           
+ 
+2020-06-04 10:55:17,832 INFO r.v.l.d.ActionsWithDBImpl [main] 27         notebook            13,00      да           
+ 
+2020-06-04 10:55:17,832 INFO r.v.l.d.ActionsWithDBImpl [main] 30         book                15,00      да           
+ 
+2020-06-04 10:55:17,832 INFO r.v.l.d.ActionsWithDBImpl [main] 31         notebook            13,00      да           
+ 
+2020-06-04 10:55:17,833 INFO r.v.l.d.ActionsWithDBImpl [main] 34         book                15,00      да           
+ 
+2020-06-04 10:55:17,833 INFO r.v.l.d.ActionsWithDBImpl [main] 35         notebook            13,00      да           
+ 
+2020-06-04 10:55:17,833 INFO r.v.l.d.ActionsWithDBImpl [main] 38         book                15,00      да           
+ 
+2020-06-04 10:55:17,833 INFO r.v.l.d.ActionsWithDBImpl [main] 39         notebook            13,00      да           
+ 
+2020-06-04 10:55:17,833 INFO r.v.l.d.ActionsWithDBImpl [main] 42         book                15,00      да           
+ 
+2020-06-04 10:55:17,833 INFO r.v.l.d.ActionsWithDBImpl [main] 43         notebook            13,00      да           
+ 
+2020-06-04 10:55:17,836 INFO r.v.l.Shop [main] showProduct 
+2020-06-04 10:55:17,838 INFO r.v.l.Shop [main] creatingOrder 
+2020-06-04 10:55:17,841 INFO r.v.l.Shop [main] creatingShop 
+2020-06-04 10:55:17,842 INFO r.v.l.d.ActionsWithDBImpl [main]      ************Заказ************ 
+2020-06-04 10:55:17,842 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-04 10:55:17,842 INFO r.v.l.d.ActionsWithDBImpl [main] 12       Tom       121111     book          12,00      да           
+ 
+2020-06-04 10:55:17,843 INFO r.v.l.Shop [main] prepareOrder 
+2020-06-04 10:55:17,844 INFO r.v.l.d.ActionsWithDBImpl [main]      ************История заказов************ 
+2020-06-04 10:55:17,844 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-04 10:55:17,844 INFO r.v.l.d.ActionsWithDBImpl [main] 1687     Tom       121111     book          12,00      да           
+ 
+2020-06-04 10:55:17,845 INFO r.v.l.d.ActionsWithDBImpl [main] 5539     Tom       121111     book          12,00      да           
+ 
+2020-06-04 10:55:17,845 INFO r.v.l.Shop [main] getAllOrder 
+2020-06-04 10:55:17,884 INFO r.v.l.Shop [main] connectClose 
+2020-06-04 10:55:17,884 INFO SecurityLog4J2 [main] stop 
+2020-06-04 11:03:30,706 INFO SecurityLog4J2 [main] start 
+2020-06-04 11:03:36,064 INFO r.v.l.Shop [main] connect 
+2020-06-04 11:03:36,157 INFO r.v.l.Shop [main] addClient 
+2020-06-04 11:03:36,160 INFO r.v.l.Shop [main] addProduct 
+2020-06-04 11:03:36,166 INFO r.v.l.d.ActionsWithDBImpl [main]      ************каталог товаров************ 
+2020-06-04 11:03:36,167 INFO r.v.l.d.ActionsWithDBImpl [main] №          Наименование        Цена       Наличие    
+ 
+2020-06-04 11:03:36,167 INFO r.v.l.d.ActionsWithDBImpl [main] 1          book                12,00      да           
+ 
+2020-06-04 11:03:36,168 INFO r.v.l.d.ActionsWithDBImpl [main] 2          book                15,00      да           
+ 
+2020-06-04 11:03:36,168 INFO r.v.l.d.ActionsWithDBImpl [main] 3          notebook            13,00      да           
+ 
+2020-06-04 11:03:36,168 INFO r.v.l.d.ActionsWithDBImpl [main] 6          book                15,00      да           
+ 
+2020-06-04 11:03:36,168 INFO r.v.l.d.ActionsWithDBImpl [main] 7          notebook            13,00      да           
+ 
+2020-06-04 11:03:36,168 INFO r.v.l.d.ActionsWithDBImpl [main] 10         book                15,00      да           
+ 
+2020-06-04 11:03:36,168 INFO r.v.l.d.ActionsWithDBImpl [main] 11         notebook            13,00      да           
+ 
+2020-06-04 11:03:36,168 INFO r.v.l.d.ActionsWithDBImpl [main] 14         book                15,00      да           
+ 
+2020-06-04 11:03:36,169 INFO r.v.l.d.ActionsWithDBImpl [main] 15         notebook            13,00      да           
+ 
+2020-06-04 11:03:36,169 INFO r.v.l.d.ActionsWithDBImpl [main] 18         book                15,00      да           
+ 
+2020-06-04 11:03:36,169 INFO r.v.l.d.ActionsWithDBImpl [main] 19         notebook            13,00      да           
+ 
+2020-06-04 11:03:36,169 INFO r.v.l.d.ActionsWithDBImpl [main] 22         book                15,00      да           
+ 
+2020-06-04 11:03:36,169 INFO r.v.l.d.ActionsWithDBImpl [main] 23         notebook            13,00      да           
+ 
+2020-06-04 11:03:36,170 INFO r.v.l.d.ActionsWithDBImpl [main] 26         book                15,00      да           
+ 
+2020-06-04 11:03:36,170 INFO r.v.l.d.ActionsWithDBImpl [main] 27         notebook            13,00      да           
+ 
+2020-06-04 11:03:36,170 INFO r.v.l.d.ActionsWithDBImpl [main] 30         book                15,00      да           
+ 
+2020-06-04 11:03:36,170 INFO r.v.l.d.ActionsWithDBImpl [main] 31         notebook            13,00      да           
+ 
+2020-06-04 11:03:36,170 INFO r.v.l.d.ActionsWithDBImpl [main] 34         book                15,00      да           
+ 
+2020-06-04 11:03:36,170 INFO r.v.l.d.ActionsWithDBImpl [main] 35         notebook            13,00      да           
+ 
+2020-06-04 11:03:36,170 INFO r.v.l.d.ActionsWithDBImpl [main] 38         book                15,00      да           
+ 
+2020-06-04 11:03:36,171 INFO r.v.l.d.ActionsWithDBImpl [main] 39         notebook            13,00      да           
+ 
+2020-06-04 11:03:36,171 INFO r.v.l.d.ActionsWithDBImpl [main] 42         book                15,00      да           
+ 
+2020-06-04 11:03:36,171 INFO r.v.l.d.ActionsWithDBImpl [main] 43         notebook            13,00      да           
+ 
+2020-06-04 11:03:36,171 INFO r.v.l.d.ActionsWithDBImpl [main] 46         book                15,00      да           
+ 
+2020-06-04 11:03:36,172 INFO r.v.l.d.ActionsWithDBImpl [main] 47         notebook            13,00      да           
+ 
+2020-06-04 11:03:36,172 INFO r.v.l.Shop [main] showProduct 
+2020-06-04 11:03:36,174 INFO r.v.l.Shop [main] creatingOrder 
+2020-06-04 11:03:36,176 INFO r.v.l.Shop [main] creatingShop 
+2020-06-04 11:03:36,177 INFO r.v.l.d.ActionsWithDBImpl [main]      ************Заказ************ 
+2020-06-04 11:03:36,178 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-04 11:03:36,178 INFO r.v.l.d.ActionsWithDBImpl [main] 13       Tom       121111     book          12,00      да           
+ 
+2020-06-04 11:03:36,178 INFO r.v.l.Shop [main] prepareOrder 
+2020-06-04 11:03:36,179 INFO r.v.l.d.ActionsWithDBImpl [main]      ************История заказов************ 
+2020-06-04 11:03:36,179 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-04 11:03:36,179 INFO r.v.l.d.ActionsWithDBImpl [main] 1687     Tom       121111     book          12,00      да           
+ 
+2020-06-04 11:03:36,180 INFO r.v.l.d.ActionsWithDBImpl [main] 68140    Tom       121111     book          12,00      да           
+ 
+2020-06-04 11:03:36,180 INFO r.v.l.Shop [main] getAllOrder 
+2020-06-04 11:03:36,220 INFO r.v.l.Shop [main] connectClose 
+2020-06-04 11:03:36,220 INFO SecurityLog4J2 [main] stop 
+2020-06-04 11:04:16,600 INFO SecurityLog4J2 [main] start 
+2020-06-04 11:04:21,864 INFO r.v.l.Shop [main] connect 
+2020-06-04 11:04:21,937 INFO r.v.l.Shop [main] addClient 
+2020-06-04 11:04:21,940 INFO r.v.l.Shop [main] addProduct 
+2020-06-04 11:04:21,947 INFO r.v.l.d.ActionsWithDBImpl [main]      ************каталог товаров************ 
+2020-06-04 11:04:21,948 INFO r.v.l.d.ActionsWithDBImpl [main] №          Наименование        Цена       Наличие    
+ 
+2020-06-04 11:04:21,948 INFO r.v.l.d.ActionsWithDBImpl [main] 1          book                12,00      да           
+ 
+2020-06-04 11:04:21,949 INFO r.v.l.d.ActionsWithDBImpl [main] 2          book                15,00      да           
+ 
+2020-06-04 11:04:21,949 INFO r.v.l.d.ActionsWithDBImpl [main] 3          notebook            13,00      да           
+ 
+2020-06-04 11:04:21,949 INFO r.v.l.d.ActionsWithDBImpl [main] 6          book                15,00      да           
+ 
+2020-06-04 11:04:21,949 INFO r.v.l.d.ActionsWithDBImpl [main] 7          notebook            13,00      да           
+ 
+2020-06-04 11:04:21,949 INFO r.v.l.d.ActionsWithDBImpl [main] 10         book                15,00      да           
+ 
+2020-06-04 11:04:21,949 INFO r.v.l.d.ActionsWithDBImpl [main] 11         notebook            13,00      да           
+ 
+2020-06-04 11:04:21,949 INFO r.v.l.d.ActionsWithDBImpl [main] 14         book                15,00      да           
+ 
+2020-06-04 11:04:21,950 INFO r.v.l.d.ActionsWithDBImpl [main] 15         notebook            13,00      да           
+ 
+2020-06-04 11:04:21,950 INFO r.v.l.d.ActionsWithDBImpl [main] 18         book                15,00      да           
+ 
+2020-06-04 11:04:21,950 INFO r.v.l.d.ActionsWithDBImpl [main] 19         notebook            13,00      да           
+ 
+2020-06-04 11:04:21,950 INFO r.v.l.d.ActionsWithDBImpl [main] 22         book                15,00      да           
+ 
+2020-06-04 11:04:21,950 INFO r.v.l.d.ActionsWithDBImpl [main] 23         notebook            13,00      да           
+ 
+2020-06-04 11:04:21,950 INFO r.v.l.d.ActionsWithDBImpl [main] 26         book                15,00      да           
+ 
+2020-06-04 11:04:21,950 INFO r.v.l.d.ActionsWithDBImpl [main] 27         notebook            13,00      да           
+ 
+2020-06-04 11:04:21,951 INFO r.v.l.d.ActionsWithDBImpl [main] 30         book                15,00      да           
+ 
+2020-06-04 11:04:21,951 INFO r.v.l.d.ActionsWithDBImpl [main] 31         notebook            13,00      да           
+ 
+2020-06-04 11:04:21,951 INFO r.v.l.d.ActionsWithDBImpl [main] 34         book                15,00      да           
+ 
+2020-06-04 11:04:21,951 INFO r.v.l.d.ActionsWithDBImpl [main] 35         notebook            13,00      да           
+ 
+2020-06-04 11:04:21,951 INFO r.v.l.d.ActionsWithDBImpl [main] 38         book                15,00      да           
+ 
+2020-06-04 11:04:21,951 INFO r.v.l.d.ActionsWithDBImpl [main] 39         notebook            13,00      да           
+ 
+2020-06-04 11:04:21,951 INFO r.v.l.d.ActionsWithDBImpl [main] 42         book                15,00      да           
+ 
+2020-06-04 11:04:21,951 INFO r.v.l.d.ActionsWithDBImpl [main] 43         notebook            13,00      да           
+ 
+2020-06-04 11:04:21,952 INFO r.v.l.d.ActionsWithDBImpl [main] 46         book                15,00      да           
+ 
+2020-06-04 11:04:21,952 INFO r.v.l.d.ActionsWithDBImpl [main] 47         notebook            13,00      да           
+ 
+2020-06-04 11:04:21,952 INFO r.v.l.d.ActionsWithDBImpl [main] 50         book                15,00      да           
+ 
+2020-06-04 11:04:21,952 INFO r.v.l.d.ActionsWithDBImpl [main] 51         notebook            13,00      да           
+ 
+2020-06-04 11:04:21,952 INFO r.v.l.Shop [main] showProduct 
+2020-06-04 11:04:21,954 INFO r.v.l.Shop [main] creatingOrder 
+2020-06-04 11:04:21,956 INFO r.v.l.Shop [main] creatingShop 
+2020-06-04 11:04:21,957 INFO r.v.l.d.ActionsWithDBImpl [main]      ************Заказ************ 
+2020-06-04 11:04:21,957 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-04 11:04:21,958 INFO r.v.l.d.ActionsWithDBImpl [main] 14       Tom       121111     book          12,00      да           
+ 
+2020-06-04 11:04:21,958 INFO r.v.l.Shop [main] prepareOrder 
+2020-06-04 11:04:21,959 INFO r.v.l.d.ActionsWithDBImpl [main]      ************История заказов************ 
+2020-06-04 11:04:21,959 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-04 11:04:21,960 INFO r.v.l.d.ActionsWithDBImpl [main] 1687     Tom       121111     book          12,00      да           
+ 
+2020-06-04 11:04:21,960 INFO r.v.l.d.ActionsWithDBImpl [main] 67403    Tom       121111     book          12,00      да           
+ 
+2020-06-04 11:04:21,960 INFO r.v.l.Shop [main] getAllOrder 
+2020-06-04 11:04:22,001 INFO r.v.l.Shop [main] connectClose 
+2020-06-04 11:04:22,001 INFO SecurityLog4J2 [main] stop 
+2020-06-04 11:04:58,888 INFO r.v.l.Shop [main] connect 
+2020-06-04 11:04:58,959 INFO SecurityLog4J2 [main] start 
+2020-06-04 11:05:04,181 INFO r.v.l.Shop [main] addClient 
+2020-06-04 11:05:04,184 INFO r.v.l.Shop [main] addProduct 
+2020-06-04 11:05:04,193 INFO r.v.l.d.ActionsWithDBImpl [main]      ************каталог товаров************ 
+2020-06-04 11:05:04,193 INFO r.v.l.d.ActionsWithDBImpl [main] №          Наименование        Цена       Наличие    
+ 
+2020-06-04 11:05:04,195 INFO r.v.l.d.ActionsWithDBImpl [main] 1          book                12,00      да           
+ 
+2020-06-04 11:05:04,195 INFO r.v.l.d.ActionsWithDBImpl [main] 2          book                15,00      да           
+ 
+2020-06-04 11:05:04,196 INFO r.v.l.d.ActionsWithDBImpl [main] 3          notebook            13,00      да           
+ 
+2020-06-04 11:05:04,196 INFO r.v.l.d.ActionsWithDBImpl [main] 6          book                15,00      да           
+ 
+2020-06-04 11:05:04,196 INFO r.v.l.d.ActionsWithDBImpl [main] 7          notebook            13,00      да           
+ 
+2020-06-04 11:05:04,197 INFO r.v.l.d.ActionsWithDBImpl [main] 10         book                15,00      да           
+ 
+2020-06-04 11:05:04,197 INFO r.v.l.d.ActionsWithDBImpl [main] 11         notebook            13,00      да           
+ 
+2020-06-04 11:05:04,197 INFO r.v.l.d.ActionsWithDBImpl [main] 14         book                15,00      да           
+ 
+2020-06-04 11:05:04,197 INFO r.v.l.d.ActionsWithDBImpl [main] 15         notebook            13,00      да           
+ 
+2020-06-04 11:05:04,197 INFO r.v.l.d.ActionsWithDBImpl [main] 18         book                15,00      да           
+ 
+2020-06-04 11:05:04,197 INFO r.v.l.d.ActionsWithDBImpl [main] 19         notebook            13,00      да           
+ 
+2020-06-04 11:05:04,197 INFO r.v.l.d.ActionsWithDBImpl [main] 22         book                15,00      да           
+ 
+2020-06-04 11:05:04,198 INFO r.v.l.d.ActionsWithDBImpl [main] 23         notebook            13,00      да           
+ 
+2020-06-04 11:05:04,198 INFO r.v.l.d.ActionsWithDBImpl [main] 26         book                15,00      да           
+ 
+2020-06-04 11:05:04,198 INFO r.v.l.d.ActionsWithDBImpl [main] 27         notebook            13,00      да           
+ 
+2020-06-04 11:05:04,198 INFO r.v.l.d.ActionsWithDBImpl [main] 30         book                15,00      да           
+ 
+2020-06-04 11:05:04,198 INFO r.v.l.d.ActionsWithDBImpl [main] 31         notebook            13,00      да           
+ 
+2020-06-04 11:05:04,198 INFO r.v.l.d.ActionsWithDBImpl [main] 34         book                15,00      да           
+ 
+2020-06-04 11:05:04,198 INFO r.v.l.d.ActionsWithDBImpl [main] 35         notebook            13,00      да           
+ 
+2020-06-04 11:05:04,199 INFO r.v.l.d.ActionsWithDBImpl [main] 38         book                15,00      да           
+ 
+2020-06-04 11:05:04,199 INFO r.v.l.d.ActionsWithDBImpl [main] 39         notebook            13,00      да           
+ 
+2020-06-04 11:05:04,199 INFO r.v.l.d.ActionsWithDBImpl [main] 42         book                15,00      да           
+ 
+2020-06-04 11:05:04,199 INFO r.v.l.d.ActionsWithDBImpl [main] 43         notebook            13,00      да           
+ 
+2020-06-04 11:05:04,199 INFO r.v.l.d.ActionsWithDBImpl [main] 46         book                15,00      да           
+ 
+2020-06-04 11:05:04,199 INFO r.v.l.d.ActionsWithDBImpl [main] 47         notebook            13,00      да           
+ 
+2020-06-04 11:05:04,199 INFO r.v.l.d.ActionsWithDBImpl [main] 50         book                15,00      да           
+ 
+2020-06-04 11:05:04,200 INFO r.v.l.d.ActionsWithDBImpl [main] 51         notebook            13,00      да           
+ 
+2020-06-04 11:05:04,200 INFO r.v.l.d.ActionsWithDBImpl [main] 54         book                15,00      да           
+ 
+2020-06-04 11:05:04,200 INFO r.v.l.d.ActionsWithDBImpl [main] 55         notebook            13,00      да           
+ 
+2020-06-04 11:05:04,200 INFO r.v.l.Shop [main] showProduct 
+2020-06-04 11:05:04,202 INFO r.v.l.Shop [main] creatingOrder 
+2020-06-04 11:05:04,205 INFO r.v.l.Shop [main] creatingShop 
+2020-06-04 11:05:04,206 INFO r.v.l.d.ActionsWithDBImpl [main]      ************Заказ************ 
+2020-06-04 11:05:04,206 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-04 11:05:04,207 INFO r.v.l.d.ActionsWithDBImpl [main] 15       Tom       121111     book          12,00      да           
+ 
+2020-06-04 11:05:04,207 INFO r.v.l.Shop [main] prepareOrder 
+2020-06-04 11:05:04,210 INFO r.v.l.d.ActionsWithDBImpl [main]      ************История заказов************ 
+2020-06-04 11:05:04,210 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-04 11:05:04,210 INFO r.v.l.d.ActionsWithDBImpl [main] 1687     Tom       121111     book          12,00      да           
+ 
+2020-06-04 11:05:04,210 INFO r.v.l.d.ActionsWithDBImpl [main] 41962    Tom       121111     book          12,00      да           
+ 
+2020-06-04 11:05:04,210 INFO r.v.l.Shop [main] getAllOrder 
+2020-06-04 11:05:04,264 INFO r.v.l.Shop [main] connectClose 
+2020-06-04 11:05:04,264 INFO SecurityLog4J2 [main] stop 
+2020-06-04 11:05:58,020 INFO r.v.l.Shop [main] connect 
+2020-06-04 11:05:58,098 INFO r.v.l.DBInit [main] инициализация таблиц 
+2020-06-04 11:05:58,098 INFO SecurityLog4J2 [main] start 
+2020-06-04 11:05:58,173 INFO r.v.l.Shop [main] addClient 
+2020-06-04 11:05:58,176 INFO r.v.l.Shop [main] addProduct 
+2020-06-04 11:05:58,177 INFO r.v.l.d.ActionsWithDBImpl [main]      ************каталог товаров************ 
+2020-06-04 11:05:58,178 INFO r.v.l.d.ActionsWithDBImpl [main] №          Наименование        Цена       Наличие    
+ 
+2020-06-04 11:05:58,178 INFO r.v.l.d.ActionsWithDBImpl [main] 1          book                12,00      да           
+ 
+2020-06-04 11:05:58,178 INFO r.v.l.d.ActionsWithDBImpl [main] 2          book                15,00      да           
+ 
+2020-06-04 11:05:58,178 INFO r.v.l.d.ActionsWithDBImpl [main] 3          notebook            13,00      да           
+ 
+2020-06-04 11:05:58,178 INFO r.v.l.Shop [main] showProduct 
+2020-06-04 11:05:58,181 INFO r.v.l.Shop [main] creatingOrder 
+2020-06-04 11:05:58,183 INFO r.v.l.Shop [main] creatingShop 
+2020-06-04 11:05:58,184 INFO r.v.l.d.ActionsWithDBImpl [main]      ************Заказ************ 
+2020-06-04 11:05:58,184 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-04 11:05:58,184 INFO r.v.l.d.ActionsWithDBImpl [main] 2        Tom       121111     book          12,00      да           
+ 
+2020-06-04 11:05:58,185 INFO r.v.l.Shop [main] prepareOrder 
+2020-06-04 11:05:58,186 INFO r.v.l.d.ActionsWithDBImpl [main]      ************История заказов************ 
+2020-06-04 11:05:58,186 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-04 11:05:58,186 INFO r.v.l.d.ActionsWithDBImpl [main] 1687     Tom       121111     book          12,00      да           
+ 
+2020-06-04 11:05:58,186 INFO r.v.l.d.ActionsWithDBImpl [main] 8826     Tom       121111     book          12,00      да           
+ 
+2020-06-04 11:05:58,186 INFO r.v.l.Shop [main] getAllOrder 
+2020-06-04 11:05:58,228 INFO r.v.l.Shop [main] connectClose 
+2020-06-04 11:05:58,228 INFO SecurityLog4J2 [main] stop 
+2020-06-04 11:07:21,115 INFO r.v.l.Shop [main] connect 
+2020-06-04 11:07:21,205 INFO r.v.l.DBInit [main] инициализация таблиц 
+2020-06-04 11:07:21,205 INFO SecurityLog4J2 [main] start 
+2020-06-04 11:07:21,285 INFO r.v.l.Shop [main] addClient 
+2020-06-04 11:07:21,288 INFO r.v.l.Shop [main] addProduct 
+2020-06-04 11:07:21,289 INFO r.v.l.d.ActionsWithDBImpl [main]      ************каталог товаров************ 
+2020-06-04 11:07:21,289 INFO r.v.l.d.ActionsWithDBImpl [main] №          Наименование        Цена       Наличие    
+ 
+2020-06-04 11:07:21,290 INFO r.v.l.d.ActionsWithDBImpl [main] 1          book                12,00      да           
+ 
+2020-06-04 11:07:21,290 INFO r.v.l.d.ActionsWithDBImpl [main] 2          book                15,00      да           
+ 
+2020-06-04 11:07:21,290 INFO r.v.l.d.ActionsWithDBImpl [main] 3          notebook            13,00      да           
+ 
+2020-06-04 11:07:21,290 INFO r.v.l.Shop [main] showProduct 
+2020-06-04 11:07:21,292 INFO r.v.l.Shop [main] creatingOrder 
+2020-06-04 11:07:21,294 INFO r.v.l.Shop [main] creatingShop 
+2020-06-04 11:07:21,295 INFO r.v.l.d.ActionsWithDBImpl [main]      ************Заказ************ 
+2020-06-04 11:07:21,295 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-04 11:07:21,295 INFO r.v.l.d.ActionsWithDBImpl [main] 2        Tom       121111     book          12,00      да           
+ 
+2020-06-04 11:07:21,295 INFO r.v.l.Shop [main] prepareOrder 
+2020-06-04 11:07:21,296 INFO r.v.l.d.ActionsWithDBImpl [main]      ************История заказов************ 
+2020-06-04 11:07:21,297 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-04 11:07:21,297 INFO r.v.l.d.ActionsWithDBImpl [main] 1687     Tom       121111     book          12,00      да           
+ 
+2020-06-04 11:07:21,297 INFO r.v.l.d.ActionsWithDBImpl [main] 49274    Tom       121111     book          12,00      да           
+ 
+2020-06-04 11:07:21,297 INFO r.v.l.Shop [main] getAllOrder 
+2020-06-04 11:07:21,338 INFO r.v.l.Shop [main] connectClose 
+2020-06-04 11:07:21,339 INFO SecurityLog4J2 [main] stop 
+2020-06-04 11:09:27,516 INFO r.v.l.Shop [main] connect 
+2020-06-04 11:09:27,608 INFO r.v.l.DBInit [main] инициализация таблиц 
+2020-06-04 11:09:27,608 INFO SecurityLog4J2 [main] start 
+2020-06-04 11:09:27,688 INFO r.v.l.Shop [main] addClient 
+2020-06-04 11:09:27,691 INFO r.v.l.Shop [main] addProduct 
+2020-06-04 11:09:27,692 INFO r.v.l.d.ActionsWithDBImpl [main]      ************каталог товаров************ 
+2020-06-04 11:09:27,692 INFO r.v.l.d.ActionsWithDBImpl [main] №          Наименование        Цена       Наличие    
+ 
+2020-06-04 11:09:27,693 INFO r.v.l.d.ActionsWithDBImpl [main] 1          book                12,00      да           
+ 
+2020-06-04 11:09:27,693 INFO r.v.l.d.ActionsWithDBImpl [main] 2          book                15,00      да           
+ 
+2020-06-04 11:09:27,694 INFO r.v.l.d.ActionsWithDBImpl [main] 3          notebook            13,00      да           
+ 
+2020-06-04 11:09:27,694 INFO r.v.l.Shop [main] showProduct 
+2020-06-04 11:09:27,696 INFO r.v.l.Shop [main] creatingOrder 
+2020-06-04 11:09:27,698 INFO r.v.l.Shop [main] creatingShop 
+2020-06-04 11:09:27,699 INFO r.v.l.d.ActionsWithDBImpl [main]      ************Заказ************ 
+2020-06-04 11:09:27,699 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-04 11:09:27,699 INFO r.v.l.d.ActionsWithDBImpl [main] 2        Tom       121111     book          12,00      да           
+ 
+2020-06-04 11:09:27,699 INFO r.v.l.Shop [main] prepareOrder 
+2020-06-04 11:09:27,701 INFO r.v.l.d.ActionsWithDBImpl [main]      ************История заказов************ 
+2020-06-04 11:09:27,701 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-04 11:09:27,701 INFO r.v.l.d.ActionsWithDBImpl [main] 1687     Tom       121111     book          12,00      да           
+ 
+2020-06-04 11:09:27,701 INFO r.v.l.d.ActionsWithDBImpl [main] 66314    Tom       121111     book          12,00      да           
+ 
+2020-06-04 11:09:27,701 INFO r.v.l.Shop [main] getAllOrder 
+2020-06-04 11:09:27,743 INFO r.v.l.Shop [main] connectClose 
+2020-06-04 11:09:27,743 INFO SecurityLog4J2 [main] stop 
+2020-06-04 14:33:00,743 INFO t.r.v.l.TestResultLoggerExtension [main] Test Aborted for test addClient():  
+2020-06-04 14:33:00,760 INFO t.r.v.l.TestResultLoggerExtension [main] Test result summary for ActionsWithDBImplTest {FAILED=1} 
+2020-06-04 14:46:51,333 INFO t.r.v.l.TestResultLoggerExtension [main] Test Aborted for test addClient():  
+2020-06-04 14:46:51,345 INFO t.r.v.l.TestResultLoggerExtension [main] Test result summary for ActionsWithDBImplTest {FAILED=1} 
+2020-06-04 14:47:58,825 INFO t.r.v.l.TestResultLoggerExtension [main] Test Aborted for test addClient():  
+2020-06-04 14:47:58,836 INFO t.r.v.l.TestResultLoggerExtension [main] Test result summary for ActionsWithDBImplTest {FAILED=1} 
+2020-06-04 14:48:54,761 INFO t.r.v.l.TestResultLoggerExtension [main] Test Aborted for test addClient():  
+2020-06-04 14:48:54,774 INFO t.r.v.l.TestResultLoggerExtension [main] Test result summary for ActionsWithDBImplTest {FAILED=1} 
+2020-06-04 15:08:03,173 INFO t.r.v.l.TestResultLoggerExtension [main] Test Successful for test addClient():  
+2020-06-04 15:08:03,179 INFO t.r.v.l.TestResultLoggerExtension [main] Test result summary for ActionsWithDBImplTest {SUCCESSFUL=1} 
+2020-06-04 15:08:17,196 INFO t.r.v.l.TestResultLoggerExtension [main] Test Successful for test addClient():  
+2020-06-04 15:08:17,202 INFO t.r.v.l.TestResultLoggerExtension [main] Test result summary for ActionsWithDBImplTest {SUCCESSFUL=1} 
+2020-06-04 15:08:34,222 INFO t.r.v.l.TestResultLoggerExtension [main] Test Successful for test addClient():  
+2020-06-04 15:08:34,227 INFO t.r.v.l.TestResultLoggerExtension [main] Test result summary for ActionsWithDBImplTest {SUCCESSFUL=1} 
+2020-06-04 15:08:46,575 INFO t.r.v.l.TestResultLoggerExtension [main] Test Aborted for test addClient():  
+2020-06-04 15:08:46,587 INFO t.r.v.l.TestResultLoggerExtension [main] Test result summary for ActionsWithDBImplTest {FAILED=1} 
+2020-06-04 15:09:21,538 INFO t.r.v.l.TestResultLoggerExtension [main] Test Aborted for test addClient():  
+2020-06-04 15:09:21,548 INFO t.r.v.l.TestResultLoggerExtension [main] Test result summary for ActionsWithDBImplTest {FAILED=1} 
+2020-06-04 15:09:42,881 INFO t.r.v.l.TestResultLoggerExtension [main] Test Aborted for test addClient():  
+2020-06-04 15:09:42,897 INFO t.r.v.l.TestResultLoggerExtension [main] Test result summary for ActionsWithDBImplTest {FAILED=1} 
+2020-06-04 15:10:02,688 INFO t.r.v.l.TestResultLoggerExtension [main] Test Successful for test addClient():  
+2020-06-04 15:10:02,694 INFO t.r.v.l.TestResultLoggerExtension [main] Test result summary for ActionsWithDBImplTest {SUCCESSFUL=1} 
+2020-06-04 15:31:18,391 INFO t.r.v.l.TestResultLoggerExtension [main] Test Successful for test addClient():  
+2020-06-04 15:31:18,397 INFO t.r.v.l.TestResultLoggerExtension [main] Test result summary for ActionsWithDBImplTest {SUCCESSFUL=1} 

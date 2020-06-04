@@ -1,4 +1,4 @@
-package ru.vershinin.lesson16.ConnectionManager;
+package ru.vershinin.lesson17.ConnectionManager;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -16,12 +16,12 @@ import static java.lang.Class.forName;
  */
 public class ConnectionDB implements ConnectionManager  {
     private static final Logger loggerSystem = LogManager.getLogger("SystemLog4J2");
-    public static final ConnectionManager INSTANCE = new ConnectionDB();
+    public static final ConnectionManager INSTANCE = new ConnectionDB();// - ? для чего
     public static final String DB_URL = "jdbc:postgresql://localhost:5432/postgres";
 
     private ConnectionDB(){}
 
-    public static ConnectionManager getInstance() {
+    public static ConnectionManager getInstance() {// - ? для чего
         return INSTANCE;
     }
     /**

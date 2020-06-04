@@ -1,7 +1,8 @@
-package ru.vershinin.lesson16.dao;
+package ru.vershinin.lesson17.dao;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import ru.vershinin.lesson17.ConnectionManager.ConnectionManager;
 
 import java.sql.*;
 import java.util.Random;
@@ -20,7 +21,7 @@ public class ActionsWithDBImpl implements ActionsWithDB {
     public static final String INSERT_INTO_SHOP = "INSERT INTO public.shop(order_id, number_order) VALUES ( ?, ?)";
     public static final String SELECT_MAX_ID = "SELECT id From \"order\"WHERE id=(SELECT max(id) FROM \"order\")";
     public static final String SELECT_PRODUCT = "SELECT *FROM product";
-    public static final String SELECT_PREPAREORDER = "select o.id, cl.fio, cl.phonenumber,p.product_name,p.price,p.present\n" +
+    public static final String SELECT_PREPARE_ORDER = "select o.id, cl.fio, cl.phonenumber,p.product_name,p.price,p.present\n" +
             "FROM client cl\n" +
             "         LEFT JOIN \"order\" o ON cl.id = \"o\".client_id\n" +
             "         LEFT JOIN \"product\" p on p.id = \"o\".product_id\n" +
@@ -30,6 +31,16 @@ public class ActionsWithDBImpl implements ActionsWithDB {
             "LEFT JOIN \"order\" o on sh.order_id = o.id\n" +
             "LEFT JOIN client c on o.client_id = c.id\n" +
             "LEFT JOIN product p on o.product_id = p.id";
+
+    public ActionsWithDBImpl() {
+    }
+
+    private ConnectionManager connectionManager;// - ? для чего
+
+    public ActionsWithDBImpl(ConnectionManager connectionManager) {// - ? для чего
+        this.connectionManager = connectionManager;
+
+    }
 
 
     /**
@@ -41,33 +52,18 @@ public class ActionsWithDBImpl implements ActionsWithDB {
      * @param name-имя               клиента String
      * @param phoneNumber-телефонный номер int
      */
-    public void addClient(Connection conn, String name, int phoneNumber) {
+    public long addClient( String name, int phoneNumber) {
 
-        try (PreparedStatement st = conn.prepareStatement(INSERT_INTO_CLIENT)) {
-            conn.setAutoCommit(false);
+        try (Connection conn = connectionManager.getConnection();
+             PreparedStatement st = conn.prepareStatement(INSERT_INTO_CLIENT)) {
             st.setString(1, name);
             st.setInt(2, phoneNumber);
-            st.addBatch();
-
-            st.setString(1, "Nike");
-            st.setInt(2, 654321);
-            st.addBatch();
-
-            st.setString(1, "Tim");
-            st.setInt(2, 987456);
-            st.addBatch();
-
-            if (st.executeBatch().length == 3) {
-                conn.commit();
-            } else {
-                conn.rollback();
-            }
-
+            st.executeQuery();
 
         } catch (SQLException e) {
             loggerSystem.error(e.getMessage());
         }
-
+        return 0L;
     }
 
     /**
@@ -85,45 +81,13 @@ public class ActionsWithDBImpl implements ActionsWithDB {
      */
     public void addProduct(Connection conn, String productName, double price, boolean present) {
 
-        try {
-            conn.setAutoCommit(false);
-        } catch (SQLException e) {
-            loggerSystem.error(e.getMessage());
-        }
+
         try (PreparedStatement st = conn.prepareStatement(INSERT_INTO_PRODUCT)) {
 
             st.setString(1, productName);
             st.setDouble(2, price);
             st.setBoolean(3, present);
-            st.execute();
-
-            st.setString(1, "notebook");
-            st.setDouble(2, 12.7);
-            st.setBoolean(3, true);
-            st.execute();
-
-            // Создание Savepoint
-            Savepoint firstSavepoint = conn.setSavepoint("firstSavepoint");
-
-            st.setString(1, "ruler");
-            st.setDouble(2, 4.7);
-            st.setBoolean(3, true);
-
-            // Создание Savepoint
-            Savepoint secondSavepoint = conn.setSavepoint("secondSavepoint");
-            st.execute();
-
-            st.setString(1, "pen");
-            st.setDouble(2, 1.9);
-            st.setBoolean(3, true);
-            st.execute();
-
-            conn.releaseSavepoint(secondSavepoint);
-            // Rollback к savepoint
-            conn.rollback(firstSavepoint);
-
-            // Commit транзакции
-            conn.commit();
+            st.executeQuery();
 
         } catch (SQLException e) {
             loggerSystem.error(e.getMessage());
@@ -210,7 +174,7 @@ public class ActionsWithDBImpl implements ActionsWithDB {
      * @param conn-java.sql.Connection;
      */
     public void prepareOrder(Connection conn) {
-        try (ResultSet rs = conn.prepareStatement(SELECT_PREPAREORDER).executeQuery()) {
+        try (ResultSet rs = conn.prepareStatement(SELECT_PREPARE_ORDER).executeQuery()) {
 
             loggerBusiness.info("     ************Заказ************");
             loggerBusiness.info(String.format("%-9s%-10s%-11s%-14s%-11s%-11s%n", "№Заказа", "ФИО", "телефон", "Наименование", "Цена", "Наличие"));

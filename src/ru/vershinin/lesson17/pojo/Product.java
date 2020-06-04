@@ -1,4 +1,4 @@
-package ru.vershinin.lesson16.pojo;
+package ru.vershinin.lesson17.pojo;
 
 import java.util.Objects;
 

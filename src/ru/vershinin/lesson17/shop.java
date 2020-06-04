@@ -1,16 +1,15 @@
-package ru.vershinin.lesson16;
+package ru.vershinin.lesson17;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import ru.vershinin.lesson16.ConnectionManager.ConnectionDB;
-import ru.vershinin.lesson16.ConnectionManager.ConnectionManager;
-import ru.vershinin.lesson16.dao.ActionsWithDBImpl;
+import ru.vershinin.lesson17.ConnectionManager.ConnectionDB;
+import ru.vershinin.lesson17.ConnectionManager.ConnectionManager;
+import ru.vershinin.lesson17.dao.ActionsWithDBImpl;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 
-class Shop {
-    private static final Logger loggerBusiness = LogManager.getLogger(Shop.class);
+class Main {
+    private static final Logger loggerBusiness = LogManager.getLogger(Main.class);
     private static final Logger loggerSystem = LogManager.getLogger("SystemLog4J2");
     private static final Logger loggerSecurity = LogManager.getLogger("SecurityLog4J2");
 
@@ -19,15 +18,13 @@ class Shop {
         ActionsWithDBImpl actionsWithDB= new ActionsWithDBImpl();
 
 
-
-
-        loggerSecurity.info("start");
         Connection conn= connectionManager.getConnection();
         loggerBusiness.info("connect");
         DBInit.Init(conn);
+        loggerSecurity.info("start");
 
         ///добавляем клиента
-          actionsWithDB.addClient(conn,"luke",121212);
+          actionsWithDB.addClient("luke",121212);
           loggerBusiness.info("addClient");
 
 

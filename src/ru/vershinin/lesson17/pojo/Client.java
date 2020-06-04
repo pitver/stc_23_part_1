@@ -1,4 +1,4 @@
-package ru.vershinin.lesson16.pojo;
+package ru.vershinin.lesson17.pojo;
 
 
 /**
@@ -10,6 +10,7 @@ package ru.vershinin.lesson16.pojo;
 import java.util.Objects;
 
 public class Client {
+    
     private String name;
     private int phoneNumber;
 

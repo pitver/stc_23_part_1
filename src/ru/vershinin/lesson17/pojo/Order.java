@@ -1,4 +1,4 @@
-package ru.vershinin.lesson16.pojo;
+package ru.vershinin.lesson17.pojo;
 
 
 /**
@@ -8,6 +8,7 @@ package ru.vershinin.lesson16.pojo;
  */
 
 public class Order {
+
     Client client;
     Product product;
 

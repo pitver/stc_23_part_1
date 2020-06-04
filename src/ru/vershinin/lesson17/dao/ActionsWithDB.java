@@ -1,4 +1,4 @@
-package ru.vershinin.lesson16.dao;
+package ru.vershinin.lesson17.dao;
 
 import java.sql.Connection;
 
@@ -9,7 +9,7 @@ import java.sql.Connection;
  */
 public interface ActionsWithDB {
 
-    void addClient(Connection conn, String name, int phoneNumber);
+    long addClient( String name, int phoneNumber);
 
     void addProduct(Connection conn, String productName, double price, boolean present);
 
