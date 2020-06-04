@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import ru.vershinin.lesson17.ConnectionManager.ConnectionDB;
 import ru.vershinin.lesson17.ConnectionManager.ConnectionManager;
 import ru.vershinin.lesson17.dao.ActionsWithDBImpl;
+import ru.vershinin.lesson17.pojo.Client;
 
 import java.sql.Connection;
 
@@ -15,7 +16,9 @@ class Main {
 
     public static void main(String[] args) {
         ConnectionManager connectionManager=ConnectionDB.getInstance();
-        ActionsWithDBImpl actionsWithDB= new ActionsWithDBImpl();
+        ActionsWithDBImpl actionsWithDB= new ActionsWithDBImpl(connectionManager);
+
+        Client client= new Client("luke",123456789);
 
 
         Connection conn= connectionManager.getConnection();
@@ -24,7 +27,7 @@ class Main {
         loggerSecurity.info("start");
 
         ///добавляем клиента
-          actionsWithDB.addClient("luke",121212);
+          actionsWithDB.addClient(client);
           loggerBusiness.info("addClient");
 
 

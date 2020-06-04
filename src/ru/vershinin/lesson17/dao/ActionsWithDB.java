@@ -1,5 +1,7 @@
 package ru.vershinin.lesson17.dao;
 
+import ru.vershinin.lesson17.pojo.Client;
+
 import java.sql.Connection;
 
 /**
@@ -9,7 +11,7 @@ import java.sql.Connection;
  */
 public interface ActionsWithDB {
 
-    long addClient( String name, int phoneNumber);
+    long addClient(Client client);
 
     void addProduct(Connection conn, String productName, double price, boolean present);
 
@@ -17,7 +19,7 @@ public interface ActionsWithDB {
 
     void addOrderToShop(Connection conn);
 
-    int getMaxId(Connection conn);
+    int getMaxId( String nameTable);
 
     void showProduct(Connection conn);
 

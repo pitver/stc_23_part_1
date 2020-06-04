@@ -2,7 +2,9 @@ package ru.vershinin.lesson17.dao;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import ru.vershinin.lesson17.ConnectionManager.ConnectionDB;
 import ru.vershinin.lesson17.ConnectionManager.ConnectionManager;
+import ru.vershinin.lesson17.pojo.Client;
 
 import java.sql.*;
 import java.util.Random;
@@ -13,13 +15,13 @@ import java.util.Random;
  * @author Вершинин Пётр
  */
 public class ActionsWithDBImpl implements ActionsWithDB {
+
     private static final Logger loggerSystem = LogManager.getLogger("SystemLog4J2");
     private static final Logger loggerBusiness = LogManager.getLogger(ActionsWithDBImpl.class);
     public static final String INSERT_INTO_CLIENT = "INSERT INTO public.client(fio, phonenumber) VALUES ( ?, ?)";
     public static final String INSERT_INTO_PRODUCT = "INSERT INTO public.product(product_name, price,present) VALUES ( ?, ?, ?)";
     public static final String INSERT_INTO_ORDER = "INSERT INTO public.order(client_id, product_id) VALUES ( ?, ?)";
     public static final String INSERT_INTO_SHOP = "INSERT INTO public.shop(order_id, number_order) VALUES ( ?, ?)";
-    public static final String SELECT_MAX_ID = "SELECT id From \"order\"WHERE id=(SELECT max(id) FROM \"order\")";
     public static final String SELECT_PRODUCT = "SELECT *FROM product";
     public static final String SELECT_PREPARE_ORDER = "select o.id, cl.fio, cl.phonenumber,p.product_name,p.price,p.present\n" +
             "FROM client cl\n" +
@@ -34,7 +36,6 @@ public class ActionsWithDBImpl implements ActionsWithDB {
 
     public ActionsWithDBImpl() {
     }
-
     private ConnectionManager connectionManager;// - ? для чего
 
     public ActionsWithDBImpl(ConnectionManager connectionManager) {// - ? для чего
@@ -48,16 +49,14 @@ public class ActionsWithDBImpl implements ActionsWithDB {
      * согласно условию используется батчинг и ручное управление транзакциями
      * в случае неудачной записи используется rollback
      *
-     * @param conn                   -java.sql.Connection;
-     * @param name-имя               клиента String
-     * @param phoneNumber-телефонный номер int
+     * @param client - получает экземпляр Client
      */
-    public long addClient( String name, int phoneNumber) {
+    public long addClient(Client client) {
 
         try (Connection conn = connectionManager.getConnection();
              PreparedStatement st = conn.prepareStatement(INSERT_INTO_CLIENT)) {
-            st.setString(1, name);
-            st.setInt(2, phoneNumber);
+            st.setString(1, client.getFio());
+            st.setInt(2, client.getPhoneNumber());
             st.executeQuery();
 
         } catch (SQLException e) {
@@ -120,7 +119,7 @@ public class ActionsWithDBImpl implements ActionsWithDB {
      */
     public void addOrderToShop(Connection conn) {
         try (PreparedStatement st1 = conn.prepareStatement(INSERT_INTO_SHOP)) {
-            st1.setInt(1, getMaxId(conn));
+            st1.setInt(1, getMaxId("order"));
             Random rd = new Random();
             st1.setInt(2, rd.nextInt(99999));
             st1.execute();
@@ -130,13 +129,16 @@ public class ActionsWithDBImpl implements ActionsWithDB {
     }
 
     /**
-     * поиск id последней записи в таблице order
+     * поиск id последней записи в таблицах
      *
-     * @param conn -java.sql.Connection;
+     * @param nameTable -имя таблицы String;
      */
-    public int getMaxId(Connection conn) {
+    public int getMaxId(String nameTable) {
         int count = 0;
-        try (ResultSet rs = conn.prepareStatement(SELECT_MAX_ID).executeQuery()) {
+
+        String sql= "SELECT id From "+ nameTable+"WHERE id=(SELECT max(id) FROM \"order\")";
+        try (Connection conn = connectionManager.getConnection();
+                ResultSet rs = conn.prepareStatement(sql).executeQuery()) {
 
             while (rs.next()) {
                 count = rs.getInt("id");

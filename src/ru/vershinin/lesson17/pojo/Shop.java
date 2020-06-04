@@ -1,5 +1,7 @@
 package ru.vershinin.lesson17.pojo;
 
+import java.util.Random;
+
 /**
  * Shop
  *
@@ -7,14 +9,17 @@ package ru.vershinin.lesson17.pojo;
  */
 public class Shop {
     protected int numberOrder;
+    Order order;
 
-
+    public Shop(int numberOrder, Order order) {
+        this.numberOrder = numberOrder;
+        this.order = order;
+    }
 
     public int getNumberOrder() {
-        return numberOrder;
+        Random rd= new Random();
+        return rd.nextInt(9999);
     }
 
-    public void setNumberOrder(int numberOrder) {
-        this.numberOrder = numberOrder;
-    }
+
 }

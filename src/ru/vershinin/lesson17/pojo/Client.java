@@ -7,27 +7,35 @@ package ru.vershinin.lesson17.pojo;
  * @author Вершинин Пётр
  */
 
+import ru.vershinin.lesson17.ConnectionManager.ConnectionDB;
+import ru.vershinin.lesson17.ConnectionManager.ConnectionManager;
+import ru.vershinin.lesson17.dao.ActionsWithDBImpl;
+
 import java.util.Objects;
 
 public class Client {
-    
-    private String name;
+    private int id;
+    private String fio;
     private int phoneNumber;
 
-    public Client(String name, int phoneNumber) {
-        this.name = name;
+
+    public Client( String fio, int phoneNumber) {
+        this.fio = fio;
         this.phoneNumber = phoneNumber;
     }
 
-    public Client() {
+    public int getId() {
+        ConnectionManager connectionManager= ConnectionDB.getInstance();
+        ActionsWithDBImpl actionsWithDB= new ActionsWithDBImpl(connectionManager);
+        return actionsWithDB.getMaxId("client");
     }
 
-    public String getName() {
-        return name;
+    public String getFio() {
+        return fio;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFio(String fio) {
+        this.fio = fio;
     }
 
     public int getPhoneNumber() {
@@ -43,20 +51,23 @@ public class Client {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Client client = (Client) o;
-        return phoneNumber == client.phoneNumber &&
-                Objects.equals(name, client.name);
+        return id == client.id &&
+                phoneNumber == client.phoneNumber &&
+                Objects.equals(fio, client.fio);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, phoneNumber);
+        return Objects.hash(id, fio, phoneNumber);
     }
 
     @Override
     public String toString() {
         return "Client{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", fio='" + fio + '\'' +
                 ", phoneNumber=" + phoneNumber +
                 '}';
     }
 }
+
