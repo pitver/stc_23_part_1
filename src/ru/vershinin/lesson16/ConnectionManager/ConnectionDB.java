@@ -1,4 +1,4 @@
-package ru.vershinin.lesson16;
+package ru.vershinin.lesson16.ConnectionManager;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,13 +14,16 @@ import static java.lang.Class.forName;
  *
  * @author Вершинин Пётр
  */
-public class ConnectionDB {
+public class ConnectionDB implements ConnectionManager  {
     private static final Logger loggerSystem = LogManager.getLogger("SystemLog4J2");
-
-
+    public static final ConnectionManager INSTANCE = new ConnectionDB();
     public static final String DB_URL = "jdbc:postgresql://localhost:5432/postgres";
-    public static final String DB_Driver = "org.postgresql.Driver";
 
+    private ConnectionDB(){}
+
+    public static ConnectionManager getInstance() {
+        return INSTANCE;
+    }
     /**
      * закрытие соединения с бд
      */
@@ -37,25 +40,16 @@ public class ConnectionDB {
     }
 
 
-    /**
-     * создание соединения с бд
-     *
-     * @return-  java.sql.Connection;
-     *
-     */
-    public static Connection connect() {
-        try {
-            forName(DB_Driver); //Проверяем наличие JDBC драйвера для работы с БД
-            Connection connection = DriverManager.getConnection(DB_URL,
+    @Override
+    public Connection getConnection() {
+        Connection connection=null;
+        try {connection = DriverManager.getConnection(DB_URL,
                     "postgres", "root");//соединениесБД
             loggerSystem.info("Соединение с СУБД выполнено.");
             return connection;
-        } catch (ClassNotFoundException e) {
-            loggerSystem.fatal("JDBC драйвер для СУБД не найден!"+e.getMessage());
         } catch (SQLException e) {
             loggerSystem.fatal("Ошибка SQL !"+e.getSQLState());
         }
-        return null;
+        return connection;
     }
-
 }

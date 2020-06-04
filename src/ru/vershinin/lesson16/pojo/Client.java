@@ -1,4 +1,4 @@
-package ru.vershinin.lesson16;
+package ru.vershinin.lesson16.pojo;
 
 
 /**
