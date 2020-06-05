@@ -1,6 +1,9 @@
 package ru.vershinin.lesson17.dao;
 
 import ru.vershinin.lesson17.pojo.Client;
+import ru.vershinin.lesson17.pojo.Order;
+import ru.vershinin.lesson17.pojo.Product;
+import ru.vershinin.lesson17.pojo.Shop;
 
 import java.sql.Connection;
 
@@ -11,20 +14,20 @@ import java.sql.Connection;
  */
 public interface ActionsWithDB {
 
-    long addClient(Client client);
+    void addClient(Client client);
 
-    void addProduct(Connection conn, String productName, double price, boolean present);
+    void addProduct(Product product);
 
-    void creatingOrder(Connection conn, int clientId, int productId);
+    void creatingOrder(Client client, Product product);
 
-    void addOrderToShop(Connection conn);
+    void addOrderToShop(Order order, Shop shop);
 
     int getMaxId( String nameTable);
 
-    void showProduct(Connection conn);
+    void showProduct();
 
-    void prepareOrder(Connection conn);
+    void prepareOrder();
 
-    void getAllOrder(Connection conn);
+    void getAllOrder();
 
 }

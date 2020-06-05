@@ -6,6 +6,9 @@ import ru.vershinin.lesson17.ConnectionManager.ConnectionDB;
 import ru.vershinin.lesson17.ConnectionManager.ConnectionManager;
 import ru.vershinin.lesson17.dao.ActionsWithDBImpl;
 import ru.vershinin.lesson17.pojo.Client;
+import ru.vershinin.lesson17.pojo.Order;
+import ru.vershinin.lesson17.pojo.Product;
+import ru.vershinin.lesson17.pojo.Shop;
 
 import java.sql.Connection;
 
@@ -19,6 +22,9 @@ class Main {
         ActionsWithDBImpl actionsWithDB= new ActionsWithDBImpl(connectionManager);
 
         Client client= new Client("luke",123456789);
+        Product product = new Product(12.8,true,"pen");
+        Order order = new Order();
+        Shop shop=new Shop();
 
 
         Connection conn= connectionManager.getConnection();
@@ -32,31 +38,29 @@ class Main {
 
 
         //добавляем товары в каталог
-            actionsWithDB.addProduct(conn,"book",15,true);
+            actionsWithDB.addProduct(product);
         loggerBusiness.info("addProduct");
 
         //получаем каталог
-        actionsWithDB.showProduct(conn);
+        actionsWithDB.showProduct();
         loggerBusiness.info("showProduct");
 
         //формируем заказ
-        actionsWithDB.creatingOrder(conn,1,1);
+        actionsWithDB.creatingOrder(client,product);
         loggerBusiness.info("creatingOrder");
 
         //запись в архив магазина(таблица shop)
-        actionsWithDB.addOrderToShop(conn);
+        actionsWithDB.addOrderToShop(order,shop);
         loggerBusiness.info("creatingShop");
 
         //подготовка заказа в магазине
-        actionsWithDB.prepareOrder(conn);
+        actionsWithDB.prepareOrder();
         loggerBusiness.info("prepareOrder");
 
         //получаем список всех заказов
-        actionsWithDB.getAllOrder(conn);
+        actionsWithDB.getAllOrder();
         loggerBusiness.info("getAllOrder");
 
-        ConnectionDB.connectClose();
-        loggerBusiness.info("connectClose");
         loggerSecurity.info("stop");
     }
 

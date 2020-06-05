@@ -9,6 +9,9 @@ import ru.vershinin.lesson17.ConnectionManager.ConnectionManager;
 import ru.vershinin.lesson17.dao.ActionsWithDB;
 import ru.vershinin.lesson17.dao.ActionsWithDBImpl;
 import ru.vershinin.lesson17.pojo.Client;
+import ru.vershinin.lesson17.pojo.Order;
+import ru.vershinin.lesson17.pojo.Product;
+import ru.vershinin.lesson17.pojo.Shop;
 import test.ru.vershinin.lesson17.TestResultLoggerExtension;
 
 import java.sql.Connection;
@@ -16,15 +19,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 import static org.mockito.MockitoAnnotations.initMocks;
+
 
 /**
  * ActionsWithDBImpl
  *
  * @author Вершинин Пётр
  */
+
 @ExtendWith(TestResultLoggerExtension.class)
 public class ActionsWithDBImplTest {
 
@@ -32,11 +36,9 @@ public class ActionsWithDBImplTest {
     private ConnectionManager     connectionManager;
     private Connection            connection;
     @Mock
-    private PreparedStatement     preparedStatement;
+    private PreparedStatement     preparedStatementMock;
     @Mock
     private ResultSet             resultSetMock;
-
-
 
 
     @BeforeEach
@@ -49,9 +51,8 @@ public class ActionsWithDBImplTest {
    @Test
     void addClient() throws SQLException {
        when(connectionManager.getConnection()).thenReturn(connection);
-       doReturn(preparedStatement).when(connection).prepareStatement(ActionsWithDBImpl.INSERT_INTO_CLIENT );
+       doReturn(preparedStatementMock).when(connection).prepareStatement(ActionsWithDBImpl.INSERT_INTO_CLIENT );
        when(resultSetMock.next()).thenReturn(true);
-
 
        String fio="jack";
        int phoneNumber=123456;
@@ -61,9 +62,78 @@ public class ActionsWithDBImplTest {
 
        verify(connectionManager, times(1)).getConnection();
        verify(connection, atMost(1)).prepareStatement(ActionsWithDBImpl.INSERT_INTO_CLIENT);
-       verify(preparedStatement, times(1)).setString(1, client.getFio());
-       verify(preparedStatement, times(1)).setInt(2, client.getPhoneNumber());
-       verify(preparedStatement, times(1)).executeQuery();
-
+       verify(preparedStatementMock, times(1)).setString(1, client.getFio());
+       verify(preparedStatementMock, times(1)).setInt(2, client.getPhoneNumber());
+       verify(preparedStatementMock, times(1)).executeQuery();
    }
+    @Test
+    void addProduct() throws SQLException {
+        when(connectionManager.getConnection()).thenReturn(connection);
+        doReturn(preparedStatementMock).when(connection).prepareStatement(ActionsWithDBImpl.INSERT_INTO_PRODUCT );
+        when(resultSetMock.next()).thenReturn(true);
+
+        String product_name="pen";
+        double price=12.8d;
+        boolean present=true;
+        Product product=new Product(price,present,product_name);
+
+        actionsWithDB.addProduct(product);
+
+        verify(connectionManager, times(1)).getConnection();
+        verify(connection, atMost(1)).prepareStatement(ActionsWithDBImpl.INSERT_INTO_PRODUCT);
+        verify(preparedStatementMock, times(1)).setString(1, product.getProductName());
+        verify(preparedStatementMock, times(1)).setDouble(2, product.getPrice());
+        verify(preparedStatementMock, times(1)).setBoolean(3, product.isPresent());
+        verify(preparedStatementMock, times(1)).executeQuery();
+    }
+    @Test
+    void creatingOrder() throws SQLException {
+        when(connectionManager.getConnection()).thenReturn(connection);
+        doReturn(preparedStatementMock).when(connection).prepareStatement(ActionsWithDBImpl.INSERT_INTO_ORDER );
+        when(resultSetMock.next()).thenReturn(true);
+
+        Client client=new Client("Mike",123);
+        Product product = new Product(12.9, true, "pen");
+
+        actionsWithDB.creatingOrder(client,product);
+
+        verify(connectionManager, times(1)).getConnection();
+        verify(connection, atMost(1)).prepareStatement(ActionsWithDBImpl.INSERT_INTO_ORDER);
+        verify(preparedStatementMock, times(1)).setInt(1, client.getId());
+        verify(preparedStatementMock, times(1)).setInt(2, product.getId());
+        verify(preparedStatementMock, times(1)).executeQuery();
+    }
+    @Test
+    void addOrderToShop() throws SQLException {
+        when(connectionManager.getConnection()).thenReturn(connection);
+        doReturn(preparedStatementMock).when(connection).prepareStatement(ActionsWithDBImpl.INSERT_INTO_SHOP );
+        when(resultSetMock.next()).thenReturn(true);
+        Order order=new Order();
+        Shop shop=new Shop();
+
+        actionsWithDB.addOrderToShop(order,shop);
+
+        verify(connectionManager, times(1)).getConnection();
+        verify(connection, atMost(1)).prepareStatement(ActionsWithDBImpl.INSERT_INTO_SHOP);
+        verify(preparedStatementMock, times(1)).setInt(1, order.getId());
+        verify(preparedStatementMock, times(1)).setInt(2, shop.getNumberOrder());
+        verify(preparedStatementMock, times(1)).executeQuery();
+    }
+
+    @Test
+    void showProduct() throws SQLException {
+        when(connectionManager.getConnection()).thenReturn(connection);
+        doReturn(preparedStatementMock).when(connection).prepareStatement(ActionsWithDBImpl.SELECT_PRODUCT );
+        when(resultSetMock.next()).thenReturn(true);
+
+        actionsWithDB.showProduct();
+
+
+       verify(connectionManager,times(1)).getConnection();
+        verify(connection, atMost(1)).prepareStatement(ActionsWithDBImpl.SELECT_PRODUCT);
+        verify(preparedStatementMock).executeQuery();
+        verify(resultSetMock).next();
+        verify(resultSetMock.getInt("id"));
+
+    }
 }

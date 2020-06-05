@@ -12,12 +12,14 @@ import ru.vershinin.lesson17.dao.ActionsWithDBImpl;
  */
 
 public class Order {
-    private final int id;
+    private int id;
     Client client;
     public Product product;
 
-    public Order(int id,Client client, Product product) {
-        this.id=id;
+    public Order() {
+    }
+
+    public Order(Client client, Product product) {
         this.client = client;
         this.product = product;
     }
@@ -25,7 +27,7 @@ public class Order {
     public int getId() {
         ConnectionManager connectionManager= ConnectionDB.getInstance();
         ActionsWithDBImpl actionsWithDB= new ActionsWithDBImpl(connectionManager);
-        return actionsWithDB.getMaxId("order");
+        return actionsWithDB.getMaxId("\"order\"");
     }
 
 

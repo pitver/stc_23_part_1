@@ -24,21 +24,6 @@ public class ConnectionDB implements ConnectionManager  {
     public static ConnectionManager getInstance() {// - ? для чего
         return INSTANCE;
     }
-    /**
-     * закрытие соединения с бд
-     */
-    public static void connectClose() {
-
-        try {
-            Connection conn = DriverManager.getConnection(DB_URL,
-                    "postgres", "root");//соединениесБД
-            conn.close();
-            loggerSystem.info("Соединение с СУБД закрыто.");
-        } catch (SQLException e) {
-            loggerSystem.error(e.getMessage());
-        }
-    }
-
 
     @Override
     public Connection getConnection() {

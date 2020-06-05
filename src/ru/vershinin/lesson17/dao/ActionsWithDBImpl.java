@@ -5,6 +5,9 @@ import org.apache.logging.log4j.Logger;
 import ru.vershinin.lesson17.ConnectionManager.ConnectionDB;
 import ru.vershinin.lesson17.ConnectionManager.ConnectionManager;
 import ru.vershinin.lesson17.pojo.Client;
+import ru.vershinin.lesson17.pojo.Order;
+import ru.vershinin.lesson17.pojo.Product;
+import ru.vershinin.lesson17.pojo.Shop;
 
 import java.sql.*;
 import java.util.Random;
@@ -46,12 +49,10 @@ public class ActionsWithDBImpl implements ActionsWithDB {
 
     /**
      * добавление пользователя в таблицу Client
-     * согласно условию используется батчинг и ручное управление транзакциями
-     * в случае неудачной записи используется rollback
      *
-     * @param client - получает экземпляр Client
+     * @param client -  экземпляр Client
      */
-    public long addClient(Client client) {
+    public void addClient(Client client) {
 
         try (Connection conn = connectionManager.getConnection();
              PreparedStatement st = conn.prepareStatement(INSERT_INTO_CLIENT)) {
@@ -62,30 +63,23 @@ public class ActionsWithDBImpl implements ActionsWithDB {
         } catch (SQLException e) {
             loggerSystem.error(e.getMessage());
         }
-        return 0L;
+
     }
 
     /**
      * добавление товара в таблицу product
-     * согласно условию использются  2 точки сохранения и ручное управление транзакциями
-     * в случае неудачной записи 2 точки сохранения используется rollback на первую точку
      *
-     * @param conn            -java.sql.Connection;
-     * @param productName     - наименование продукта String
-     * @param price           -цена doouble
-     * @param present-наличие на складе boolean
-     * @throws SQLException if a database access error occurs,
-     *                      setAutoCommit(true) is called while participating in a distributed transaction,
-     *                      or this method is called on a closed connection
+     * @param product- экземпляр Product
      */
-    public void addProduct(Connection conn, String productName, double price, boolean present) {
+    public void addProduct(Product product) {
 
 
-        try (PreparedStatement st = conn.prepareStatement(INSERT_INTO_PRODUCT)) {
+        try (Connection conn = connectionManager.getConnection();
+                PreparedStatement st = conn.prepareStatement(INSERT_INTO_PRODUCT)) {
 
-            st.setString(1, productName);
-            st.setDouble(2, price);
-            st.setBoolean(3, present);
+            st.setString(1, product.getProductName());
+            st.setDouble(2, product.getPrice());
+            st.setBoolean(3, product.isPresent());
             st.executeQuery();
 
         } catch (SQLException e) {
@@ -97,15 +91,15 @@ public class ActionsWithDBImpl implements ActionsWithDB {
     /**
      * добавление заказа в таблицу order
      *
-     * @param conn      -java.sql.Connection;
-     * @param clientId  - id клиента int
-     * @param productId -id товара int
+     * @param client  - экземпляр Client
+     * @param product - экземпляр Product
      */
-    public void creatingOrder(Connection conn, int clientId, int productId) {
-        try (PreparedStatement st = conn.prepareStatement(INSERT_INTO_ORDER)) {
-            st.setInt(1, clientId);
-            st.setInt(2, productId);
-            st.execute();
+    public void creatingOrder(Client client,Product product) {
+        try (Connection conn = connectionManager.getConnection();
+                PreparedStatement st = conn.prepareStatement(INSERT_INTO_ORDER)) {
+            st.setInt(1, client.getId());
+            st.setInt(2, product.getId());
+            st.executeQuery();
         } catch (SQLException e) {
             loggerSystem.error(e.getMessage());
         }
@@ -113,16 +107,18 @@ public class ActionsWithDBImpl implements ActionsWithDB {
 
     /**
      * добавление заказа в архив магазина, таблица shop
-     * номер заказу присваивается рандомно
+     * номер заказа присваивается рандомно
      *
-     * @param conn -java.sql.Connection;
+     * @param order - экземпляр Order
+     * @param shop - экземпляр Shop
+     *
      */
-    public void addOrderToShop(Connection conn) {
-        try (PreparedStatement st1 = conn.prepareStatement(INSERT_INTO_SHOP)) {
-            st1.setInt(1, getMaxId("order"));
-            Random rd = new Random();
-            st1.setInt(2, rd.nextInt(99999));
-            st1.execute();
+    public void addOrderToShop(Order order, Shop shop) {
+        try (Connection conn = connectionManager.getConnection();
+                PreparedStatement st = conn.prepareStatement(INSERT_INTO_SHOP)) {
+            st.setInt(1, order.getId());
+            st.setInt(2,shop.getNumberOrder() );
+            st.executeQuery();
         } catch (SQLException e) {
             loggerSystem.error(e.getMessage());
         }
@@ -136,7 +132,7 @@ public class ActionsWithDBImpl implements ActionsWithDB {
     public int getMaxId(String nameTable) {
         int count = 0;
 
-        String sql= "SELECT id From "+ nameTable+"WHERE id=(SELECT max(id) FROM \"order\")";
+        String sql= "SELECT id From "+ nameTable+" WHERE id=(SELECT max(id) FROM \"order\")";
         try (Connection conn = connectionManager.getConnection();
                 ResultSet rs = conn.prepareStatement(sql).executeQuery()) {
 
@@ -152,10 +148,10 @@ public class ActionsWithDBImpl implements ActionsWithDB {
     /**
      * отображение каталога товаров
      *
-     * @param conn-java.sql.Connection;
      */
-    public void showProduct(Connection conn) {
-        try (ResultSet rs = conn.prepareStatement(SELECT_PRODUCT).executeQuery()) {
+    public void showProduct() {
+        try (Connection conn = connectionManager.getConnection();
+                ResultSet rs = conn.prepareStatement(SELECT_PRODUCT).executeQuery()) {
             loggerBusiness.info("     ************каталог товаров************");
             loggerBusiness.info(String.format("%-11s%-20s%-11s%-11s%n", "№", "Наименование", "Цена", "Наличие"));
             while (rs.next()) {
@@ -173,10 +169,10 @@ public class ActionsWithDBImpl implements ActionsWithDB {
     /**
      * отображение сформированного заказа
      *
-     * @param conn-java.sql.Connection;
      */
-    public void prepareOrder(Connection conn) {
-        try (ResultSet rs = conn.prepareStatement(SELECT_PREPARE_ORDER).executeQuery()) {
+    public void prepareOrder() {
+        try (Connection conn = connectionManager.getConnection();
+                ResultSet rs = conn.prepareStatement(SELECT_PREPARE_ORDER).executeQuery()) {
 
             loggerBusiness.info("     ************Заказ************");
             loggerBusiness.info(String.format("%-9s%-10s%-11s%-14s%-11s%-11s%n", "№Заказа", "ФИО", "телефон", "Наименование", "Цена", "Наличие"));
@@ -199,11 +195,11 @@ public class ActionsWithDBImpl implements ActionsWithDB {
     /**
      * отображение истории заказов
      *
-     * @param conn-java.sql.Connection;
      */
-    public void getAllOrder(Connection conn) {
+    public void getAllOrder() {
 
-        try (ResultSet rs = conn.prepareStatement(SELECT_GET_ALL_ORDER).executeQuery()) {
+        try (Connection conn = connectionManager.getConnection();
+                ResultSet rs = conn.prepareStatement(SELECT_GET_ALL_ORDER).executeQuery()) {
 
             loggerBusiness.info("     ************История заказов************");
             loggerBusiness.info(String.format("%-9s%-10s%-11s%-14s%-11s%-11s%n", "№Заказа", "ФИО", "телефон", "Наименование", "Цена", "Наличие"));

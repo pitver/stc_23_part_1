@@ -12,8 +12,7 @@ public class Product {
    private double price;
    private boolean present;
 
-    public Product(int id, String productName, double price, boolean present) {
-        this.id=id;
+    public Product( double price,boolean present, String productName) {
         this.productName = productName;
         this.price = price;
         this.present = present;
