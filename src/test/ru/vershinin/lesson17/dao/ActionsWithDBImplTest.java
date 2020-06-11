@@ -44,9 +44,9 @@ public class ActionsWithDBImplTest {
     @BeforeEach
    void setUp() throws SQLException {
        initMocks(this);
-       connectionManager = spy(ConnectionDB.getInstance());
+       connectionManager = mock(ConnectionManager.class);
        connection        = mock(Connection.class);
-       actionsWithDB     = spy(new ActionsWithDBImpl(connectionManager));
+       actionsWithDB     = mock(ActionsWithDBImpl.class);
    }
    @Test
     void addClient() throws SQLException {
@@ -123,7 +123,7 @@ public class ActionsWithDBImplTest {
     @Test
     void showProduct() throws SQLException {
         when(connectionManager.getConnection()).thenReturn(connection);
-        doReturn(preparedStatementMock).when(connection).prepareStatement(ActionsWithDBImpl.SELECT_PRODUCT );
+        doReturn(preparedStatementMock).when(connection).prepareStatement(ActionsWithDBImpl.SELECT_PRODUCT);
         when(resultSetMock.next()).thenReturn(true);
 
         actionsWithDB.showProduct();

@@ -16,8 +16,8 @@ import static java.lang.Class.forName;
  */
 public class ConnectionDB implements ConnectionManager  {
     private static final Logger loggerSystem = LogManager.getLogger("SystemLog4J2");
-    public static final ConnectionManager INSTANCE = new ConnectionDB();// - ? для чего
-    public static final String DB_URL = "jdbc:postgresql://localhost:5432/postgres";
+    private static final ConnectionManager INSTANCE = new ConnectionDB();// - ? для чего
+    private static final String DB_URL = "jdbc:postgresql://localhost:5432/postgres";
 
     private ConnectionDB(){}
 
