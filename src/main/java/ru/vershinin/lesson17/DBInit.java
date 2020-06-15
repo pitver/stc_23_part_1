@@ -1,4 +1,4 @@
-package ru.vershinin.lesson16;
+package ru.vershinin.lesson17;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -23,8 +23,7 @@ import java.sql.Statement;
      */
     protected static void Init(Connection conn) {
 
-        String sql;
-        sql = new StringBuilder().append(" \n")
+        String sql= new StringBuilder().append(" \n")
                 .append("DROP TABLE IF EXISTS shop;\n")
                 .append("DROP TABLE IF EXISTS \"order\";\n")
                 .append("DROP TABLE IF EXISTS client;\n")
@@ -33,42 +32,50 @@ import java.sql.Statement;
                 .append("CREATE SEQUENCE public.product_id_seq;\n")
                 .append("\n")
                 .append("CREATE TABLE public.Product (\n")
-                .append("id BIGINT NOT NULL DEFAULT nextval('public.product_id_seq'),\n")
-                .append("price INTEGER NOT NULL,\n")
-                .append("present BOOLEAN NOT NULL,\n")
-                .append("product_name VARCHAR NOT NULL,\n")
-                .append("CONSTRAINT product_pk PRIMARY KEY (id)\n")
+                .append("                id BIGINT NOT NULL DEFAULT nextval('public.product_id_seq'),\n")
+                .append("                price DOUBLE PRECISION NOT NULL,\n")
+                .append("                present BOOLEAN NOT NULL,\n")
+                .append("                product_name VARCHAR NOT NULL,\n")
+                .append("                CONSTRAINT product_pk PRIMARY KEY (id)\n")
+                .append(");\n")
+                .append("\n")
                 .append("\n")
                 .append("ALTER SEQUENCE public.product_id_seq OWNED BY public.Product.id;\n")
                 .append("\n")
                 .append("CREATE SEQUENCE public.client_id_seq;\n")
                 .append("\n")
                 .append("CREATE TABLE public.Client (\n")
-                .append("id BIGINT NOT NULL DEFAULT nextval('public.client_id_seq'),\n")
-                .append("fio VARCHAR NOT NULL,\n")
-                .append("phonenumber INTEGER NOT NULL,\n")
-                .append("CONSTRAINT client_pk PRIMARY KEY (id)\n")
+                .append("                id BIGINT NOT NULL DEFAULT nextval('public.client_id_seq'),\n")
+                .append("                fio VARCHAR NOT NULL,\n")
+                .append("                phonenumber INTEGER NOT NULL,\n")
+                .append("                CONSTRAINT client_pk PRIMARY KEY (id)\n")
+                .append(");\n")
+                .append("\n")
                 .append("\n")
                 .append("ALTER SEQUENCE public.client_id_seq OWNED BY public.Client.id;\n")
                 .append("\n")
                 .append("CREATE SEQUENCE public.order_id_seq;\n")
                 .append("\n")
                 .append("CREATE TABLE public.Order (\n")
-                .append("id VARCHAR NOT NULL DEFAULT nextval('public.order_id_seq'),\n")
-                .append("Client_id BIGINT NOT NULL,\n")
-                .append("Product_id BIGINT NOT NULL,\n")
-                .append("CONSTRAINT order_pk PRIMARY KEY (id)\n")
-                .append(");\n").append("\n").append("\n")
+                .append("                id BIGINT NOT NULL DEFAULT nextval('public.order_id_seq'),\n")
+                .append("                Client_id BIGINT NOT NULL,\n")
+                .append("                Product_id BIGINT NOT NULL,\n")
+                .append("                CONSTRAINT order_pk PRIMARY KEY (id)\n")
+                .append(");\n")
+                .append("\n")
+                .append("\n")
                 .append("ALTER SEQUENCE public.order_id_seq OWNED BY public.Order.id;\n")
                 .append("\n")
                 .append("CREATE SEQUENCE public.shop_id_seq;\n")
                 .append("\n")
                 .append("CREATE TABLE public.Shop (\n")
-                .append("id BIGINT NOT NULL DEFAULT nextval('public.shop_id_seq'),\n")
-                .append("Order_id VARCHAR NOT NULL,\n")
-                .append("number_order INTEGER NOT NULL,\n")
-                .append("CONSTRAINT shop_pk PRIMARY KEY (id)\n")
+                .append("                id BIGINT NOT NULL DEFAULT nextval('public.shop_id_seq'),\n")
+                .append("                Order_id INTEGER NOT NULL,\n")
+                .append("                number_order INTEGER NOT NULL,\n")
+                .append("                CONSTRAINT shop_pk PRIMARY KEY (id)\n")
                 .append(");\n")
+                .append("\n")
+                .append("\n")
                 .append("ALTER SEQUENCE public.shop_id_seq OWNED BY public.Shop.id;\n")
                 .append("\n")
                 .append("ALTER TABLE public.Order ADD CONSTRAINT product_order_fk\n")
@@ -111,6 +118,7 @@ import java.sql.Statement;
 
         } catch (SQLException e) {
             loggerSystem.error(e.getMessage());
+            e.printStackTrace();
         }
 
     }

@@ -1,13 +1,18 @@
-package ru.vershinin.lesson16;
+package ru.vershinin.lesson17.pojo;
+
+import ru.vershinin.lesson17.ConnectionManager.ConnectionDB;
+import ru.vershinin.lesson17.ConnectionManager.ConnectionManager;
+import ru.vershinin.lesson17.dao.ShopDaoImpl;
 
 import java.util.Objects;
 
 public class Product {
+    private int id;
    private String productName;
    private double price;
    private boolean present;
 
-    public Product(String productName, double price, boolean present) {
+    public Product( double price,boolean present, String productName) {
         this.productName = productName;
         this.price = price;
         this.present = present;
@@ -40,25 +45,35 @@ public class Product {
         this.present = present;
     }
 
+    public int getId() {
+        ConnectionManager connectionManager= ConnectionDB.getInstance();
+        ShopDaoImpl actionsWithDB= new ShopDaoImpl(connectionManager);
+        return actionsWithDB.getMaxId("product");
+    }
+
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
-        return Double.compare(product.price, price) == 0 &&
+        return id == product.id &&
+                Double.compare(product.price, price) == 0 &&
                 present == product.present &&
                 Objects.equals(productName, product.productName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(productName, price, present);
+        return Objects.hash(id, productName, price, present);
     }
 
     @Override
     public String toString() {
-        return "product{" +
-                "productName='" + productName + '\'' +
+        return "Product{" +
+                "id=" + id +
+                ", productName='" + productName + '\'' +
                 ", price=" + price +
                 ", present=" + present +
                 '}';
