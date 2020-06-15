@@ -2,7 +2,6 @@ package ru.vershinin.lesson17.dao;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import ru.vershinin.lesson17.ConnectionManager.ConnectionDB;
 import ru.vershinin.lesson17.ConnectionManager.ConnectionManager;
 import ru.vershinin.lesson17.pojo.Client;
 import ru.vershinin.lesson17.pojo.Order;
@@ -10,7 +9,8 @@ import ru.vershinin.lesson17.pojo.Product;
 import ru.vershinin.lesson17.pojo.Shop;
 
 import java.sql.*;
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ActionsWithDB
@@ -148,8 +148,10 @@ public class ActionsWithDBImpl implements ActionsWithDB {
     /**
      * отображение каталога товаров
      *
+     * @return
      */
-    public void showProduct() {
+    public List<?> showProduct() {
+        List<String> listProductName=new ArrayList<>();
         try (Connection conn = connectionManager.getConnection();
                 ResultSet rs = conn.prepareStatement(SELECT_PRODUCT).executeQuery()) {
             loggerBusiness.info("     ************каталог товаров************");
@@ -158,19 +160,22 @@ public class ActionsWithDBImpl implements ActionsWithDB {
                 int id = rs.getInt("id");
                 double price = rs.getDouble("price");
                 String productName = rs.getString("product_name");
+                listProductName.add(productName);
                 boolean present = rs.getBoolean("present");
                 loggerBusiness.info(String.format("%-11d%-20s%-11.2f%-13s%n", id, productName, price, present ? "да" : "нет"));
             }
         } catch (SQLException e) {
             loggerSystem.error(e.getMessage());
         }
+        return listProductName;
     }
 
     /**
      * отображение сформированного заказа
      *
      */
-    public void prepareOrder() {
+    public List<?> prepareOrder() {
+        List<String> listClientName=new ArrayList<>();
         try (Connection conn = connectionManager.getConnection();
                 ResultSet rs = conn.prepareStatement(SELECT_PREPARE_ORDER).executeQuery()) {
 
@@ -179,6 +184,7 @@ public class ActionsWithDBImpl implements ActionsWithDB {
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String name = rs.getString("fio");
+                listClientName.add(name);
                 int phoneNumber = rs.getInt("phonenumber");
                 double price = rs.getDouble("price");
                 String productName = rs.getString("product_name");
@@ -190,13 +196,15 @@ public class ActionsWithDBImpl implements ActionsWithDB {
         } catch (SQLException e) {
             loggerSystem.error(e.getMessage());
         }
+        return listClientName;
     }
 
     /**
      * отображение истории заказов
      *
      */
-    public void getAllOrder() {
+    public List<?> getAllOrder() {
+        List<Integer> listNumberOrder=new ArrayList<>();
 
         try (Connection conn = connectionManager.getConnection();
                 ResultSet rs = conn.prepareStatement(SELECT_GET_ALL_ORDER).executeQuery()) {
@@ -205,6 +213,7 @@ public class ActionsWithDBImpl implements ActionsWithDB {
             loggerBusiness.info(String.format("%-9s%-10s%-11s%-14s%-11s%-11s%n", "№Заказа", "ФИО", "телефон", "Наименование", "Цена", "Наличие"));
             while (rs.next()) {
                 int number_order = rs.getInt("number_order");
+                listNumberOrder.add(number_order);
                 String name = rs.getString("fio");
                 int phoneNumber = rs.getInt("phonenumber");
                 double price = rs.getDouble("price");
@@ -216,6 +225,7 @@ public class ActionsWithDBImpl implements ActionsWithDB {
         } catch (SQLException e) {
             loggerSystem.error(e.getMessage());
         }
+        return listNumberOrder;
     }
 
 }

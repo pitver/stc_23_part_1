@@ -14,7 +14,6 @@ import java.sql.Connection;
 
 class Main {
     private static final Logger loggerBusiness = LogManager.getLogger(Main.class);
-    private static final Logger loggerSystem = LogManager.getLogger("SystemLog4J2");
     private static final Logger loggerSecurity = LogManager.getLogger("SecurityLog4J2");
 
     public static void main(String[] args) {

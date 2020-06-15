@@ -1,4 +1,4 @@
-package test.ru.vershinin.lesson17;
+package dao;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

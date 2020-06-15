@@ -5,7 +5,7 @@ import ru.vershinin.lesson17.pojo.Order;
 import ru.vershinin.lesson17.pojo.Product;
 import ru.vershinin.lesson17.pojo.Shop;
 
-import java.sql.Connection;
+import java.util.List;
 
 /**
  * ActionsWithDB
@@ -24,10 +24,10 @@ public interface ActionsWithDB {
 
     int getMaxId( String nameTable);
 
-    void showProduct();
+    List<?> showProduct();
 
-    void prepareOrder();
+    List<?> prepareOrder();
 
-    void getAllOrder();
+    List<?> getAllOrder();
 
 }

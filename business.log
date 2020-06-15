@@ -545,3 +545,270 @@
 2020-06-05 14:29:41,966 INFO t.r.v.l.TestResultLoggerExtension [main] Test result summary for ActionsWithDBImplTest {FAILED=1, SUCCESSFUL=4} 
 2020-06-05 14:29:59,280 INFO t.r.v.l.TestResultLoggerExtension [main] Test Aborted for test showProduct():  
 2020-06-05 14:29:59,291 INFO t.r.v.l.TestResultLoggerExtension [main] Test result summary for ActionsWithDBImplTest {FAILED=1} 
+2020-06-15 09:45:53,062 INFO r.v.l.Main [main] connect 
+2020-06-15 09:45:53,141 INFO r.v.l.DBInit [main] инициализация таблиц 
+2020-06-15 09:45:53,141 INFO SecurityLog4J2 [main] start 
+2020-06-15 09:45:53,999 INFO r.v.l.Main [main] addClient 
+2020-06-15 09:45:54,044 INFO r.v.l.Main [main] addProduct 
+2020-06-15 09:45:54,102 INFO r.v.l.d.ActionsWithDBImpl [main]      ************каталог товаров************ 
+2020-06-15 09:45:54,102 INFO r.v.l.d.ActionsWithDBImpl [main] №          Наименование        Цена       Наличие    
+ 
+2020-06-15 09:45:54,103 INFO r.v.l.d.ActionsWithDBImpl [main] 1          book                12,40      да           
+ 
+2020-06-15 09:45:54,104 INFO r.v.l.d.ActionsWithDBImpl [main] 2          pen                 12,80      да           
+ 
+2020-06-15 09:45:54,104 INFO r.v.l.Main [main] showProduct 
+2020-06-15 09:45:54,249 INFO r.v.l.Main [main] creatingOrder 
+2020-06-15 09:45:54,346 INFO r.v.l.Main [main] creatingShop 
+2020-06-15 09:45:54,395 INFO r.v.l.d.ActionsWithDBImpl [main]      ************Заказ************ 
+2020-06-15 09:45:54,395 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-15 09:45:54,396 INFO r.v.l.d.ActionsWithDBImpl [main] 2        Tom       121111     book          12,40      да           
+ 
+2020-06-15 09:45:54,396 INFO r.v.l.Main [main] prepareOrder 
+2020-06-15 09:45:54,446 INFO r.v.l.d.ActionsWithDBImpl [main]      ************История заказов************ 
+2020-06-15 09:45:54,447 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-15 09:45:54,447 INFO r.v.l.d.ActionsWithDBImpl [main] 1687     Tom       121111     book          12,40      да           
+ 
+2020-06-15 09:45:54,447 INFO r.v.l.d.ActionsWithDBImpl [main] 33       Tom       121111     book          12,40      да           
+ 
+2020-06-15 09:45:54,447 INFO r.v.l.Main [main] getAllOrder 
+2020-06-15 09:45:54,447 INFO SecurityLog4J2 [main] stop 
+2020-06-15 09:47:24,212 INFO d.TestResultLoggerExtension [main] Test Successful for test addClient():  
+2020-06-15 09:47:24,219 INFO d.TestResultLoggerExtension [main] Test result summary for ActionsWithDBImplTest {SUCCESSFUL=1} 
+2020-06-15 09:47:38,859 INFO r.v.l.Main [main] connect 
+2020-06-15 09:47:38,928 INFO r.v.l.DBInit [main] инициализация таблиц 
+2020-06-15 09:47:38,928 INFO SecurityLog4J2 [main] start 
+2020-06-15 09:47:39,726 INFO r.v.l.Main [main] addClient 
+2020-06-15 09:47:39,771 INFO r.v.l.Main [main] addProduct 
+2020-06-15 09:47:39,828 INFO r.v.l.d.ActionsWithDBImpl [main]      ************каталог товаров************ 
+2020-06-15 09:47:39,828 INFO r.v.l.d.ActionsWithDBImpl [main] №          Наименование        Цена       Наличие    
+ 
+2020-06-15 09:47:39,829 INFO r.v.l.d.ActionsWithDBImpl [main] 1          book                12,40      да           
+ 
+2020-06-15 09:47:39,829 INFO r.v.l.d.ActionsWithDBImpl [main] 2          pen                 12,80      да           
+ 
+2020-06-15 09:47:39,829 INFO r.v.l.Main [main] showProduct 
+2020-06-15 09:47:39,979 INFO r.v.l.Main [main] creatingOrder 
+2020-06-15 09:47:40,076 INFO r.v.l.Main [main] creatingShop 
+2020-06-15 09:47:40,124 INFO r.v.l.d.ActionsWithDBImpl [main]      ************Заказ************ 
+2020-06-15 09:47:40,124 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-15 09:47:40,125 INFO r.v.l.d.ActionsWithDBImpl [main] 2        Tom       121111     book          12,40      да           
+ 
+2020-06-15 09:47:40,125 INFO r.v.l.Main [main] prepareOrder 
+2020-06-15 09:47:40,176 INFO r.v.l.d.ActionsWithDBImpl [main]      ************История заказов************ 
+2020-06-15 09:47:40,176 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-15 09:47:40,176 INFO r.v.l.d.ActionsWithDBImpl [main] 1687     Tom       121111     book          12,40      да           
+ 
+2020-06-15 09:47:40,177 INFO r.v.l.d.ActionsWithDBImpl [main] 33       Tom       121111     book          12,40      да           
+ 
+2020-06-15 09:47:40,177 INFO r.v.l.Main [main] getAllOrder 
+2020-06-15 09:47:40,177 INFO SecurityLog4J2 [main] stop 
+2020-06-15 10:39:04,533 INFO r.v.l.d.ActionsWithDBImpl [main]      ************каталог товаров************ 
+2020-06-15 10:39:04,534 INFO r.v.l.d.ActionsWithDBImpl [main] №          Наименование        Цена       Наличие    
+ 
+2020-06-15 10:39:04,541 INFO d.TestResultLoggerExtension [main] Test Aborted for test showProduct():  
+2020-06-15 10:39:04,554 INFO d.TestResultLoggerExtension [main] Test result summary for ActionsWithDBImplTest {FAILED=1} 
+2020-06-15 10:39:36,138 INFO r.v.l.d.ActionsWithDBImpl [main]      ************каталог товаров************ 
+2020-06-15 10:39:36,138 INFO r.v.l.d.ActionsWithDBImpl [main] №          Наименование        Цена       Наличие    
+ 
+2020-06-15 10:39:36,139 INFO r.v.l.d.ActionsWithDBImpl [main] 1          book                12,40      да           
+ 
+2020-06-15 10:39:36,140 INFO r.v.l.d.ActionsWithDBImpl [main] 2          pen                 12,80      да           
+ 
+2020-06-15 10:39:36,146 INFO d.TestResultLoggerExtension [main] Test Successful for test showProduct():  
+2020-06-15 10:39:36,152 INFO d.TestResultLoggerExtension [main] Test result summary for ActionsWithDBImplTest {SUCCESSFUL=1} 
+2020-06-15 10:43:55,860 INFO r.v.l.d.ActionsWithDBImpl [main]      ************каталог товаров************ 
+2020-06-15 10:43:55,860 INFO r.v.l.d.ActionsWithDBImpl [main] №          Наименование        Цена       Наличие    
+ 
+2020-06-15 10:43:55,861 INFO r.v.l.d.ActionsWithDBImpl [main] 1          book                12,40      да           
+ 
+2020-06-15 10:43:55,861 INFO r.v.l.d.ActionsWithDBImpl [main] 2          pen                 12,80      да           
+ 
+2020-06-15 10:43:55,867 INFO d.TestResultLoggerExtension [main] Test Successful for test showProduct():  
+2020-06-15 10:43:55,874 INFO d.TestResultLoggerExtension [main] Test result summary for ActionsWithDBImplTest {SUCCESSFUL=1} 
+2020-06-15 10:54:45,821 INFO r.v.l.d.ActionsWithDBImpl [main]      ************каталог товаров************ 
+2020-06-15 10:54:45,821 INFO r.v.l.d.ActionsWithDBImpl [main] №          Наименование        Цена       Наличие    
+ 
+2020-06-15 10:54:45,822 INFO r.v.l.d.ActionsWithDBImpl [main] 1          book                12,40      да           
+ 
+2020-06-15 10:54:45,822 INFO r.v.l.d.ActionsWithDBImpl [main] 2          pen                 12,80      да           
+ 
+2020-06-15 10:54:45,829 INFO d.TestResultLoggerExtension [main] Test Successful for test showProduct():  
+2020-06-15 10:54:45,835 INFO d.TestResultLoggerExtension [main] Test result summary for ActionsWithDBImplTest {SUCCESSFUL=1} 
+2020-06-15 11:00:43,934 INFO r.v.l.d.ActionsWithDBImpl [main]      ************Заказ************ 
+2020-06-15 11:00:43,934 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-15 11:00:43,935 INFO r.v.l.d.ActionsWithDBImpl [main] 2        Tom       121111     book          12,40      да           
+ 
+2020-06-15 11:00:43,943 INFO d.TestResultLoggerExtension [main] Test Aborted for test prepareOrder():  
+2020-06-15 11:00:43,959 INFO d.TestResultLoggerExtension [main] Test result summary for ActionsWithDBImplTest {FAILED=1} 
+2020-06-15 11:01:16,780 INFO r.v.l.d.ActionsWithDBImpl [main]      ************Заказ************ 
+2020-06-15 11:01:16,780 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-15 11:01:16,781 INFO r.v.l.d.ActionsWithDBImpl [main] 2        Tom       121111     book          12,40      да           
+ 
+2020-06-15 11:01:16,789 INFO d.TestResultLoggerExtension [main] Test Aborted for test prepareOrder():  
+2020-06-15 11:01:16,799 INFO d.TestResultLoggerExtension [main] Test result summary for ActionsWithDBImplTest {FAILED=1} 
+2020-06-15 11:01:34,044 INFO r.v.l.d.ActionsWithDBImpl [main]      ************каталог товаров************ 
+2020-06-15 11:01:34,044 INFO r.v.l.d.ActionsWithDBImpl [main] №          Наименование        Цена       Наличие    
+ 
+2020-06-15 11:01:34,045 INFO r.v.l.d.ActionsWithDBImpl [main] 1          book                12,40      да           
+ 
+2020-06-15 11:01:34,045 INFO r.v.l.d.ActionsWithDBImpl [main] 2          pen                 12,80      да           
+ 
+2020-06-15 11:01:34,052 INFO d.TestResultLoggerExtension [main] Test Successful for test showProduct():  
+2020-06-15 11:01:34,057 INFO d.TestResultLoggerExtension [main] Test result summary for ActionsWithDBImplTest {SUCCESSFUL=1} 
+2020-06-15 11:01:39,648 INFO r.v.l.d.ActionsWithDBImpl [main]      ************Заказ************ 
+2020-06-15 11:01:39,649 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-15 11:01:39,649 INFO r.v.l.d.ActionsWithDBImpl [main] 2        Tom       121111     book          12,40      да           
+ 
+2020-06-15 11:01:39,658 INFO d.TestResultLoggerExtension [main] Test Aborted for test prepareOrder():  
+2020-06-15 11:01:39,670 INFO d.TestResultLoggerExtension [main] Test result summary for ActionsWithDBImplTest {FAILED=1} 
+2020-06-15 11:01:51,891 INFO r.v.l.d.ActionsWithDBImpl [main]      ************Заказ************ 
+2020-06-15 11:01:51,891 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-15 11:01:51,892 INFO r.v.l.d.ActionsWithDBImpl [main] 2        Tom       121111     book          12,40      да           
+ 
+2020-06-15 11:01:51,899 INFO d.TestResultLoggerExtension [main] Test Aborted for test prepareOrder():  
+2020-06-15 11:01:51,911 INFO d.TestResultLoggerExtension [main] Test result summary for ActionsWithDBImplTest {FAILED=1} 
+2020-06-15 11:02:40,450 INFO r.v.l.d.ActionsWithDBImpl [main]      ************Заказ************ 
+2020-06-15 11:02:40,451 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-15 11:02:40,451 INFO r.v.l.d.ActionsWithDBImpl [main] 2        Tom       121111     book          12,40      да           
+ 
+2020-06-15 11:02:40,459 INFO d.TestResultLoggerExtension [main] Test Successful for test prepareOrder():  
+2020-06-15 11:02:40,465 INFO d.TestResultLoggerExtension [main] Test result summary for ActionsWithDBImplTest {SUCCESSFUL=1} 
+2020-06-15 11:07:09,928 INFO r.v.l.d.ActionsWithDBImpl [main]      ************История заказов************ 
+2020-06-15 11:07:09,928 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-15 11:07:09,929 INFO r.v.l.d.ActionsWithDBImpl [main] 1687     Tom       121111     book          12,40      да           
+ 
+2020-06-15 11:07:09,929 INFO r.v.l.d.ActionsWithDBImpl [main] 33       Tom       121111     book          12,40      да           
+ 
+2020-06-15 11:07:09,938 INFO d.TestResultLoggerExtension [main] Test Aborted for test getAllOrder():  
+2020-06-15 11:07:09,953 INFO d.TestResultLoggerExtension [main] Test result summary for ActionsWithDBImplTest {FAILED=1} 
+2020-06-15 11:07:35,105 INFO r.v.l.d.ActionsWithDBImpl [main]      ************История заказов************ 
+2020-06-15 11:07:35,105 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-15 11:07:35,106 INFO r.v.l.d.ActionsWithDBImpl [main] 1687     Tom       121111     book          12,40      да           
+ 
+2020-06-15 11:07:35,106 INFO r.v.l.d.ActionsWithDBImpl [main] 33       Tom       121111     book          12,40      да           
+ 
+2020-06-15 11:07:35,114 INFO d.TestResultLoggerExtension [main] Test Aborted for test getAllOrder():  
+2020-06-15 11:07:35,125 INFO d.TestResultLoggerExtension [main] Test result summary for ActionsWithDBImplTest {FAILED=1} 
+2020-06-15 11:08:02,086 INFO r.v.l.d.ActionsWithDBImpl [main]      ************История заказов************ 
+2020-06-15 11:08:02,087 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-15 11:08:02,087 INFO r.v.l.d.ActionsWithDBImpl [main] 1687     Tom       121111     book          12,40      да           
+ 
+2020-06-15 11:08:02,088 INFO r.v.l.d.ActionsWithDBImpl [main] 33       Tom       121111     book          12,40      да           
+ 
+2020-06-15 11:08:02,095 INFO d.TestResultLoggerExtension [main] Test Aborted for test getAllOrder():  
+2020-06-15 11:08:02,107 INFO d.TestResultLoggerExtension [main] Test result summary for ActionsWithDBImplTest {FAILED=1} 
+2020-06-15 11:08:21,988 INFO r.v.l.d.ActionsWithDBImpl [main]      ************История заказов************ 
+2020-06-15 11:08:21,989 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-15 11:08:21,990 INFO r.v.l.d.ActionsWithDBImpl [main] 1687     Tom       121111     book          12,40      да           
+ 
+2020-06-15 11:08:21,990 INFO r.v.l.d.ActionsWithDBImpl [main] 33       Tom       121111     book          12,40      да           
+ 
+2020-06-15 11:08:21,998 INFO d.TestResultLoggerExtension [main] Test Aborted for test getAllOrder():  
+2020-06-15 11:08:22,009 INFO d.TestResultLoggerExtension [main] Test result summary for ActionsWithDBImplTest {FAILED=1} 
+2020-06-15 11:08:35,669 INFO r.v.l.d.ActionsWithDBImpl [main]      ************История заказов************ 
+2020-06-15 11:08:35,670 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-15 11:08:35,671 INFO r.v.l.d.ActionsWithDBImpl [main] 1687     Tom       121111     book          12,40      да           
+ 
+2020-06-15 11:08:35,671 INFO r.v.l.d.ActionsWithDBImpl [main] 33       Tom       121111     book          12,40      да           
+ 
+2020-06-15 11:08:35,677 INFO d.TestResultLoggerExtension [main] Test Successful for test getAllOrder():  
+2020-06-15 11:08:35,683 INFO d.TestResultLoggerExtension [main] Test result summary for ActionsWithDBImplTest {SUCCESSFUL=1} 
+2020-06-15 11:09:04,221 INFO r.v.l.d.ActionsWithDBImpl [main]      ************Заказ************ 
+2020-06-15 11:09:04,221 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-15 11:09:04,222 INFO r.v.l.d.ActionsWithDBImpl [main] 2        Tom       121111     book          12,40      да           
+ 
+2020-06-15 11:09:04,229 INFO d.TestResultLoggerExtension [main] Test Successful for test prepareOrder():  
+2020-06-15 11:09:04,387 INFO d.TestResultLoggerExtension [main] Test Successful for test addOrderToShop():  
+2020-06-15 11:09:04,436 INFO d.TestResultLoggerExtension [main] Test Successful for test addClient():  
+2020-06-15 11:09:04,491 INFO r.v.l.d.ActionsWithDBImpl [main]      ************История заказов************ 
+2020-06-15 11:09:04,491 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-15 11:09:04,491 INFO r.v.l.d.ActionsWithDBImpl [main] 1687     Tom       121111     book          12,40      да           
+ 
+2020-06-15 11:09:04,491 INFO r.v.l.d.ActionsWithDBImpl [main] 33       Tom       121111     book          12,40      да           
+ 
+2020-06-15 11:09:04,492 INFO d.TestResultLoggerExtension [main] Test Successful for test getAllOrder():  
+2020-06-15 11:09:04,541 INFO r.v.l.d.ActionsWithDBImpl [main]      ************каталог товаров************ 
+2020-06-15 11:09:04,541 INFO r.v.l.d.ActionsWithDBImpl [main] №          Наименование        Цена       Наличие    
+ 
+2020-06-15 11:09:04,541 INFO r.v.l.d.ActionsWithDBImpl [main] 1          book                12,40      да           
+ 
+2020-06-15 11:09:04,542 INFO r.v.l.d.ActionsWithDBImpl [main] 2          pen                 12,80      да           
+ 
+2020-06-15 11:09:04,542 INFO d.TestResultLoggerExtension [main] Test Successful for test showProduct():  
+2020-06-15 11:09:04,791 INFO d.TestResultLoggerExtension [main] Test Successful for test creatingOrder():  
+2020-06-15 11:09:04,838 INFO d.TestResultLoggerExtension [main] Test Successful for test addProduct():  
+2020-06-15 11:09:04,844 INFO d.TestResultLoggerExtension [main] Test result summary for ActionsWithDBImplTest {SUCCESSFUL=7} 
+2020-06-15 11:09:36,965 INFO r.v.l.d.ActionsWithDBImpl [main]      ************Заказ************ 
+2020-06-15 11:09:36,965 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-15 11:09:36,966 INFO r.v.l.d.ActionsWithDBImpl [main] 2        Tom       121111     book          12,40      да           
+ 
+2020-06-15 11:09:36,973 INFO d.TestResultLoggerExtension [main] Test Successful for test prepareOrder():  
+2020-06-15 11:09:37,138 INFO d.TestResultLoggerExtension [main] Test Successful for test addOrderToShop():  
+2020-06-15 11:09:37,187 INFO d.TestResultLoggerExtension [main] Test Successful for test addClient():  
+2020-06-15 11:09:37,240 INFO r.v.l.d.ActionsWithDBImpl [main]      ************История заказов************ 
+2020-06-15 11:09:37,240 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-15 11:09:37,241 INFO r.v.l.d.ActionsWithDBImpl [main] 1687     Tom       121111     book          12,40      да           
+ 
+2020-06-15 11:09:37,241 INFO r.v.l.d.ActionsWithDBImpl [main] 33       Tom       121111     book          12,40      да           
+ 
+2020-06-15 11:09:37,242 INFO d.TestResultLoggerExtension [main] Test Successful for test getAllOrder():  
+2020-06-15 11:09:37,291 INFO r.v.l.d.ActionsWithDBImpl [main]      ************каталог товаров************ 
+2020-06-15 11:09:37,292 INFO r.v.l.d.ActionsWithDBImpl [main] №          Наименование        Цена       Наличие    
+ 
+2020-06-15 11:09:37,292 INFO r.v.l.d.ActionsWithDBImpl [main] 1          book                12,40      да           
+ 
+2020-06-15 11:09:37,292 INFO r.v.l.d.ActionsWithDBImpl [main] 2          pen                 12,80      да           
+ 
+2020-06-15 11:09:37,292 INFO d.TestResultLoggerExtension [main] Test Successful for test showProduct():  
+2020-06-15 11:09:37,540 INFO d.TestResultLoggerExtension [main] Test Successful for test creatingOrder():  
+2020-06-15 11:09:37,589 INFO d.TestResultLoggerExtension [main] Test Successful for test addProduct():  
+2020-06-15 11:09:37,594 INFO d.TestResultLoggerExtension [main] Test result summary for ActionsWithDBImplTest {SUCCESSFUL=7} 
+2020-06-15 11:09:46,674 INFO r.v.l.Main [main] connect 
+2020-06-15 11:09:46,748 INFO r.v.l.DBInit [main] инициализация таблиц 
+2020-06-15 11:09:46,748 INFO SecurityLog4J2 [main] start 
+2020-06-15 11:09:47,559 INFO r.v.l.Main [main] addClient 
+2020-06-15 11:09:47,606 INFO r.v.l.Main [main] addProduct 
+2020-06-15 11:09:47,663 INFO r.v.l.d.ActionsWithDBImpl [main]      ************каталог товаров************ 
+2020-06-15 11:09:47,663 INFO r.v.l.d.ActionsWithDBImpl [main] №          Наименование        Цена       Наличие    
+ 
+2020-06-15 11:09:47,664 INFO r.v.l.d.ActionsWithDBImpl [main] 1          book                12,40      да           
+ 
+2020-06-15 11:09:47,664 INFO r.v.l.d.ActionsWithDBImpl [main] 2          pen                 12,80      да           
+ 
+2020-06-15 11:09:47,664 INFO r.v.l.Main [main] showProduct 
+2020-06-15 11:09:47,948 INFO r.v.l.Main [main] creatingOrder 
+2020-06-15 11:09:48,046 INFO r.v.l.Main [main] creatingShop 
+2020-06-15 11:09:48,095 INFO r.v.l.d.ActionsWithDBImpl [main]      ************Заказ************ 
+2020-06-15 11:09:48,096 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-15 11:09:48,096 INFO r.v.l.d.ActionsWithDBImpl [main] 2        Tom       121111     book          12,40      да           
+ 
+2020-06-15 11:09:48,096 INFO r.v.l.Main [main] prepareOrder 
+2020-06-15 11:09:48,147 INFO r.v.l.d.ActionsWithDBImpl [main]      ************История заказов************ 
+2020-06-15 11:09:48,147 INFO r.v.l.d.ActionsWithDBImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-15 11:09:48,147 INFO r.v.l.d.ActionsWithDBImpl [main] 1687     Tom       121111     book          12,40      да           
+ 
+2020-06-15 11:09:48,147 INFO r.v.l.d.ActionsWithDBImpl [main] 33       Tom       121111     book          12,40      да           
+ 
+2020-06-15 11:09:48,148 INFO r.v.l.Main [main] getAllOrder 
+2020-06-15 11:09:48,148 INFO SecurityLog4J2 [main] stop 

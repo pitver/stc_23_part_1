@@ -12,13 +12,14 @@ import ru.vershinin.lesson17.pojo.Client;
 import ru.vershinin.lesson17.pojo.Order;
 import ru.vershinin.lesson17.pojo.Product;
 import ru.vershinin.lesson17.pojo.Shop;
-import test.ru.vershinin.lesson17.TestResultLoggerExtension;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 import static org.mockito.MockitoAnnotations.initMocks;
 
@@ -121,19 +122,25 @@ public class ActionsWithDBImplTest {
     }
 
     @Test
-    void showProduct() throws SQLException {
-        when(connectionManager.getConnection()).thenReturn(connection);
-        doReturn(preparedStatementMock).when(connection).prepareStatement(ActionsWithDBImpl.SELECT_PRODUCT );
-        when(resultSetMock.next()).thenReturn(true);
-
-        actionsWithDB.showProduct();
-
-
-       verify(connectionManager,times(1)).getConnection();
-        verify(connection, atMost(1)).prepareStatement(ActionsWithDBImpl.SELECT_PRODUCT);
-        verify(preparedStatementMock).executeQuery();
-        verify(resultSetMock).next();
-        verify(resultSetMock.getInt("id"));
-
+    void showProduct() {
+       List<?> listProduct= actionsWithDB.showProduct();
+       assertEquals(2,listProduct.size());
+        assertEquals("book",listProduct.get(0));
+        assertEquals("pen",listProduct.get(1));
     }
+    @Test
+    void prepareOrder() {
+       List<?> listClient= actionsWithDB.prepareOrder();
+       assertEquals(1,listClient.size());
+        assertEquals("Tom",listClient.get(0));
+    }
+    @Test
+    void getAllOrder() {
+       List<?> listNumberOrder= actionsWithDB.getAllOrder();
+       assertEquals(2,listNumberOrder.size());
+        assertEquals(1687,listNumberOrder.get(0));
+        assertEquals(33,listNumberOrder.get(1));
+    }
+
+
 }
