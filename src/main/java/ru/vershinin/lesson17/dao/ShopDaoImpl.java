@@ -17,10 +17,10 @@ import java.util.List;
  *
  * @author Вершинин Пётр
  */
-public class ActionsWithDBImpl implements ActionsWithDB {
+public class ShopDaoImpl implements ShopDao {
 
     private static final Logger loggerSystem = LogManager.getLogger("SystemLog4J2");
-    private static final Logger loggerBusiness = LogManager.getLogger(ActionsWithDBImpl.class);
+    private static final Logger loggerBusiness = LogManager.getLogger(ShopDaoImpl.class);
     public static final String INSERT_INTO_CLIENT = "INSERT INTO public.client(fio, phonenumber) VALUES ( ?, ?)";
     public static final String INSERT_INTO_PRODUCT = "INSERT INTO public.product(product_name, price,present) VALUES ( ?, ?, ?)";
     public static final String INSERT_INTO_ORDER = "INSERT INTO public.order(client_id, product_id) VALUES ( ?, ?)";
@@ -37,11 +37,11 @@ public class ActionsWithDBImpl implements ActionsWithDB {
             "LEFT JOIN client c on o.client_id = c.id\n" +
             "LEFT JOIN product p on o.product_id = p.id";
 
-    public ActionsWithDBImpl() {
+    public ShopDaoImpl() {
     }
     private ConnectionManager connectionManager;// - ? для чего
 
-    public ActionsWithDBImpl(ConnectionManager connectionManager) {// - ? для чего
+    public ShopDaoImpl(ConnectionManager connectionManager) {// - ? для чего
         this.connectionManager = connectionManager;
 
     }

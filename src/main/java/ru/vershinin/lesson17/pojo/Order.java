@@ -3,7 +3,7 @@ package ru.vershinin.lesson17.pojo;
 
 import ru.vershinin.lesson17.ConnectionManager.ConnectionDB;
 import ru.vershinin.lesson17.ConnectionManager.ConnectionManager;
-import ru.vershinin.lesson17.dao.ActionsWithDBImpl;
+import ru.vershinin.lesson17.dao.ShopDaoImpl;
 
 /**
  * Order
@@ -26,7 +26,7 @@ public class Order {
 
     public int getId() {
         ConnectionManager connectionManager= ConnectionDB.getInstance();
-        ActionsWithDBImpl actionsWithDB= new ActionsWithDBImpl(connectionManager);
+        ShopDaoImpl actionsWithDB= new ShopDaoImpl(connectionManager);
         return actionsWithDB.getMaxId("\"order\"");
     }
 

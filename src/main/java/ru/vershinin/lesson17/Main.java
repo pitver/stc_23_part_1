@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ru.vershinin.lesson17.ConnectionManager.ConnectionDB;
 import ru.vershinin.lesson17.ConnectionManager.ConnectionManager;
-import ru.vershinin.lesson17.dao.ActionsWithDBImpl;
+import ru.vershinin.lesson17.dao.ShopDaoImpl;
 import ru.vershinin.lesson17.pojo.Client;
 import ru.vershinin.lesson17.pojo.Order;
 import ru.vershinin.lesson17.pojo.Product;
@@ -18,7 +18,7 @@ class Main {
 
     public static void main(String[] args) {
         ConnectionManager connectionManager=ConnectionDB.getInstance();
-        ActionsWithDBImpl actionsWithDB= new ActionsWithDBImpl(connectionManager);
+        ShopDaoImpl actionsWithDB= new ShopDaoImpl(connectionManager);
 
         Client client= new Client("luke",123456789);
         Product product = new Product(12.8,true,"pen");

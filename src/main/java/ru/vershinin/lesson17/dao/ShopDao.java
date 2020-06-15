@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Вершинин Пётр
  */
-public interface ActionsWithDB {
+public interface ShopDao {
 
     void addClient(Client client);
 

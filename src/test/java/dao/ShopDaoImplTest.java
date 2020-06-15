@@ -6,8 +6,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import ru.vershinin.lesson17.ConnectionManager.ConnectionDB;
 import ru.vershinin.lesson17.ConnectionManager.ConnectionManager;
-import ru.vershinin.lesson17.dao.ActionsWithDB;
-import ru.vershinin.lesson17.dao.ActionsWithDBImpl;
+import ru.vershinin.lesson17.dao.ShopDao;
+import ru.vershinin.lesson17.dao.ShopDaoImpl;
 import ru.vershinin.lesson17.pojo.Client;
 import ru.vershinin.lesson17.pojo.Order;
 import ru.vershinin.lesson17.pojo.Product;
@@ -31,9 +31,9 @@ import static org.mockito.MockitoAnnotations.initMocks;
  */
 
 @ExtendWith(TestResultLoggerExtension.class)
-public class ActionsWithDBImplTest {
+public class ShopDaoImplTest {
 
-    private ActionsWithDB         actionsWithDB;
+    private ShopDao actionsWithDB;
     private ConnectionManager     connectionManager;
     private Connection            connection;
     @Mock
@@ -47,12 +47,12 @@ public class ActionsWithDBImplTest {
        initMocks(this);
        connectionManager = spy(ConnectionDB.getInstance());
        connection        = mock(Connection.class);
-       actionsWithDB     = spy(new ActionsWithDBImpl(connectionManager));
+       actionsWithDB     = spy(new ShopDaoImpl(connectionManager));
    }
    @Test
     void addClient() throws SQLException {
        when(connectionManager.getConnection()).thenReturn(connection);
-       doReturn(preparedStatementMock).when(connection).prepareStatement(ActionsWithDBImpl.INSERT_INTO_CLIENT );
+       doReturn(preparedStatementMock).when(connection).prepareStatement(ShopDaoImpl.INSERT_INTO_CLIENT );
        when(resultSetMock.next()).thenReturn(true);
 
        String fio="jack";
@@ -62,7 +62,7 @@ public class ActionsWithDBImplTest {
       actionsWithDB.addClient(client);
 
        verify(connectionManager, times(1)).getConnection();
-       verify(connection, atMost(1)).prepareStatement(ActionsWithDBImpl.INSERT_INTO_CLIENT);
+       verify(connection, atMost(1)).prepareStatement(ShopDaoImpl.INSERT_INTO_CLIENT);
        verify(preparedStatementMock, times(1)).setString(1, client.getFio());
        verify(preparedStatementMock, times(1)).setInt(2, client.getPhoneNumber());
        verify(preparedStatementMock, times(1)).executeQuery();
@@ -70,7 +70,7 @@ public class ActionsWithDBImplTest {
     @Test
     void addProduct() throws SQLException {
         when(connectionManager.getConnection()).thenReturn(connection);
-        doReturn(preparedStatementMock).when(connection).prepareStatement(ActionsWithDBImpl.INSERT_INTO_PRODUCT );
+        doReturn(preparedStatementMock).when(connection).prepareStatement(ShopDaoImpl.INSERT_INTO_PRODUCT );
         when(resultSetMock.next()).thenReturn(true);
 
         String product_name="pen";
@@ -81,7 +81,7 @@ public class ActionsWithDBImplTest {
         actionsWithDB.addProduct(product);
 
         verify(connectionManager, times(1)).getConnection();
-        verify(connection, atMost(1)).prepareStatement(ActionsWithDBImpl.INSERT_INTO_PRODUCT);
+        verify(connection, atMost(1)).prepareStatement(ShopDaoImpl.INSERT_INTO_PRODUCT);
         verify(preparedStatementMock, times(1)).setString(1, product.getProductName());
         verify(preparedStatementMock, times(1)).setDouble(2, product.getPrice());
         verify(preparedStatementMock, times(1)).setBoolean(3, product.isPresent());
@@ -90,7 +90,7 @@ public class ActionsWithDBImplTest {
     @Test
     void creatingOrder() throws SQLException {
         when(connectionManager.getConnection()).thenReturn(connection);
-        doReturn(preparedStatementMock).when(connection).prepareStatement(ActionsWithDBImpl.INSERT_INTO_ORDER );
+        doReturn(preparedStatementMock).when(connection).prepareStatement(ShopDaoImpl.INSERT_INTO_ORDER );
         when(resultSetMock.next()).thenReturn(true);
 
         Client client=new Client("Mike",123);
@@ -99,7 +99,7 @@ public class ActionsWithDBImplTest {
         actionsWithDB.creatingOrder(client,product);
 
         verify(connectionManager, times(1)).getConnection();
-        verify(connection, atMost(1)).prepareStatement(ActionsWithDBImpl.INSERT_INTO_ORDER);
+        verify(connection, atMost(1)).prepareStatement(ShopDaoImpl.INSERT_INTO_ORDER);
         verify(preparedStatementMock, times(1)).setInt(1, client.getId());
         verify(preparedStatementMock, times(1)).setInt(2, product.getId());
         verify(preparedStatementMock, times(1)).executeQuery();
@@ -107,7 +107,7 @@ public class ActionsWithDBImplTest {
     @Test
     void addOrderToShop() throws SQLException {
         when(connectionManager.getConnection()).thenReturn(connection);
-        doReturn(preparedStatementMock).when(connection).prepareStatement(ActionsWithDBImpl.INSERT_INTO_SHOP );
+        doReturn(preparedStatementMock).when(connection).prepareStatement(ShopDaoImpl.INSERT_INTO_SHOP );
         when(resultSetMock.next()).thenReturn(true);
         Order order=new Order();
         Shop shop=new Shop();
@@ -115,7 +115,7 @@ public class ActionsWithDBImplTest {
         actionsWithDB.addOrderToShop(order,shop);
 
         verify(connectionManager, times(1)).getConnection();
-        verify(connection, atMost(1)).prepareStatement(ActionsWithDBImpl.INSERT_INTO_SHOP);
+        verify(connection, atMost(1)).prepareStatement(ShopDaoImpl.INSERT_INTO_SHOP);
         verify(preparedStatementMock, times(1)).setInt(1, order.getId());
         verify(preparedStatementMock, times(1)).setInt(2, shop.getNumberOrder());
         verify(preparedStatementMock, times(1)).executeQuery();
