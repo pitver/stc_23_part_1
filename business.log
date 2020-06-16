@@ -812,3 +812,66 @@
  
 2020-06-15 11:09:48,148 INFO r.v.l.Main [main] getAllOrder 
 2020-06-15 11:09:48,148 INFO SecurityLog4J2 [main] stop 
+2020-06-16 09:48:47,700 INFO r.v.l.Main [main] connect 
+2020-06-16 09:49:01,549 INFO r.v.l.Main [main] connect 
+2020-06-16 09:49:36,621 INFO r.v.l.Main [main] connect 
+2020-06-16 09:49:57,437 INFO r.v.l.Main [main] connect 
+2020-06-16 09:49:57,581 INFO r.v.l.DBInit [main] инициализация таблиц 
+2020-06-16 09:49:57,581 INFO SecurityLog4J2 [main] start 
+2020-06-16 09:49:58,317 INFO r.v.l.Main [main] addClient 
+2020-06-16 09:49:58,329 INFO r.v.l.Main [main] addProduct 
+2020-06-16 09:49:58,348 INFO r.v.l.d.ShopDaoImpl [main]      ************каталог товаров************ 
+2020-06-16 09:49:58,348 INFO r.v.l.d.ShopDaoImpl [main] №          Наименование        Цена       Наличие    
+ 
+2020-06-16 09:49:58,349 INFO r.v.l.d.ShopDaoImpl [main] 1          book                12,40      да           
+ 
+2020-06-16 09:49:58,349 INFO r.v.l.d.ShopDaoImpl [main] 2          pen                 12,80      да           
+ 
+2020-06-16 09:49:58,350 INFO r.v.l.Main [main] showProduct 
+2020-06-16 09:49:58,386 INFO r.v.l.Main [main] creatingOrder 
+2020-06-16 09:49:58,407 INFO r.v.l.Main [main] creatingShop 
+2020-06-16 09:49:58,418 INFO r.v.l.d.ShopDaoImpl [main]      ************Заказ************ 
+2020-06-16 09:49:58,418 INFO r.v.l.d.ShopDaoImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-16 09:49:58,418 INFO r.v.l.d.ShopDaoImpl [main] 2        Tom       121111     book          12,40      да           
+ 
+2020-06-16 09:49:58,419 INFO r.v.l.Main [main] prepareOrder 
+2020-06-16 09:49:58,430 INFO r.v.l.d.ShopDaoImpl [main]      ************История заказов************ 
+2020-06-16 09:49:58,430 INFO r.v.l.d.ShopDaoImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-16 09:49:58,430 INFO r.v.l.d.ShopDaoImpl [main] 1687     Tom       121111     book          12,40      да           
+ 
+2020-06-16 09:49:58,430 INFO r.v.l.d.ShopDaoImpl [main] 33       Tom       121111     book          12,40      да           
+ 
+2020-06-16 09:49:58,431 INFO r.v.l.Main [main] getAllOrder 
+2020-06-16 09:49:58,431 INFO SecurityLog4J2 [main] stop 
+2020-06-16 09:51:26,608 INFO r.v.l.Main [main] connect 
+2020-06-16 09:51:26,712 INFO r.v.l.DBInit [main] инициализация таблиц 
+2020-06-16 09:51:26,712 INFO SecurityLog4J2 [main] start 
+2020-06-16 09:51:27,488 INFO r.v.l.Main [main] addClient 
+2020-06-16 09:51:27,500 INFO r.v.l.Main [main] addProduct 
+2020-06-16 09:51:27,520 INFO r.v.l.d.ShopDaoImpl [main]      ************каталог товаров************ 
+2020-06-16 09:51:27,520 INFO r.v.l.d.ShopDaoImpl [main] №          Наименование        Цена       Наличие    
+ 
+2020-06-16 09:51:27,521 INFO r.v.l.d.ShopDaoImpl [main] 1          book                12,40      да           
+ 
+2020-06-16 09:51:27,521 INFO r.v.l.d.ShopDaoImpl [main] 2          pen                 12,80      да           
+ 
+2020-06-16 09:51:27,521 INFO r.v.l.Main [main] showProduct 
+2020-06-16 09:51:27,556 INFO r.v.l.Main [main] creatingOrder 
+2020-06-16 09:51:27,578 INFO r.v.l.Main [main] creatingShop 
+2020-06-16 09:51:27,590 INFO r.v.l.d.ShopDaoImpl [main]      ************Заказ************ 
+2020-06-16 09:51:27,590 INFO r.v.l.d.ShopDaoImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-16 09:51:27,590 INFO r.v.l.d.ShopDaoImpl [main] 2        Tom       121111     book          12,40      да           
+ 
+2020-06-16 09:51:27,590 INFO r.v.l.Main [main] prepareOrder 
+2020-06-16 09:51:27,601 INFO r.v.l.d.ShopDaoImpl [main]      ************История заказов************ 
+2020-06-16 09:51:27,601 INFO r.v.l.d.ShopDaoImpl [main] №Заказа  ФИО       телефон    Наименование  Цена       Наличие    
+ 
+2020-06-16 09:51:27,601 INFO r.v.l.d.ShopDaoImpl [main] 1687     Tom       121111     book          12,40      да           
+ 
+2020-06-16 09:51:27,602 INFO r.v.l.d.ShopDaoImpl [main] 33       Tom       121111     book          12,40      да           
+ 
+2020-06-16 09:51:27,602 INFO r.v.l.Main [main] getAllOrder 
+2020-06-16 09:51:27,602 INFO SecurityLog4J2 [main] stop 
