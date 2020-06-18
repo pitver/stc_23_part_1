@@ -17,8 +17,10 @@ public class RegisterClientServlet extends HttpServlet {
     private ShopDao shopDao;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        req.getRequestDispatcher("WEB-INF/jsp/register.jsp").forward(req, resp);
+        req.setAttribute("PageTitle", "register");
+        req.setAttribute("PageBody", "register.jsp");
+        req.getRequestDispatcher("WEB-INF/jsp/l.jsp")
+                .forward(req, resp);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

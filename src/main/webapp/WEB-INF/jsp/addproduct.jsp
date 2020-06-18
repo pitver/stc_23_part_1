@@ -1,12 +1,5 @@
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <title>Title</title>
-</head>
-<body>
+
 
 <jsp:useBean id="product" class="ru.vershinin.lesson21.pojo.Product" />
 <c:set target="${product}" property="productName" value="product" />
@@ -28,5 +21,3 @@
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
-</body>
-</html>

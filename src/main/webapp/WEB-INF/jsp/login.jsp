@@ -1,17 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 1
-  Date: 18.06.2020
-  Time: 12:50
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-</head>
-<body>
+
 <div align="center">
     <h1>Client Register Form</h1>
     <form method="post" action="${pageContext.request.contextPath}/login" autocomplete="off">
@@ -34,7 +21,6 @@
         </div>
 
         <input type="submit" value="Submit" />
+        </div>
     </form>
 </div>
-</body>
-</html>

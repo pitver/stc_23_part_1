@@ -26,7 +26,10 @@ public class AllProductsServlet extends HttpServlet {
         List<?> product = shopDao.showProduct();
 
         req.setAttribute("product", product);
-        req.getRequestDispatcher("WEB-INF/jsp/allproducts.jsp").forward(req, resp);
+        req.setAttribute("PageTitle", "allproduct");
+        req.setAttribute("PageBody", "allproducts.jsp");
+        req.getRequestDispatcher("WEB-INF/jsp/l.jsp")
+                .forward(req, resp);
     }
 
 
