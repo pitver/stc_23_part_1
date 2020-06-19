@@ -4,6 +4,7 @@ import ru.vershinin.lesson21.pojo.Client;
 import ru.vershinin.lesson21.pojo.Order;
 import ru.vershinin.lesson21.pojo.Product;
 import ru.vershinin.lesson21.pojo.Shop;
+import ru.vershinin.lesson21.servlet.EditProduct;
 
 import java.util.List;
 
@@ -29,5 +30,12 @@ public interface ShopDao {
     List<?> prepareOrder();
 
     List<?> getAllOrder();
+
+    boolean findClient(String username,String password);
+
+    Product getProductById(Integer id);
+
+    void editProduct(Product product);
+    void deleteProduct(Product product);
 
 }

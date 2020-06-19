@@ -11,29 +11,60 @@ import java.util.Objects;
 
 public class Client {
     private int id;
-    private String fio;
-    private int phoneNumber;
+    private String firstName;
+    private String lastName;
+    private String username;
+    private String password;
 
 
-    public Client( String fio, int phoneNumber) {
-        this.fio = fio;
-        this.phoneNumber = phoneNumber;
+    public Client(String firstName, String lastName, String username, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.password = password;
     }
 
-    public String getFio() {
-        return fio;
+    public Client() {
     }
 
-    public void setFio(String fio) {
-        this.fio = fio;
+    public int getId() {
+        return id;
     }
 
-    public int getPhoneNumber() {
-        return phoneNumber;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     @Override
@@ -42,21 +73,25 @@ public class Client {
         if (o == null || getClass() != o.getClass()) return false;
         Client client = (Client) o;
         return id == client.id &&
-                phoneNumber == client.phoneNumber &&
-                Objects.equals(fio, client.fio);
+                Objects.equals(firstName, client.firstName) &&
+                Objects.equals(lastName, client.lastName) &&
+                Objects.equals(password, client.password) &&
+                Objects.equals(username, client.username);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, fio, phoneNumber);
+        return Objects.hash(id, firstName, lastName, password, username);
     }
 
     @Override
     public String toString() {
         return "Client{" +
                 "id=" + id +
-                ", fio='" + fio + '\'' +
-                ", phoneNumber=" + phoneNumber +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", password='" + password + '\'' +
+                ", username='" + username + '\'' +
                 '}';
     }
 }

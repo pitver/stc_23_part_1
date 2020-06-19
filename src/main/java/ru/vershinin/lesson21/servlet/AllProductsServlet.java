@@ -18,7 +18,7 @@ import java.util.List;
  */
 @WebServlet(urlPatterns = "/allproduct", name = "product")
 
-public class Allproducts extends HttpServlet {
+public class AllProductsServlet extends HttpServlet {
     @Inject
     private ShopDao shopDao;
     @Override
@@ -26,7 +26,11 @@ public class Allproducts extends HttpServlet {
         List<?> product = shopDao.showProduct();
 
         req.setAttribute("product", product);
-        req.getRequestDispatcher("WEB-INF/jsp/allproducts.jsp").forward(req, resp);
+        req.setAttribute("PageTitle", "ALL");
+        req.setAttribute("PageBody", "allproducts.jsp");
+        req.getRequestDispatcher("layout.jsp")
+                .forward(req, resp);
+        /*req.getRequestDispatcher("WEB-INF/jsp/allproducts.jsp").forward(req, resp);*/
     }
 
 

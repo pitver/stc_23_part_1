@@ -1,7 +1,9 @@
-package ru.vershinin.lesson21;
+package ru.vershinin.lesson21.dao;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import ru.vershinin.lesson21.ConnectionManager.ConnectionDB;
+import ru.vershinin.lesson21.ConnectionManager.ConnectionManager;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -16,12 +18,14 @@ import java.sql.Statement;
     private static final Logger loggerBusiness = LogManager.getLogger(DBInit.class);
     private static final Logger loggerSystem = LogManager.getLogger("SystemLog4J2");
 
+
     /**
      * создание и инициализация таблиц
      *
      * @param conn -Connection
      */
     protected static void Init(Connection conn) {
+
 
         String sql= new StringBuilder().append(" \n")
                 .append("DROP TABLE IF EXISTS shop;\n")
@@ -46,8 +50,10 @@ import java.sql.Statement;
                 .append("\n")
                 .append("CREATE TABLE public.Client (\n")
                 .append("                id BIGINT NOT NULL DEFAULT nextval('public.client_id_seq'),\n")
-                .append("                fio VARCHAR NOT NULL,\n")
-                .append("                phonenumber INTEGER NOT NULL,\n")
+                .append("                first_name VARCHAR NOT NULL,\n")
+                .append("                last_name VARCHAR NOT NULL,\n")
+                .append("                username VARCHAR NOT NULL,\n")
+                .append("                password VARCHAR NOT NULL,\n")
                 .append("                CONSTRAINT client_pk PRIMARY KEY (id)\n")
                 .append(");\n")
                 .append("\n")
@@ -98,10 +104,10 @@ import java.sql.Statement;
                 .append("ON DELETE NO ACTION\n")
                 .append("ON UPDATE NO ACTION\n")
                 .append("NOT DEFERRABLE;")
-                .append("INSERT INTO public.client(fio, phonenumber)VALUES ( 'Tom', 121111)\n;")
+                .append("INSERT INTO public.client(first_name, last_name, username, password)VALUES ( 'Tom','Mot','tom', '123')\n;")
                 .append("INSERT INTO public.product(price, present,product_name)VALUES ( 12.4, true,'book')\n;")
-                .append("INSERT INTO public.order(client_id, Product_id)VALUES ( 1,1)\n;")
-                .append("INSERT INTO public.shop(order_id, number_order)VALUES ( 1, 1687)\n;")
+/*                .append("INSERT INTO public.order(client_id, Product_id)VALUES ( 1,1)\n;")
+                .append("INSERT INTO public.shop(order_id, number_order)VALUES ( 1, 1687)\n;")*/
                 .append("create table app_logs\n")
                 .append("(\n")
                 .append("    log_id     varchar,\n")
@@ -112,7 +118,9 @@ import java.sql.Statement;
                 .append("    exception  varchar\n")
                 .append(");").toString();
 
-        try (Statement st=conn.createStatement()) {
+        try (
+
+                Statement st=conn.createStatement()) {
             st.executeUpdate(sql);
             loggerBusiness.info("инициализация таблиц");
 
