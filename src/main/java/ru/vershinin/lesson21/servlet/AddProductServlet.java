@@ -18,10 +18,11 @@ public class AddProductServlet extends HttpServlet {
     private ShopDao shopDao;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("PageTitle", "addproduct");
+        req.setAttribute("PageTitle", "ADD");
         req.setAttribute("PageBody", "addproduct.jsp");
-        req.getRequestDispatcher("WEB-INF/jsp/l.jsp")
+        req.getRequestDispatcher("layout.jsp")
                 .forward(req, resp);
+
     }
 
     @Override

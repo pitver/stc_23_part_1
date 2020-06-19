@@ -29,6 +29,9 @@ public class ShopDaoImpl implements ShopDao {
     public static final String SELECT_CLIENT_LOGIN = "SELECT username,password FROM public.client";
     public static final String INSERT_INTO_CLIENT = "INSERT INTO public.client(first_name, last_name, username, password) VALUES ( ?,?,?,?)";
     public static final String INSERT_INTO_PRODUCT = "INSERT INTO public.product(product_name, price,present) VALUES ( ?, ?, ?)";
+    public static final String SELECT_FROM_PRODUCT = "SELECT * FROM public.product WHERE id = ?";
+    public static final String EDIT_PRODUCT = "UPDATE public.product SET price=?, present=?, product_name=? WHERE id = ?";
+    public static final String DELETE_PRODUCT = "DELETE FROM public.product WHERE id = ?";
     public static final String INSERT_INTO_ORDER = "INSERT INTO public.order(client_id, product_id) VALUES ( ?, ?)";
     public static final String INSERT_INTO_SHOP = "INSERT INTO public.shop(order_id, number_order) VALUES ( ?, ?)";
     public static final String SELECT_PRODUCT = "SELECT *FROM product";
@@ -59,18 +62,14 @@ public class ShopDaoImpl implements ShopDao {
      * @param client -  экземпляр Client
      */
     public void addClient(Client client) {
-
         try (Connection conn = connectionManager.getConnection();
              PreparedStatement st = conn.prepareStatement(INSERT_INTO_CLIENT)) {
             st.setString(1, client.getFirstName());
             st.setString(2, client.getLastName());
             st.setString(3, client.getUsername());
             st.setString(4, client.getPassword());
-
             st.executeQuery();
-
         } catch (SQLException e) {
-
             loggerSystem.error(e.getMessage());
         }
 
@@ -82,20 +81,15 @@ public class ShopDaoImpl implements ShopDao {
      * @param product- экземпляр Product
      */
     public void addProduct(Product product) {
-
-
         try (Connection conn = connectionManager.getConnection();
              PreparedStatement st = conn.prepareStatement(INSERT_INTO_PRODUCT)) {
-
             st.setString(1, product.getProductName());
             st.setDouble(2, product.getPrice());
             st.setBoolean(3, product.isPresent());
             st.executeQuery();
-
         } catch (SQLException e) {
             loggerSystem.error(e.getMessage());
         }
-
     }
 
     /**
@@ -140,11 +134,9 @@ public class ShopDaoImpl implements ShopDao {
      */
     public int getMaxId(String nameTable) {
         int count = 0;
-
         String sql = "SELECT id From " + nameTable + " WHERE id=(SELECT max(id) FROM \"order\")";
         try (Connection conn = connectionManager.getConnection();
              ResultSet rs = conn.prepareStatement(sql).executeQuery()) {
-
             while (rs.next()) {
                 count = rs.getInt("id");
             }
@@ -171,9 +163,7 @@ public class ShopDaoImpl implements ShopDao {
                 String productName = rs.getString("product_name");
                 boolean present = rs.getBoolean("present");
                 listProductName.add(new Product(id, productName, price, present));
-
                 loggerBusiness.info(String.format("%-11d%-20s%-11.2f%-13s%n", id, productName, price, present ? "да" : "нет"));
-
             }
             return listProductName;
         } catch (SQLException e) {
@@ -182,6 +172,13 @@ public class ShopDaoImpl implements ShopDao {
         return new ArrayList<>();
     }
 
+    /**
+     * поиск и сравнение по имени и паролю введенных с формы и БД(подготовка к авторизации)
+     *
+     * @param username - введенный логин
+     * @param password - введенный пароль
+     * @return-состояние, если
+     */
     @Override
     public boolean findClient(String username, String password) {
         try (Connection conn = connectionManager.getConnection();
@@ -189,10 +186,8 @@ public class ShopDaoImpl implements ShopDao {
             while (rs.next()) {
                 String usernameDB = rs.getString("username");
                 String passwordDB = rs.getString("password");
-                if (username.equals(usernameDB)) {
-                    if (password.equals(passwordDB)) {
+                if (username.equals(usernameDB)&& password.equals(passwordDB)) {
                         return true;
-                    }
                 }
             }
 
@@ -200,6 +195,53 @@ public class ShopDaoImpl implements ShopDao {
             loggerSystem.error(e.getMessage());
         }
         return false;
+    }
+
+    @Override
+    public Product getProductById(Integer id) {
+        try (Connection connection = connectionManager.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_FROM_PRODUCT)) {
+            preparedStatement.setInt(1, id);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    return new Product(
+                            resultSet.getInt("id"),
+                            resultSet.getString("product_name"),
+                            resultSet.getDouble("price"),
+                            resultSet.getBoolean("present"));
+                }
+            }
+        } catch (SQLException e) {
+            loggerSystem.error(e.getMessage());
+        }
+        return null;
+    }
+
+    @Override
+    public void editProduct(Product product) {
+        try (Connection conn = connectionManager.getConnection();
+             PreparedStatement st = conn.prepareStatement(EDIT_PRODUCT)) {
+            st.setDouble(1, product.getPrice());
+            st.setBoolean(2, product.isPresent());
+            st.setString(3, product.getProductName());
+            st.setInt(4, product.getId());
+            st.executeQuery();
+
+        } catch (SQLException e) {
+            loggerSystem.error(e.getMessage());
+        }
+    }
+
+    @Override
+    public void deleteProduct(Product product) {
+        try (Connection conn = connectionManager.getConnection();
+             PreparedStatement st = conn.prepareStatement(DELETE_PRODUCT)) {
+            st.setInt(1, product.getId());
+            st.executeQuery();
+
+        } catch (SQLException e) {
+            loggerSystem.error(e.getMessage());
+        }
     }
 
     /**

@@ -18,9 +18,9 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("PageTitle", "login");
+        req.setAttribute("PageTitle", "Login");
         req.setAttribute("PageBody", "login.jsp");
-        req.getRequestDispatcher("WEB-INF/jsp/l.jsp")
+        req.getRequestDispatcher("layout.jsp")
                 .forward(req, resp);
     }
 
