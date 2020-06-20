@@ -26,8 +26,8 @@ public class ShopDaoImpl implements ShopDao {
 
     private static final Logger loggerSystem = LogManager.getLogger("SystemLog4J2");
     private static final Logger loggerBusiness = LogManager.getLogger(ShopDaoImpl.class);
-    public static final String SELECT_CLIENT_LOGIN = "SELECT username,password FROM public.client";
-    public static final String INSERT_INTO_CLIENT = "INSERT INTO public.client(first_name, last_name, username, password) VALUES ( ?,?,?,?)";
+
+
     public static final String INSERT_INTO_PRODUCT = "INSERT INTO public.product(product_name, price,present) VALUES ( ?, ?, ?)";
     public static final String SELECT_FROM_PRODUCT = "SELECT * FROM public.product WHERE id = ?";
     public static final String EDIT_PRODUCT = "UPDATE public.product SET price=?, present=?, product_name=? WHERE id = ?";
@@ -53,27 +53,11 @@ public class ShopDaoImpl implements ShopDao {
     public ShopDaoImpl(@Myconnect ConnectionManager connectionManager) {
         this.connectionManager = connectionManager;
         DBInit.Init(connectionManager.getConnection());
+        loggerBusiness.info("инициализация таблиц");
     }
 
 
-    /**
-     * добавление пользователя в таблицу Client
-     *
-     * @param client -  экземпляр Client
-     */
-    public void addClient(Client client) {
-        try (Connection conn = connectionManager.getConnection();
-             PreparedStatement st = conn.prepareStatement(INSERT_INTO_CLIENT)) {
-            st.setString(1, client.getFirstName());
-            st.setString(2, client.getLastName());
-            st.setString(3, client.getUsername());
-            st.setString(4, client.getPassword());
-            st.executeQuery();
-        } catch (SQLException e) {
-            loggerSystem.error(e.getMessage());
-        }
 
-    }
 
     /**
      * добавление товара в таблицу product
@@ -172,30 +156,6 @@ public class ShopDaoImpl implements ShopDao {
         return new ArrayList<>();
     }
 
-    /**
-     * поиск и сравнение по имени и паролю введенных с формы и БД(подготовка к авторизации)
-     *
-     * @param username - введенный логин
-     * @param password - введенный пароль
-     * @return-состояние, если
-     */
-    @Override
-    public boolean findClient(String username, String password) {
-        try (Connection conn = connectionManager.getConnection();
-             ResultSet rs = conn.prepareStatement(SELECT_CLIENT_LOGIN).executeQuery()) {
-            while (rs.next()) {
-                String usernameDB = rs.getString("username");
-                String passwordDB = rs.getString("password");
-                if (username.equals(usernameDB)&& password.equals(passwordDB)) {
-                        return true;
-                }
-            }
-
-        } catch (SQLException e) {
-            loggerSystem.error(e.getMessage());
-        }
-        return false;
-    }
 
     @Override
     public Product getProductById(Integer id) {

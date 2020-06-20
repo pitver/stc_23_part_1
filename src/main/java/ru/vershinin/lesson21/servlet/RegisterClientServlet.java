@@ -1,5 +1,6 @@
 package ru.vershinin.lesson21.servlet;
 
+import ru.vershinin.lesson21.dao.ClientDao;
 import ru.vershinin.lesson21.dao.ShopDao;
 import ru.vershinin.lesson21.pojo.Client;
 
@@ -14,19 +15,14 @@ import java.io.IOException;
 @WebServlet("/register")
 public class RegisterClientServlet extends HttpServlet {
     @Inject
-    private ShopDao shopDao;
+    private ClientDao clientDao;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-<<<<<<< HEAD
-        req.setAttribute("PageTitle", "register");
-        req.setAttribute("PageBody", "register.jsp");
-        req.getRequestDispatcher("WEB-INF/jsp/l.jsp")
-=======
+
 
         req.setAttribute("PageTitle", "Registration");
         req.setAttribute("PageBody", "register.jsp");
         req.getRequestDispatcher("layout.jsp")
->>>>>>> be1b196825522ad191f2e706f0ed1869c98e73b5
                 .forward(req, resp);
     }
 
@@ -42,7 +38,7 @@ public class RegisterClientServlet extends HttpServlet {
 
 
         try {
-            shopDao.addClient(client);
+            clientDao.addClient(client);
         } catch (Exception e) {
             e.printStackTrace();
         }

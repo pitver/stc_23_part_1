@@ -103,9 +103,9 @@ import java.sql.Statement;
                 .append("REFERENCES public.Order (id)\n")
                 .append("ON DELETE NO ACTION\n")
                 .append("ON UPDATE NO ACTION\n")
-                .append("NOT DEFERRABLE;")
+                .append("NOT DEFERRABLE;")/*
                 .append("INSERT INTO public.client(first_name, last_name, username, password)VALUES ( 'Tom','Mot','tom', '123')\n;")
-                .append("INSERT INTO public.product(price, present,product_name)VALUES ( 12.4, true,'book')\n;")
+                .append("INSERT INTO public.product(price, present,product_name)VALUES ( 12.4, true,'book')\n;")*/
 /*                .append("INSERT INTO public.order(client_id, Product_id)VALUES ( 1,1)\n;")
                 .append("INSERT INTO public.shop(order_id, number_order)VALUES ( 1, 1687)\n;")*/
                 .append("create table app_logs\n")

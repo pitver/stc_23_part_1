@@ -1,5 +1,6 @@
 package ru.vershinin.lesson21.servlet;
 
+import ru.vershinin.lesson21.dao.ClientDao;
 import ru.vershinin.lesson21.dao.ShopDao;
 import ru.vershinin.lesson21.pojo.Client;
 
@@ -14,13 +15,12 @@ import java.io.IOException;
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
     @Inject
-    private ShopDao shopDao;
+    private ClientDao clientDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("PageTitle", "Login");
-        req.setAttribute("PageBody", "login.jsp");
-        req.getRequestDispatcher("layout.jsp")
+
+        req.getRequestDispatcher("login.jsp")
                 .forward(req, resp);
     }
 
@@ -32,7 +32,7 @@ public class LoginServlet extends HttpServlet {
         String page = "login";
 
         try {
-            boolean check = shopDao.findClient(username, password);
+            boolean check = clientDao.findClient(username, password);
             if(check){
                 page="allproduct";
             }

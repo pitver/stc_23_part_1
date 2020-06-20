@@ -18,12 +18,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="/addproduct">addproduct</a>
             </li>
-            <li class="nav-item">
+            <%--<li class="nav-item">
                 <a class="nav-link" href="/login">login</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/register">register</a>
-            </li>
+            </li>--%>
         </ul>
 
 

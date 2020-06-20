@@ -15,7 +15,7 @@ import java.util.List;
  */
 public interface ShopDao {
 
-    void addClient(Client client);
+
 
     void addProduct(Product product);
 
@@ -31,7 +31,7 @@ public interface ShopDao {
 
     List<?> getAllOrder();
 
-    boolean findClient(String username,String password);
+
 
     Product getProductById(Integer id);
 
