@@ -28,7 +28,7 @@
 
 
 
-  <filter>
+<!--  <filter>
     <filter-name>logFilter</filter-name>
     <filter-class>ru.vershinin.lesson22.servlet.SimpleServletFilter</filter-class>
    <init-param>
@@ -40,7 +40,7 @@
   <filter-mapping>
     <filter-name>logFilter</filter-name>
     <url-pattern>/*</url-pattern>
-  </filter-mapping>
+  </filter-mapping>-->
 
 
 

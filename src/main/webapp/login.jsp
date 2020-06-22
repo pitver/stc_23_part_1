@@ -1,17 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Main</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 
 <div align="center">
-    <h1>Client Login Form</h1>
+    <h1>Please,enter LogIn</h1>
     <form method="post" action="${pageContext.request.contextPath}/login" autocomplete="off">
 
       <div class=" form-group row">
@@ -29,10 +19,12 @@
                        placeholder="Enter Password">
             </div>
         </div>
+        <div class="col-sm-4">
+            <button class="btn btn-primary" type="button" onclick="location.href='/register'" />register</button>
+            <button class="btn btn-primary" type="submit" onclick="location.href='/register'" />LogIn</button>
+        </div>
 
-        <input type="submit" value="Submit" />
     </form>
 </div>
-</body>
-</html>
+
 

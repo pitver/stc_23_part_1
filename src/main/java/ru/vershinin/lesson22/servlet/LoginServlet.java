@@ -18,9 +18,11 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        req.getRequestDispatcher("login.jsp")
+        req.setAttribute("PageTitle", "login");
+        req.setAttribute("PageBody", "login.jsp");
+        req.getRequestDispatcher("layout.jsp")
                 .forward(req, resp);
+
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -30,7 +32,7 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String page = "login";
-        session.setAttribute("nik", "unknown");
+
 
         try {
             boolean check = clientDao.findClient(username, password);
