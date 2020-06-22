@@ -1,14 +1,14 @@
-package ru.vershinin.lesson21.pojo;
+package ru.vershinin.lesson22.pojo;
 
 import java.util.Objects;
 
 public class Product {
     private int id;
-   private String productName;
-   private double price;
-   private boolean present;
+    private String productName;
+    private double price;
+    private boolean present;
 
-    public Product( double price,boolean present, String productName) {
+    public Product(double price, boolean present, String productName) {
         this.productName = productName;
         this.price = price;
         this.present = present;

@@ -1,4 +1,4 @@
-package ru.vershinin.lesson21.pojo;
+package ru.vershinin.lesson22.pojo;
 
 
 /**
@@ -19,7 +19,6 @@ public class Order {
         this.client = client;
         this.product = product;
     }
-
 
 
     @Override

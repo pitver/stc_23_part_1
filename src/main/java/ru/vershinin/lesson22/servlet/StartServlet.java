@@ -1,4 +1,4 @@
-package ru.vershinin.lesson21.servlet;
+package ru.vershinin.lesson22.servlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,6 +14,8 @@ import java.io.IOException;
  */
 @WebServlet("/")
 public class StartServlet extends HttpServlet {
+
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("index.jsp")

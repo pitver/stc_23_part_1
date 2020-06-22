@@ -1,4 +1,4 @@
-package ru.vershinin.lesson21.servlet;
+package ru.vershinin.lesson22.servlet;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

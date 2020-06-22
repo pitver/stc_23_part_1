@@ -1,4 +1,4 @@
-package ru.vershinin.lesson21.ConnectionManager;
+package ru.vershinin.lesson22.ConnectionManager;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,21 +18,22 @@ import static java.lang.Class.forName;
 
 @EJB
 @Myconnect
-public class ConnectionDB implements ConnectionManager  {
+public class ConnectionDB implements ConnectionManager {
     private static final Logger loggerSystem = LogManager.getLogger("SystemLog4J2");
     //public static final String DB_URL = "jdbc:postgresql://host.docker.internal:5434/postgres";
     public static final String DB_URL = "jdbc:postgresql://localhost:5432/postgres";
 
     @Override
     public Connection getConnection() {
-        Connection connection=null;
-        try {connection = DriverManager.getConnection(DB_URL,
+        Connection connection = null;
+        try {
+            connection = DriverManager.getConnection(DB_URL,
                     "postgres", "root");//соединениесБД
-             //"postgres", "qwerty");//соединениесБД
+            //"postgres", "qwerty");//соединениесБД
             loggerSystem.info("Соединение с СУБД выполнено.");
             return connection;
         } catch (SQLException e) {
-            loggerSystem.fatal("Ошибка SQL !"+e.getSQLState());
+            loggerSystem.fatal("Ошибка SQL !" + e.getSQLState());
         }
         return connection;
     }

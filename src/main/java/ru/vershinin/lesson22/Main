@@ -1,14 +1,14 @@
-package ru.vershinin.lesson21;
+package ru.vershinin.lesson22;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import ru.vershinin.lesson21.ConnectionManager.ConnectionDB;
-import ru.vershinin.lesson21.ConnectionManager.ConnectionManager;
-import ru.vershinin.lesson21.dao.ShopDaoImpl;
-import ru.vershinin.lesson21.pojo.Client;
-import ru.vershinin.lesson21.pojo.Order;
-import ru.vershinin.lesson21.pojo.Product;
-import ru.vershinin.lesson21.pojo.Shop;
+import ru.vershinin.lesson22.ConnectionManager.ConnectionDB;
+import ru.vershinin.lesson22.ConnectionManager.ConnectionManager;
+import ru.vershinin.lesson22.dao.ShopDaoImpl;
+import ru.vershinin.lesson22.pojo.Client;
+import ru.vershinin.lesson22.pojo.Order;
+import ru.vershinin.lesson22.pojo.Product;
+import ru.vershinin.lesson22.pojo.Shop;
 
 import java.sql.Connection;
 

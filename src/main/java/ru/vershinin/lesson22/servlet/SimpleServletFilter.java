@@ -1,4 +1,4 @@
-package ru.vershinin.lesson21.servlet;
+package ru.vershinin.lesson22.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,21 +13,20 @@ import javax.servlet.ServletException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * SimpleServletFilter реализует интерфейс Filter
  */
-@WebFilter("/SimpleServletFilter")
-public class SimpleServletFilter implements Filter
-{
+@WebFilter("/")
+public class SimpleServletFilter implements Filter {
     private FilterConfig filterConfig;
     private static ArrayList<String> pages;  // хранилище страниц
 
     /**
      * Конструктор по умолчанию
      */
-    public SimpleServletFilter()
-    {
+    public SimpleServletFilter() {
         // Создание хранилища страниц
         if (pages == null)
             pages = new ArrayList<String>();
@@ -35,34 +34,36 @@ public class SimpleServletFilter implements Filter
 
     /**
      * Метод освобождения ресурсов
+     *
      * @see Filter#destroy()
      */
     @Override
-    public void destroy()
-    {
+    public void destroy() {
         filterConfig = null;
     }
 
     /**
      * Метод инициализации фильтра
+     *
      * @see Filter#init(FilterConfig)
      */
     @Override
-    public void init(FilterConfig fConfig) throws ServletException
-    {
+    public void init(FilterConfig fConfig) throws ServletException {
         filterConfig = fConfig;
     }
+
     /**
      * Метод фильтрации
+     *
      * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
      */
     @Override
     public void doFilter(ServletRequest request, ServletResponse response,
-                         FilterChain filterChain) throws IOException, ServletException
-    {
+                         FilterChain filterChain) throws IOException, ServletException {
         // Если фильтр активной, то выполнить проверку
         if (filterConfig.getInitParameter("active").equalsIgnoreCase("true")) {
-            HttpServletRequest req = (HttpServletRequest)request;
+            HttpServletRequest req = (HttpServletRequest) request;
+
             // Раскладываем адрес на составляющие
             String[] list = req.getRequestURI().split("/");
             // Извлекаем наименование страницы

@@ -8,7 +8,7 @@
 
   <servlet>
     <servlet-name>errorHandler</servlet-name>
-    <servlet-class>ru.vershinin.lesson21.servlet.AppErrorHandler</servlet-class>
+    <servlet-class>ru.vershinin.lesson22.servlet.AppErrorHandler</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
 
@@ -30,7 +30,7 @@
 
   <filter>
     <filter-name>logFilter</filter-name>
-    <filter-class>ru.vershinin.lesson21.servlet.SimpleServletFilter</filter-class>
+    <filter-class>ru.vershinin.lesson22.servlet.SimpleServletFilter</filter-class>
    <init-param>
      <param-name>active</param-name>
      <param-value>true</param-value>
@@ -41,9 +41,7 @@
     <filter-name>logFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-  <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
-  </welcome-file-list>
+
 
 
 </web-app>

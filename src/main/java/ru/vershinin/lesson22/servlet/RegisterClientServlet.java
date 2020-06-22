@@ -1,8 +1,7 @@
-package ru.vershinin.lesson21.servlet;
+package ru.vershinin.lesson22.servlet;
 
-import ru.vershinin.lesson21.dao.ClientDao;
-import ru.vershinin.lesson21.dao.ShopDao;
-import ru.vershinin.lesson21.pojo.Client;
+import ru.vershinin.lesson22.dao.ClientDao;
+import ru.vershinin.lesson22.pojo.Client;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -16,6 +15,7 @@ import java.io.IOException;
 public class RegisterClientServlet extends HttpServlet {
     @Inject
     private ClientDao clientDao;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -34,7 +34,7 @@ public class RegisterClientServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        Client client = new Client(firstName,lastName,username,password);
+        Client client = new Client(firstName, lastName, username, password);
 
 
         try {
@@ -42,6 +42,6 @@ public class RegisterClientServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        response.sendRedirect(request.getContextPath() +"/login");
+        response.sendRedirect(request.getContextPath() + "/login");
     }
 }

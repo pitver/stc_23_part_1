@@ -1,10 +1,10 @@
-package ru.vershinin.lesson21.dao;
+package ru.vershinin.lesson22.dao;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import ru.vershinin.lesson21.ConnectionManager.ConnectionManager;
-import ru.vershinin.lesson21.ConnectionManager.Myconnect;
-import ru.vershinin.lesson21.pojo.Client;
+import ru.vershinin.lesson22.ConnectionManager.ConnectionManager;
+import ru.vershinin.lesson22.ConnectionManager.Myconnect;
+import ru.vershinin.lesson22.pojo.Client;
 
 import javax.inject.Inject;
 import java.sql.Connection;
@@ -27,6 +27,7 @@ public class ClientDaoImpl implements ClientDao {
         this.connectionManager = connectionManager;
 
     }
+
     /**
      * поиск и сравнение по имени и паролю введенных с формы и БД(подготовка к авторизации)
      *
@@ -41,7 +42,7 @@ public class ClientDaoImpl implements ClientDao {
             while (rs.next()) {
                 String usernameDB = rs.getString("username");
                 String passwordDB = rs.getString("password");
-                if (username.equals(usernameDB)&& password.equals(passwordDB)) {
+                if (username.equals(usernameDB) && password.equals(passwordDB)) {
                     return true;
                 }
             }

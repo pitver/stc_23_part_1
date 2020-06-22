@@ -1,9 +1,7 @@
-package ru.vershinin.lesson21.dao;
+package ru.vershinin.lesson22.dao;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import ru.vershinin.lesson21.ConnectionManager.ConnectionDB;
-import ru.vershinin.lesson21.ConnectionManager.ConnectionManager;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -14,7 +12,7 @@ import java.sql.Statement;
  *
  * @author Вершинин Пётр
  */
- class DBInit {
+class DBInit {
     private static final Logger loggerBusiness = LogManager.getLogger(DBInit.class);
     private static final Logger loggerSystem = LogManager.getLogger("SystemLog4J2");
 
@@ -27,7 +25,7 @@ import java.sql.Statement;
     protected static void Init(Connection conn) {
 
 
-        String sql= new StringBuilder().append(" \n")
+        String sql = new StringBuilder().append(" \n")
                 .append("DROP TABLE IF EXISTS shop;\n")
                 .append("DROP TABLE IF EXISTS \"order\";\n")
                 .append("DROP TABLE IF EXISTS client;\n")
@@ -120,7 +118,7 @@ import java.sql.Statement;
 
         try (
 
-                Statement st=conn.createStatement()) {
+                Statement st = conn.createStatement()) {
             st.executeUpdate(sql);
             loggerBusiness.info("инициализация таблиц");
 

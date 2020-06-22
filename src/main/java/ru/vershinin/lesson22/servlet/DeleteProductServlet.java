@@ -1,7 +1,7 @@
-package ru.vershinin.lesson21.servlet;
+package ru.vershinin.lesson22.servlet;
 
-import ru.vershinin.lesson21.dao.ShopDao;
-import ru.vershinin.lesson21.pojo.Product;
+import ru.vershinin.lesson22.dao.ProductDao;
+import ru.vershinin.lesson22.pojo.Product;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -19,7 +19,7 @@ import java.io.IOException;
 @WebServlet("/delete")
 public class DeleteProductServlet extends HttpServlet {
     @Inject
-    private ShopDao shopDao;
+    private ProductDao productDao;
 
 
     @Override
@@ -28,7 +28,7 @@ public class DeleteProductServlet extends HttpServlet {
         if (productId == null) {
             throw new ServletException("Missing parameter id");
         }
-        Product product = shopDao.getProductById(Integer.valueOf(productId));
+        Product product = productDao.getProductById(Integer.valueOf(productId));
         if (product == null) {
             resp.setStatus(404);
             req.setAttribute("PageTitle", "DeleteProduct");
@@ -37,7 +37,7 @@ public class DeleteProductServlet extends HttpServlet {
                     .forward(req, resp);
             return;
         }
-        shopDao.deleteProduct(product);
+        productDao.deleteProduct(product);
         resp.sendRedirect(req.getContextPath() + "/allproduct");
 
 

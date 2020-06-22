@@ -1,7 +1,7 @@
-package ru.vershinin.lesson21.servlet;
+package ru.vershinin.lesson22.servlet;
 
-import ru.vershinin.lesson21.dao.ShopDao;
-import ru.vershinin.lesson21.pojo.Product;
+import ru.vershinin.lesson22.dao.ProductDao;
+import ru.vershinin.lesson22.pojo.Product;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -10,12 +10,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet("/addproduct")
 public class AddProductServlet extends HttpServlet {
     @Inject
-    private ShopDao shopDao;
+    private ProductDao productDao;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("PageTitle", "ADD");
@@ -31,9 +31,8 @@ public class AddProductServlet extends HttpServlet {
         String productName = req.getParameter("productName");
         String price = req.getParameter("price");
         String present = req.getParameter("present");
-        Product product =new Product(Double.valueOf(price), Boolean.valueOf(present),productName);
-        shopDao.addProduct(product);
-
+        Product product = new Product(Double.valueOf(price), Boolean.valueOf(present), productName);
+        productDao.addProduct(product);
 
         resp.sendRedirect(req.getContextPath() + "/allproduct");
     }

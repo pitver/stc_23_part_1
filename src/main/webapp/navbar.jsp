@@ -18,17 +18,10 @@
             <li class="nav-item">
                 <a class="nav-link" href="/addproduct">addproduct</a>
             </li>
-            <%--<li class="nav-item">
-                <a class="nav-link" href="/login">login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/register">register</a>
-            </li>--%>
-        </ul>
 
 
-<%--<div class="navbar-text mr-3"><#if user??>${name}<#else>Please, logIn</#if></div>
+<div class="navbar-text mr-3">${nik}</div>
 
 
-</div>--%>
+</div>
 </nav>

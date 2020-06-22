@@ -1,7 +1,7 @@
 
 
 
-<jsp:useBean id="product" class="ru.vershinin.lesson21.pojo.Product" />
+<jsp:useBean id="product" class="ru.vershinin.lesson22.pojo.Product" />
 <c:set target="${product}" property="productName" value="product" />
 
 <h1>Adding a new product</h1>
