@@ -18,10 +18,8 @@
             <li class="nav-item">
                 <a class="nav-link" href="/addproduct">addproduct</a>
             </li>
-
-
+        </ul>
+    </div>
 <div class="navbar-text mr-3">${nik}</div>
 
-
-</div>
 </nav>
