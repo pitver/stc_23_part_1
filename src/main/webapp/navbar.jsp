@@ -19,13 +19,15 @@
             </li>
             <li class="nav-item" >
                 <a class="nav-link" href = "/addproduct" > addproduct </a >
+            </li><li class="nav-item" >
+                <a class="nav-link" href = "/allclient" > listClients </a >
             </li>
             <%} %>
         </ul>
     </div>
     <div class="navbar-text mr-3">${nik}
         <c:if test="${nik==null}">
-            unknown
+            Please,logIn
         </c:if>
         <%if (s != null) {%>
         <button class="btn btn-primary" type="button"onclick="location.href='/logout'"/>LogOut</button>

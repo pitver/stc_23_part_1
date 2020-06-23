@@ -24,6 +24,13 @@ public class Client {
         this.password = password;
     }
 
+    public Client(int id, String firstName, String lastName, String username) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+    }
+
     public Client() {
     }
 
@@ -55,9 +62,9 @@ public class Client {
         return password;
     }
 
-    public void setPassword(String password) {
+    /*public void setPassword(String password) {
         this.password = password;
-    }
+    }*/
 
     public String getUsername() {
         return username;
