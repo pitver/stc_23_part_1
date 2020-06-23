@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <File name="file" fileName="business.log">
+            <PatternLayout>
+                <Pattern>%d %p %c{1.} [%t] %m %ex%n</Pattern>
+            </PatternLayout>
+        </File>
+        <File name="file2" fileName="security.log">
+            <PatternLayout>
+                <Pattern>%d %p %c{1.} [%t] %m %ex%n</Pattern>
+            </PatternLayout>
+        </File>
+        <File name="file3" fileName="system.log">
+            <PatternLayout>
+                <Pattern>%d %p %c{1.} [%t] %m %ex%n</Pattern>
+            </PatternLayout>
+        </File>
+        <Console name="stdout" target="SYSTEM_OUT">
+            <PatternLayout pattern="%m%n"/>
+        </Console>
+        <JDBC name="db" tableName="APP_LOGS">
+            <DriverManager connectionString="jdbc:postgresql://localhost:5432/postgres" driverClassName="org.postgresql.Driver"
+                           username="postgres" password="root"/>
+            <Column name="LOG_ID" pattern="%u" isUnicode="false"/>
+            <Column name="ENTRY_DATE" isEventTimestamp="true" isUnicode="false"/>
+            <Column name="LOGGER" pattern="%logger" isUnicode="false"/>
+            <Column name="LOG_LEVEL" pattern="%level" isUnicode="false"/>
+            <Column name="MESSAGE" pattern="%m" isUnicode="false"/>
+            <Column name="EXCEPTION" pattern="%throwable " isUnicode="false"/>
+        </JDBC>
+    </Appenders>
+    <Loggers>
+        <Root level="trace">
+            <AppenderRef ref="file" level="trace"/>
+        </Root>
+        <Logger name="SecurityLog4J2" level="trace" additivity="true">
+            <AppenderRef ref="file2" level="trace"/>
+            <AppenderRef ref="db" level="INFO"/>
+        </Logger>
+        <Logger name="SystemLog4J2" level="trace" additivity="false">
+            <AppenderRef ref="file3" level="trace"/>
+        </Logger>
+    </Loggers>
+</Configuration>
