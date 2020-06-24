@@ -9,8 +9,8 @@
         <th>first_name</th>
         <th>last_name</th>
         <th>username</th>
-     <%--   <th>edit</th>
-        <th>delete</th>--%>
+        <th>edit</th>
+        <th>delete</th>
 
     </tr>
     </thead>
@@ -21,8 +21,8 @@
             <td>${c.firstName}</td>
             <td>${c.lastName}</td>
             <td>${c.username}</td>
-<%--            <td><a href="${pageContext.request.contextPath}/edit?id=${p.id}">Edit</a></td>
-            <td><a href="${pageContext.request.contextPath}/delete?id=${p.id}">Delete</a></td>--%>
+           <td><a href="${pageContext.request.contextPath}/editclient?id=${c.id}">Edit</a></td>
+            <td><a href="${pageContext.request.contextPath}/deleteclient?id=${c.id}">Delete</a></td>
           </tr>
     </c:forEach>
     </tbody>
