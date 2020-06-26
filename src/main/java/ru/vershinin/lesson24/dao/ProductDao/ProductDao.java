@@ -1,4 +1,4 @@
-package ru.vershinin.lesson24.dao;
+package ru.vershinin.lesson24.dao.ProductDao;
 
 import ru.vershinin.lesson24.pojo.Product;
 

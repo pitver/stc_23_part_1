@@ -1,6 +1,6 @@
-package ru.vershinin.lesson24.servlet;
+package ru.vershinin.lesson24.servlet.product;
 
-import ru.vershinin.lesson24.dao.ProductDao;
+import ru.vershinin.lesson24.dao.ProductDao.ProductDao;
 import ru.vershinin.lesson24.pojo.Product;
 
 import javax.inject.Inject;

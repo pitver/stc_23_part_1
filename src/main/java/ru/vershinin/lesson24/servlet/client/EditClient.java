@@ -1,7 +1,7 @@
-package ru.vershinin.lesson24.servlet;
+package ru.vershinin.lesson24.servlet.client;
 
 
-import ru.vershinin.lesson24.dao.ClientDao;
+import ru.vershinin.lesson24.dao.ClientDao.ClientDao;
 import ru.vershinin.lesson24.pojo.Client;
 
 import javax.inject.Inject;
@@ -49,12 +49,13 @@ public class EditClient extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         req.setCharacterEncoding("utf-8");
         Client client = new Client.Builder()
+                .withId(Integer.valueOf(clientId))
                 .withUsername(req.getParameter("username"))
-                .withFirstName(req.getParameter("lastName"))
+                .withFirstName(req.getParameter("firstName"))
                 .withLastName(req.getParameter("lastName"))
                 .withPassword(req.getParameter("password"))
                 .build();
-       clientDao.editClient(client);
+        clientDao.editClient(client);
 
 
         resp.sendRedirect(req.getContextPath() + "/allclient");

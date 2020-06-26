@@ -12,8 +12,8 @@
         <input name="lastName" type="text" class="form-control" id="lastName" value="${client.lastName}">
     </div>
     <div class="form-group">
-        <label for="userName">login</label>
-        <input name="userName" type="text" class="form-control" id="userName" value="${client.userName}">
+        <label for="username">login</label>
+        <input name="username" type="text" class="form-control" id="username" value="${client.username}">
     </div>
     <div class="form-group">
         <label for="password">password</label>

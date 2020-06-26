@@ -1,9 +1,10 @@
-package ru.vershinin.lesson24.dao;
+package ru.vershinin.lesson24.dao.ProductDao;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import ru.vershinin.lesson24.ConnectionManager.ConnectionManager;
-import ru.vershinin.lesson24.ConnectionManager.Myconnect;
+import ru.vershinin.lesson24.connectionManager.ConnectionManager;
+import ru.vershinin.lesson24.connectionManager.Myconnect;
+import ru.vershinin.lesson24.dao.ShopDao.ShopDaoImpl;
 import ru.vershinin.lesson24.pojo.Product;
 
 import javax.inject.Inject;
@@ -41,7 +42,7 @@ public class ProductDaoImpl implements ProductDao {
     /**
      * добавление товара в таблицу product
      *
-     * @param product- экземпляр Product
+     * @param product- экземпляр product
      */
     @Override
     public void save(Product product) {
@@ -59,7 +60,7 @@ public class ProductDaoImpl implements ProductDao {
     /**
      * отображение каталога товаров
      *
-     * @return
+     * @return -List Product
      */
     @Override
     public List<Product> findAll() {
@@ -87,7 +88,7 @@ public class ProductDaoImpl implements ProductDao {
      * поиск продукта по id(для редактирования и удаления)
      *
      * @param id - id товара
-     * @return - new Product
+     * @return - new product
      */
     @Override
     public Product findById(Integer id) {
@@ -112,7 +113,7 @@ public class ProductDaoImpl implements ProductDao {
     /**
      * редактирование продукта
      *
-     * @param product - экземпляр Product
+     * @param product - экземпляр product
      */
     @Override
     public void editProduct(Product product) {
@@ -132,7 +133,7 @@ public class ProductDaoImpl implements ProductDao {
     /**
      * удаление продукта
      *
-     * @param product - экземпляр Product
+     * @param product - экземпляр product
      */
     @Override
     public void delete(Product product) {

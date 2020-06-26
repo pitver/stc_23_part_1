@@ -2,7 +2,7 @@ package ru.vershinin.lesson24.pojo;
 
 
 /**
- * Client
+ * client с реализацией паттерна Строитель
  *
  * @author Вершинин Пётр
  */
@@ -13,6 +13,17 @@ public class Client {
     private String lastName;
     private String username;
     private String password;
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 
     private Client() {
     }
@@ -36,40 +47,42 @@ public class Client {
     public String getPassword() {
         return password;
     }
+
     public static class Builder {
 
-        private final Client newclient;
+        private final Client newClient;
 
         public Builder() {
-            newclient = new Client();
+            newClient = new Client();
         }
 
-
-
-
-        public Builder withId(Integer id){
-            newclient.id=id;
+        public Builder withId(Integer id) {
+            newClient.id = id;
             return this;
         }
 
-        public Builder withFirstName(String firstName){
-            newclient.firstName=firstName;
+        public Builder withFirstName(String firstName) {
+            newClient.firstName = firstName;
             return this;
         }
-        public Builder withLastName(String lastName){
-            newclient.lastName=lastName;
+
+        public Builder withLastName(String lastName) {
+            newClient.lastName = lastName;
             return this;
         }
-        public Builder withUsername(String username){
-            newclient.username=username;
+
+        public Builder withUsername(String username) {
+            newClient.username = username;
             return this;
         }
-        public Builder withPassword(String password){
-            newclient.password=password;
+
+        public Builder withPassword(String password) {
+            newClient.password = password;
             return this;
         }
-        public Client build(){
-            return newclient;
+
+        public Client build() {
+            return newClient;
         }
 
     }

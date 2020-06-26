@@ -1,4 +1,4 @@
-package ru.vershinin.lesson24.servlet;
+package ru.vershinin.lesson24.servlet.client;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,6 +16,7 @@ public class LogoutServlet extends HttpServlet {
 
         HttpSession session=req.getSession();
         session.setAttribute("nik", null);
+        session.setAttribute("idClient", null);
         req.setAttribute("PageTitle", "login");
         req.setAttribute("PageBody", "login.jsp");
         req.getRequestDispatcher("layout.jsp")

@@ -1,9 +1,9 @@
-package ru.vershinin.lesson24.ConnectionManager;
+package ru.vershinin.lesson24.connectionManager;
 
 import java.sql.Connection;
 
 /**
- * ConnectionManager
+ * connectionManager
  *
  * @author Вершинин Пётр
  */

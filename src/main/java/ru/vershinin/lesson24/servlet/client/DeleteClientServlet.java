@@ -1,6 +1,6 @@
-package ru.vershinin.lesson24.servlet;
+package ru.vershinin.lesson24.servlet.client;
 
-import ru.vershinin.lesson24.dao.ClientDao;
+import ru.vershinin.lesson24.dao.ClientDao.ClientDao;
 import ru.vershinin.lesson24.pojo.Client;
 
 import javax.inject.Inject;
@@ -20,7 +20,6 @@ import java.io.IOException;
 public class DeleteClientServlet extends HttpServlet {
     @Inject
     private ClientDao clientDao;
-
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

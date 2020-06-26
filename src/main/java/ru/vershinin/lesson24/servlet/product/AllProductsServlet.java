@@ -1,6 +1,7 @@
-package ru.vershinin.lesson24.servlet;
+package ru.vershinin.lesson24.servlet.product;
 
-import ru.vershinin.lesson24.dao.ProductDao;
+import ru.vershinin.lesson24.dao.ProductDao.ProductDao;
+import ru.vershinin.lesson24.pojo.Product;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -24,7 +25,7 @@ public class AllProductsServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<?> product = productDao.findAll();
+        List<Product> product = productDao.findAll();
 
         req.setAttribute("product", product);
         req.setAttribute("PageTitle", "ALL");

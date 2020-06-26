@@ -11,6 +11,8 @@
         <th>present</th>
         <th>edit</th>
         <th>delete</th>
+        <th>add to bascket</th>
+
     </tr>
     </thead>
     <tbody>
@@ -22,7 +24,16 @@
             <td>${p.present}</td>
             <td><a href="${pageContext.request.contextPath}/edit?id=${p.id}">Edit</a></td>
             <td><a href="${pageContext.request.contextPath}/delete?id=${p.id}">Delete</a></td>
-          </tr>
+            <td>
+                <div>
+                    <a class="btn btn-primary"
+                       href="${pageContext.request.contextPath}/addtoorder?id=${p.id}">
+                        add
+                    </a>
+                </div>
+            </td>
+
+        </tr>
     </c:forEach>
     </tbody>
 </table>

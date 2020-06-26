@@ -1,6 +1,6 @@
-package ru.vershinin.lesson24.servlet;
+package ru.vershinin.lesson24.servlet.client;
 
-import ru.vershinin.lesson24.dao.ClientDao;
+import ru.vershinin.lesson24.dao.ClientDao.ClientDao;
 import ru.vershinin.lesson24.pojo.Client;
 
 import javax.inject.Inject;
@@ -35,12 +35,13 @@ public class LoginServlet extends HttpServlet {
         String page = "login";
 
         try {
-            boolean check = clientDao.findByClient(new Client.Builder()
+            Client check = clientDao.findByClient(new Client.Builder()
                     .withUsername(username)
                     .withPassword(password)
                     .build());
-            if (check) {
+            if (check!=null) {
                 session.setAttribute("nik", username);
+                session.setAttribute("idClient", check.getId());
                 page = "allproduct";
             }
         } catch (Exception e) {

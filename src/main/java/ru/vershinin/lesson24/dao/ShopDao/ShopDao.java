@@ -1,4 +1,4 @@
-package ru.vershinin.lesson24.dao;
+package ru.vershinin.lesson24.dao.ShopDao;
 
 import ru.vershinin.lesson24.pojo.Client;
 import ru.vershinin.lesson24.pojo.Order;
@@ -14,13 +14,15 @@ import java.util.List;
  */
 public interface ShopDao {
 
-    void creatingOrder(Client client, Product product);
+    void save(Client client, Product product);
+
+    List<Order> findOrderByClientId(Integer id);
+
+    void OrderFulfillmentController();
 
     void addOrderToShop(Order order, Shop shop);
 
     int getMaxId(String nameTable);
-
-    List<?> prepareOrder();
 
     List<?> getAllOrder();
 

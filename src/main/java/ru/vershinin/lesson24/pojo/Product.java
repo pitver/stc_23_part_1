@@ -8,6 +8,7 @@ public class Product {
     private double price;
     private boolean present;
 
+
     public Product(double price, boolean present, String productName) {
         this.productName = productName;
         this.price = price;
@@ -74,7 +75,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
+        return "product{" +
                 "id=" + id +
                 ", productName='" + productName + '\'' +
                 ", price=" + price +

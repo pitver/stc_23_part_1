@@ -1,6 +1,6 @@
-package ru.vershinin.lesson24.servlet;
+package ru.vershinin.lesson24.servlet.client;
 
-import ru.vershinin.lesson24.dao.ClientDao;
+import ru.vershinin.lesson24.dao.ClientDao.ClientDao;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;

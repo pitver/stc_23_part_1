@@ -1,9 +1,9 @@
-package ru.vershinin.lesson24.dao;
+package ru.vershinin.lesson24.dao.ClientDao;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import ru.vershinin.lesson24.ConnectionManager.ConnectionManager;
-import ru.vershinin.lesson24.ConnectionManager.Myconnect;
+import ru.vershinin.lesson24.connectionManager.ConnectionManager;
+import ru.vershinin.lesson24.connectionManager.Myconnect;
 import ru.vershinin.lesson24.pojo.Client;
 
 import javax.inject.Inject;
@@ -20,7 +20,8 @@ public class ClientDaoImpl implements ClientDao {
     private static final Logger loggerBusiness = LogManager.getLogger(ClientDaoImpl.class);
     public static final String INSERT_INTO_CLIENT = "INSERT INTO public.client(first_name, last_name," +
             " username, password) VALUES ( ?,?,?,?)";
-    public static final String SELECT_CLIENT_LOGIN = "SELECT username,password FROM public.client";
+    //public static final String SELECT_CLIENT_LOGIN = "SELECT username,password FROM public.client";
+    public static final String SELECT_CLIENT_BY_SESSION = "SELECT * FROM public.client WHERE username=? and password=?";
     public static final String SELECT_CLIENT = "SELECT * FROM public.client";
     public static final String SELECT_FROM_CLIENT_ID = "SELECT * FROM public.client WHERE id = ?";
     public static final String EDIT_CLIENT = "UPDATE public.client SET first_name=?, last_name=?, username=?,password=? WHERE id = ?";
@@ -36,31 +37,53 @@ public class ClientDaoImpl implements ClientDao {
     }
 
     /**
-     * поиск и сравнение по имени и паролю введенных с формы и БД(подготовка к авторизации)
+     * поиск клиента и сравнение по имени и паролю введенных с формы и БД(подготовка к авторизации)
      *
-     * @param client-экземпляр Client
-     * @return-состояние, если
+     * @param client-экземпляр client
+     * @return - экземпляр Client
      */
     @Override
-    public boolean findByClient(Client client) {
-        try (Connection conn = connectionManager.getConnection();
-             ResultSet rs = conn.prepareStatement(SELECT_CLIENT_LOGIN).executeQuery()) {
-            while (rs.next()) {
-                String usernameDB = rs.getString("username");
-                String passwordDB = rs.getString("password");
-                if (client.getUsername().equals(usernameDB) && client.getPassword().equals(passwordDB)) {
-                    loggerBusiness.info("пользоваель " + client.getUsername() + " найден");
-                    return true;
-                }
-                loggerBusiness.info("пользоваель " + client.getUsername() + " не найден");
-            }
+    public Client findByClient(Client client) {
+        try {
+            try (Connection connection = connectionManager.getConnection();
+                 PreparedStatement preparedStatement = connection.prepareStatement(SELECT_CLIENT_BY_SESSION)) {
+                preparedStatement.setString(1, client.getUsername());
+                preparedStatement.setString(2, client.getPassword());
+                try (ResultSet rs = preparedStatement.executeQuery()) {
+                    while (rs.next()) {
+                        String usernameDB = rs.getString("username");
+                        String passwordDB = rs.getString("password");
+                        int id = rs.getInt("id");
+                        String firstName = rs.getString("first_name");
+                        String lastName = rs.getString("last_name");
+                        if (client.getUsername().equals(usernameDB) && client.getPassword().equals(passwordDB)) {
+                            loggerBusiness.info("пользоваель " + client.getUsername() + " найден");
+                            return new Client.Builder()
+                                    .withId(id)
+                                    .withFirstName(firstName)
+                                    .withLastName(lastName)
+                                    .withUsername(usernameDB)
+                                    .build();
+                        }
+                        loggerBusiness.info("пользоваель " + client.getUsername() + " не найден");
+                    }
 
+                } catch (SQLException e) {
+                    loggerSystem.error(e.getMessage());
+                }
+
+            }
         } catch (SQLException e) {
             loggerSystem.error(e.getMessage());
         }
-        return false;
+        return null;
     }
 
+    /**
+     * вывод всех клиентов
+     *
+     * @return - Список Client
+     */
     @Override
     public List<Client> findAll() {
         List<Client> clientList = new ArrayList<>();
@@ -85,6 +108,12 @@ public class ClientDaoImpl implements ClientDao {
         return new ArrayList<>();
     }
 
+    /**
+     * поиск клиента по ID
+     *
+     * @param id - ID клиента
+     * @return- Экземпляр Client
+     */
     @Override
     public Client findById(Integer id) {
         try (Connection connection = connectionManager.getConnection();
@@ -107,6 +136,11 @@ public class ClientDaoImpl implements ClientDao {
         return null;
     }
 
+    /**
+     * редактирование клиента
+     *
+     * @param client - экземпляр Client
+     */
     @Override
     public void editClient(Client client) {
         try (Connection conn = connectionManager.getConnection();
@@ -115,6 +149,7 @@ public class ClientDaoImpl implements ClientDao {
             st.setString(2, client.getLastName());
             st.setString(3, client.getUsername());
             st.setString(4, client.getPassword());
+            st.setInt(5, client.getId());
             st.executeQuery();
 
         } catch (SQLException e) {
@@ -122,6 +157,11 @@ public class ClientDaoImpl implements ClientDao {
         }
     }
 
+    /**
+     * удаление клиента
+     *
+     * @param client - экземпляр Client
+     */
     @Override
     public void delete(Client client) {
         try (Connection conn = connectionManager.getConnection();
@@ -135,9 +175,9 @@ public class ClientDaoImpl implements ClientDao {
     }
 
     /**
-     * добавление пользователя в таблицу Client
+     * добавление пользователя в таблицу client
      *
-     * @param client -  экземпляр Client
+     * @param client -  экземпляр client
      */
     public void save(Client client) {
         try (Connection conn = connectionManager.getConnection();

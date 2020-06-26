@@ -1,4 +1,4 @@
-package ru.vershinin.lesson24.ConnectionManager;
+package ru.vershinin.lesson24.connectionManager;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

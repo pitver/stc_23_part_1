@@ -22,10 +22,13 @@
             </li><li class="nav-item" >
                 <a class="nav-link" href = "/allclient" > listClients </a >
             </li>
+            </li><li class="nav-item" >
+                <a class="nav-link" href = "/myorder" > myorder </a >
+            </li>
             <%} %>
         </ul>
     </div>
-    <div class="navbar-text mr-3">${nik}
+    <div class="navbar-text mr-3">${nik}<%--${idClient}--%>
         <c:if test="${nik==null}">
             Please,logIn
         </c:if>

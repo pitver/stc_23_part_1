@@ -2,9 +2,9 @@ package ru.vershinin.lesson24;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import ru.vershinin.lesson24.ConnectionManager.ConnectionDB;
-import ru.vershinin.lesson24.ConnectionManager.ConnectionManager;
-import ru.vershinin.lesson24.dao.ShopDaoImpl;
+import ru.vershinin.lesson24.connectionManager.ConnectionDB;
+import ru.vershinin.lesson24.connectionManager.ConnectionManager;
+import ru.vershinin.lesson24.dao.ShopDao.ShopDaoImpl;
 import ru.vershinin.lesson24.pojo.Client;
 import ru.vershinin.lesson24.pojo.Order;
 import ru.vershinin.lesson24.pojo.Product;
