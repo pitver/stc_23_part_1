@@ -1,4 +1,51 @@
-# IntellijIdea files
+#---------------------------
+# Maven
+#---------------------------
+target/
+
+#---------------------------
+# Intelij
+#---------------------------
 *.iml
+.classpath
+.project
+.settings/**
 .idea
-out
+
+
+#---------------------------
+# Eclipse
+#---------------------------
+.metadata
+.settings
+
+#---------------------------
+# OSX
+#---------------------------
+.DS_Store
+clientdb.xml
+
+#---------------------------
+# Windows
+#---------------------------
+Thumbs.db
+
+#---------------------------
+# Editor byproducts (Vim)
+#---------------------------
+*.swp
+*.swo
+
+#---------------------------
+# MobileFirst specific
+#---------------------------
+
+#adapter schema
+generated-java
+
+# buildtools
+buildtools/globalization/default.rpxconfig
+
+derby.log
+
+.recommenders
