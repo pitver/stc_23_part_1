@@ -1,5 +1,5 @@
 <%@ page import="java.util.List" %>
-<%@ page import="ru.vershinin.lesson24.pojo.Order" %>
+<%@ page import="ru.vershinin.lesson27.pojo.Order" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <h2>Product list</h2>

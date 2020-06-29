@@ -12,16 +12,21 @@
             <li class="nav-item">
                 <a class="nav-link" href="/">home</a>
             </li>
-            <% Object s = session.getAttribute("nik");
-            if (s != null) {%>
+            <% Object nik = session.getAttribute("nik");
+
+            if (nik != null) {%>
             <li class="nav-item">
                 <a class="nav-link" href="/allproduct">allproduct</a>
             </li>
-            <li class="nav-item" >
-                <a class="nav-link" href = "/addproduct" > addproduct </a >
-            </li><li class="nav-item" >
-                <a class="nav-link" href = "/allclient" > listClients </a >
-            </li>
+                  <%Object role=session.getAttribute("role");
+                    if (role.equals("admin")) {%>
+                        <li class="nav-item" >
+                            <a class="nav-link" href = "/addproduct" > addproduct </a >
+                        </li><li class="nav-item" >
+                            <a class="nav-link" href = "/allclient" > listClients </a >
+                        </li>
+                    <%} %>
+
             </li><li class="nav-item" >
                 <a class="nav-link" href = "/myorder" > myorder </a >
             </li>
@@ -32,7 +37,7 @@
         <c:if test="${nik==null}">
             Please,logIn
         </c:if>
-        <%if (s != null) {%>
+        <%if (nik != null) {%>
         <button class="btn btn-primary" type="button"onclick="location.href='/logout'"/>LogOut</button>
         <% } else { %>
             <button class="btn btn-primary" type="button"onclick="location.href='/login'"/>LogIn</button>

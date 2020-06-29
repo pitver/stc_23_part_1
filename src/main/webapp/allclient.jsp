@@ -9,6 +9,7 @@
         <th>first_name</th>
         <th>last_name</th>
         <th>username</th>
+        <th>roles</th>
         <th>edit</th>
         <th>delete</th>
 
@@ -21,6 +22,7 @@
             <td>${c.firstName}</td>
             <td>${c.lastName}</td>
             <td>${c.username}</td>
+            <td>${c.roles}</td>
            <td><a href="${pageContext.request.contextPath}/editclient?id=${c.id}">Edit</a></td>
             <td><a href="${pageContext.request.contextPath}/deleteclient?id=${c.id}">Delete</a></td>
           </tr>
