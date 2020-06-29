@@ -21,7 +21,7 @@ import java.io.IOException;
 public class EditClient extends HttpServlet {
     @Inject
     private ClientDao clientDao;
-    String clientId = null;
+    private String clientId = null;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

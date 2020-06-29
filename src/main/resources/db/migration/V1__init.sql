@@ -37,6 +37,7 @@ DROP TABLE IF EXISTS shop;
                                 id BIGINT NOT NULL DEFAULT nextval('public.order_id_seq'),
                                 Client_id BIGINT NOT NULL,
                                 Product_id BIGINT NOT NULL,
+                                number_order BIGINT NOT NULL,
                                 CONSTRAINT order_pk PRIMARY KEY (id)
                 );
 

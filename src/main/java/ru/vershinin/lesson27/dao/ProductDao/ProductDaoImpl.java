@@ -4,7 +4,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ru.vershinin.lesson27.connectionManager.ConnectionManager;
 import ru.vershinin.lesson27.connectionManager.Myconnect;
-import ru.vershinin.lesson27.dao.ShopDao.ShopDaoImpl;
 import ru.vershinin.lesson27.pojo.Product;
 
 import javax.inject.Inject;
@@ -23,7 +22,7 @@ import java.util.List;
 public class ProductDaoImpl implements ProductDao {
 
     private static final Logger loggerSystem = LogManager.getLogger("SystemLog4J2");
-    private static final Logger loggerBusiness = LogManager.getLogger(ShopDaoImpl.class);
+    private static final Logger loggerBusiness = LogManager.getLogger(ProductDaoImpl.class);
 
 
     public static final String INSERT_INTO_PRODUCT = "INSERT INTO public.product(product_name, price,present) VALUES ( ?, ?, ?)";

@@ -20,12 +20,18 @@ public class ClientDaoImpl implements ClientDao {
     private static final Logger loggerBusiness = LogManager.getLogger(ClientDaoImpl.class);
     public static final String INSERT_INTO_CLIENT = "INSERT INTO public.client(first_name, last_name," +
             " username, password,roles) VALUES ( ?,?,?,?,?)";
-    //public static final String SELECT_CLIENT_LOGIN = "SELECT username,password FROM public.client";
+
     public static final String SELECT_CLIENT_BY_SESSION = "SELECT * FROM public.client WHERE username=? and password=?";
     public static final String SELECT_CLIENT = "SELECT * FROM public.client";
     public static final String SELECT_FROM_CLIENT_ID = "SELECT * FROM public.client WHERE id = ?";
     public static final String EDIT_CLIENT = "UPDATE public.client SET first_name=?, last_name=?, username=?,password=? WHERE id = ?";
     public static final String DELETE_CLIENT = "DELETE FROM public.client WHERE id = ?";
+
+    private static final String ROLES = "roles";
+    private static final String USERNAME = "username";
+    private static final String PASSWORD = "password";
+    private static final String FIRSTNAME = "first_name";
+    private static final String LASTNAME = "last_name";
 
     private final ConnectionManager connectionManager;
 
@@ -44,19 +50,19 @@ public class ClientDaoImpl implements ClientDao {
      */
     @Override
     public Client findByClient(Client client) {
-        try {
+
             try (Connection connection = connectionManager.getConnection();
                  PreparedStatement preparedStatement = connection.prepareStatement(SELECT_CLIENT_BY_SESSION)) {
                 preparedStatement.setString(1, client.getUsername());
                 preparedStatement.setString(2, client.getPassword());
                 try (ResultSet rs = preparedStatement.executeQuery()) {
                     while (rs.next()) {
-                        String usernameDB = rs.getString("username");
-                        String passwordDB = rs.getString("password");
+                        String usernameDB = rs.getString(USERNAME);
+                        String passwordDB = rs.getString(PASSWORD);
                         int id = rs.getInt("id");
-                        String firstName = rs.getString("first_name");
-                        String lastName = rs.getString("last_name");
-                        String roles = rs.getString("roles");
+                        String firstName = rs.getString(FIRSTNAME);
+                        String lastName = rs.getString(LASTNAME);
+                        String roles = rs.getString(ROLES);
                         if (client.getUsername().equals(usernameDB) && client.getPassword().equals(passwordDB)) {
                             loggerBusiness.info("пользоваель " + client.getUsername() + " найден");
                             return new Client.Builder()
@@ -74,12 +80,13 @@ public class ClientDaoImpl implements ClientDao {
                     loggerSystem.error(e.getMessage());
                 }
 
+            } catch (SQLException e) {
+                loggerSystem.error(e.getMessage());
             }
-        } catch (SQLException e) {
-            loggerSystem.error(e.getMessage());
-        }
         return null;
     }
+
+
 
     /**
      * вывод всех клиентов
@@ -94,11 +101,11 @@ public class ClientDaoImpl implements ClientDao {
 
             while (rs.next()) {
                 clientList.add(new Client.Builder()
-                        .withUsername(rs.getString("username"))
+                        .withUsername(rs.getString(USERNAME))
                         .withId(rs.getInt("id"))
-                        .withFirstName(rs.getString("first_name"))
-                        .withLastName(rs.getString("last_name"))
-                        .withRole(rs.getString("roles"))
+                        .withFirstName(rs.getString(FIRSTNAME))
+                        .withLastName(rs.getString(LASTNAME))
+                        .withRole(rs.getString(ROLES))
                         .build());
 
             }
@@ -125,11 +132,11 @@ public class ClientDaoImpl implements ClientDao {
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 if (resultSet.next()) {
                     return new Client.Builder()
-                            .withUsername(resultSet.getString("username"))
+                            .withUsername(resultSet.getString(USERNAME))
                             .withId(resultSet.getInt("id"))
-                            .withFirstName(resultSet.getString("first_name"))
-                            .withLastName(resultSet.getString("last_name"))
-                            .withRole(resultSet.getString("roles"))
+                            .withFirstName(resultSet.getString(FIRSTNAME))
+                            .withLastName(resultSet.getString(LASTNAME))
+                            .withRole(resultSet.getString(ROLES))
                             .build();
                 }
             }

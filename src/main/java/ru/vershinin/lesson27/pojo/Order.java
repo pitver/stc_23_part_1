@@ -10,7 +10,7 @@ package ru.vershinin.lesson27.pojo;
 public class Order {
     private int id;
     Client client;
-    public Product product;
+    private Product product;
     private int numberOrder;
 
     public Client getClient() {
