@@ -1,1 +1,0 @@
-INSERT INTO public.client (first_name, last_name, username, password, roles)VALUES ( 'admin', 'admin', 'admin', 123, 'admin');
